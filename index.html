@@ -68,6 +68,136 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-GSEA分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/18/GSEA分析/" class="article-date">
+  <time datetime="2018-10-18T07:07:34.000Z" itemprop="datePublished">2018-10-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/18/GSEA分析/">GSEA分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="GSEA-Gene-Set-Enrichment-Analysis"><a href="#GSEA-Gene-Set-Enrichment-Analysis" class="headerlink" title="GSEA(Gene Set Enrichment Analysis)"></a>GSEA(Gene Set Enrichment Analysis)</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>GSEA是一种鉴定一个基因集在两种生物状态间是否有统计学差异的计算方法。<a href="http://software.broadinstitute.org/gsea/doc/subramanian_tamayo_gsea_pnas.pdf" target="_blank" rel="noopener">Gene set enrichment analysis</a>一文介绍了详细的算法。</p>
+<p>进行GSEA需要以下步骤：</p>
+<ol>
+<li><p>准备数据文件：</p>
+<ul>
+<li>表达数据（res, gct, pcl, txt)</li>
+<li>表型标签文件（cls)</li>
+<li>基因集文件（gmx, gmt)</li>
+<li>注释文件(chip)</li>
+</ul>
+</li>
+<li><p>将数据导入到GSEA。</p>
+</li>
+<li><p>设置分析参数并运行分析。</p>
+</li>
+<li><p>查看分析结果。</p>
+</li>
+</ol>
+<h2 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h2><p><a href="http://software.broadinstitute.org/gsea/downloads.jsp" target="_blank" rel="noopener">Download GSEA</a> </p>
+<p><img src="C:\Users\DCL\Pictures\Screenshots\批注.png" alt=""></p>
+<h2 id="Preparing-Data-Files"><a href="#Preparing-Data-Files" class="headerlink" title="Preparing Data Files"></a>Preparing Data Files</h2><table>
+<thead>
+<tr>
+<th><strong>Data File</strong></th>
+<th><strong>Content</strong></th>
+<th><strong>Format</strong></th>
+<th><strong>Source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://software.broadinstitute.org/gsea/doc/GSEAUserGuideTEXT.htm#_Expression_Datasets" target="_blank" rel="noopener">Expression dataset</a></td>
+<td>Contains features (genes or probes), samples, and an expression value for each feature in each sample. Expression data can come from any source (Affymetrix, Stanford cDNA, and so on).</td>
+<td>res, gct, pcl, or txt</td>
+<td>You create the file.</td>
+</tr>
+<tr>
+<td><a href="http://software.broadinstitute.org/gsea/doc/GSEAUserGuideTEXT.htm#_Phenotype_Labels" target="_blank" rel="noopener">Phenotype labels</a></td>
+<td>Contains phenotype labels and associates each sample with a phenotype.</td>
+<td>cls</td>
+<td>You create the file or have GSEA create it for you.</td>
+</tr>
+<tr>
+<td><a href="http://software.broadinstitute.org/gsea/doc/GSEAUserGuideTEXT.htm#_Gene_Sets" target="_blank" rel="noopener">Gene sets</a></td>
+<td>Contains one or more gene sets. For each gene set, gives the gene set name and list of features (genes or probes) in that gene set.</td>
+<td>gmx or gmt</td>
+<td>You use the files on the Broad ftp site, export gene sets from the Molecular Signature Database (MSigDb) or create your own gene sets file.</td>
+</tr>
+<tr>
+<td><a href="http://software.broadinstitute.org/gsea/doc/GSEAUserGuideTEXT.htm#_DNA_Chip_(Array" target="_blank" rel="noopener">Chip annotations</a>_Annotations)</td>
+<td>Lists each probe on a DNA chip and its matching HUGO gene symbol. Optional for the gene set enrichment analysis.</td>
+<td>Chip</td>
+<td>You use the files on the Broad ftp site, download the files from the GSEA web site, or create your own chip file.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Loading-Data"><a href="#Loading-Data" class="headerlink" title="Loading Data"></a>Loading Data</h2><p><a href="http://software.broadinstitute.org/gsea/downloads.jsp" target="_blank" rel="noopener"> P53 Sample Data</a>使用p53一栏三个样本数据。（试着运行这组数据，有报错。所以参考了数据格式）</p>
+<p><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=gse1009" target="_blank" rel="noopener">GSE1009</a>数据整理：</p>
+<p>制作一个表型的GSE1009.cls</p>
+<p><img src="E:\GSEA\Diabetic nephropathy\3.PNG" alt=""></p>
+<p>制作一个表达的GSE1009_series——matrix.txt</p>
+<p><img src="E:\GSEA\Diabetic nephropathy\4.PNG" alt=""></p>
+<p>有三种方式导入三个数据。</p>
+<h2 id="Running-Analysis"><a href="#Running-Analysis" class="headerlink" title="Running Analysis"></a>Running Analysis</h2><p>点击RUN GSEA,设置分析参数：</p>
+<ol>
+<li><p>Required: 必填的参数。</p>
+<ul>
+<li>expression dataset: 输入的表达矩阵。</li>
+<li>gene sets database: gene sets文件，</li>
+<li>number of permutations: 置换检验次数。初次试验个位数测试；次数越多，曲线越平滑。</li>
+<li>Permutation type：选择置换的类型，是random phenotype还是random gene sets，一般每组样本数目大于7个时，建议选择phenotype，否则选择gene sets</li>
+<li>chip platform: 数据来源会标注platform</li>
+</ul>
+</li>
+<li><p>Basic: 有默认值的额外的参数。通常默认值即可。</p>
+</li>
+<li><p>Advanced: 通常不需要修改。</p>
+</li>
+</ol>
+<p><img src="E:\GSEA\Diabetic nephropathy\2.png" alt=""></p>
+<h2 id="Viewing-Analysis-Results"><a href="#Viewing-Analysis-Results" class="headerlink" title="Viewing Analysis Results"></a>Viewing Analysis Results</h2><p>点击左侧GSEA reports中sucess可以进入报告主页，里面的链接可以查看子报告。</p>
+<p><img src="E:\GSEA\Diabetic nephropathy\5.PNG" alt=""></p>
+<h3 id="snapshot解读"><a href="#snapshot解读" class="headerlink" title="snapshot解读"></a>snapshot解读</h3><p><img src="file:///E:/GSEAOUTPUT/oct18/my_analysis.Gsea.1539853177743/enplot_KEGG_COMPLEMENT_AND_COAGULATION_CASCADES_21.png" alt="img"></p>
+<ul>
+<li>上方绿色曲线展示ES的值得计算过程，从左到右每个基因对应一个ES值，练成线。最高峰为富集得分（ES）。在最左侧或最右侧有一个特别明显的峰的基因集通常是感兴趣的基因集。</li>
+<li>总监部分每条线代表基因集中的一个基因，及其在基因集中的位置。</li>
+<li>下方展示的是基因与表型关联的矩阵，红色为与第一个表型正相关。蓝色为与第二个表型正相关。</li>
+</ul>
+<h2 id="Leading-Edge-Analysis"><a href="#Leading-Edge-Analysis" class="headerlink" title="Leading Edge Analysis"></a>Leading Edge Analysis</h2><p><a href="http://software.broadinstitute.org/gsea/doc/desktop_tutorial.jsp" target="_blank" rel="noopener">Running the Leading Edge Analysis</a></p>
+<p><a href="http://www.bio-info-trainee.com/1282.html" target="_blank" rel="noopener">用GSEA来做基因集富集分析</a></p>
+<p><a href="http://www.bio-info-trainee.com/2144.html" target="_blank" rel="noopener">制作自己的gene set文件给gsea软件</a></p>
+<p><a href="http://www.bio-info-trainee.com/2105.html" target="_blank" rel="noopener">java版本GSEA软件的ES score图片的修改</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cldiao.github.io/2018/10/18/GSEA分析/" data-id="cjneor4wn0000r4mv2jzap26q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GSEA/">GSEA,</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-R语言20题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/09/27/R语言20题/" class="article-date">
@@ -102,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/09/27/R语言20题/" data-id="cjncr3uhy0004oomv72ho4i0f" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/09/27/R语言20题/" data-id="cjneor4x70002r4mv0jm3uic0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a></li></ul>
@@ -145,7 +275,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/09/02/hello-world/" data-id="cjncr3ui50005oomveh2q4afv" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/09/02/hello-world/" data-id="cjneor4yh000gr4mvg74ij643" class="article-share-link">Share</a>
       
       
     </footer>
@@ -196,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/09/01/Mac上安装一些应用/" data-id="cjncr3uhi0001oomvkhwoem8y" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/09/01/Mac上安装一些应用/" data-id="cjneor4ww0001r4mvfr3pw77o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac-office-Vmware-fusion-Ps/">Mac, office, Vmware fusion, Ps</a></li></ul>
@@ -244,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/07/29/RNA-Seq analysis in R/" data-id="cjncr3uh90000oomvsp7bv37d" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/07/29/RNA-Seq analysis in R/" data-id="cjneor4xm0004r4mv2r8vgyks" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LINUX-VMware-RNA-Seq-R/">LINUX, VMware, RNA-Seq, R</a></li></ul>
@@ -288,7 +418,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2017/10/17/RNA-Seq入门系列/" data-id="cjncr3uht0003oomvydmj0sfl" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2017/10/17/RNA-Seq入门系列/" data-id="cjneor4xq0005r4mvwaqydgab" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RNA-Seq/">RNA-Seq</a></li></ul>
@@ -332,7 +462,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2017/10/11/markdown编辑器字体字号与颜色/" data-id="cjncr3uid0009oomvgbp9ox53" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2017/10/11/markdown编辑器字体字号与颜色/" data-id="cjneor4yk000hr4mvyvd55lgs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
@@ -376,7 +506,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2017/10/08/hexo-github/" data-id="cjncr3ui90008oomv2wdetu39" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2017/10/08/hexo-github/" data-id="cjneor4y9000dr4mv3af98mmf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog-hexo-github/">blog,hexo,github</a></li></ul>
@@ -401,7 +531,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINUX-VMware-RNA-Seq-R/">LINUX, VMware, RNA-Seq, R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac-office-Vmware-fusion-Ps/">Mac, office, Vmware fusion, Ps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RNA-Seq/">RNA-Seq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog-hexo-github/">blog,hexo,github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GSEA/">GSEA,</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINUX-VMware-RNA-Seq-R/">LINUX, VMware, RNA-Seq, R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac-office-Vmware-fusion-Ps/">Mac, office, Vmware fusion, Ps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RNA-Seq/">RNA-Seq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog-hexo-github/">blog,hexo,github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
     </div>
   </div>
 
@@ -411,7 +541,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Mac-office-Vmware-fusion-Ps/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a>
+      <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Mac-office-Vmware-fusion-Ps/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a>
     </div>
   </div>
 
@@ -420,7 +550,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li></ul>
     </div>
   </div>
 
@@ -431,6 +561,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/10/18/GSEA分析/">GSEA分析</a>
+          </li>
         
           <li>
             <a href="/2018/09/27/R语言20题/">R语言20题-学习笔记</a>
@@ -446,10 +580,6 @@
         
           <li>
             <a href="/2018/07/29/RNA-Seq analysis in R/">RNA-Seq analysis in R(EDITING)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/10/17/RNA-Seq入门系列/">RNA-Seq入门系列</a>
           </li>
         
       </ul>
