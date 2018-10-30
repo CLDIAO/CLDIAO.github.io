@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="baidu-site-verification" content="d8vuriatOq" />
+ <meta name="google-site-verification" content="ZKzrltgUA1iKyVKyH5hNp1TzVg-9LIJqbb09vFyUcWg" />
+  <meta charset="utf-8">
+  
+
+  
+  <title>IF, publication 查询 | Rumble&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="scholar包检索期刊影响因子">
+<meta name="keywords" content="IF, ciation, R, scholar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IF, publication 查询">
+<meta property="og:url" content="https://cldiao.github.io/2018/10/30/IF-ciation查询/index.html">
+<meta property="og:site_name" content="Rumble&#39;s blog">
+<meta property="og:description" content="scholar包检索期刊影响因子">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-30T12:00:59.527Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IF, publication 查询">
+<meta name="twitter:description" content="scholar包检索期刊影响因子">
+  
+    <link rel="alternate" href="/atom.xml" title="Rumble&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Rumble&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay hungry, stay foolish.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://cldiao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-IF-ciation查询" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/30/IF-ciation查询/" class="article-date">
+  <time datetime="2018-10-30T09:42:11.000Z" itemprop="datePublished">2018-10-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      IF, publication 查询
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://guangchuangyu.github.io/cn/2018/07/scholar-impact-factor/" target="_blank" rel="noopener">scholar包检索期刊影响因子</a></p>
+<a id="more"></a>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(scholar)</span><br><span class="line"><span class="keyword">library</span>(yyplot)</span><br><span class="line"><span class="comment"># if</span></span><br><span class="line">jn &lt;- c(<span class="string">"oncogene"</span>,</span><br><span class="line">       <span class="string">"cancer research"</span>,</span><br><span class="line">       <span class="string">"cancer letter"</span>,</span><br><span class="line">       <span class="string">"elife"</span>,</span><br><span class="line">       <span class="string">"cancer discovery"</span>,</span><br><span class="line">       <span class="string">"Proceedings of the National Academy of Sciences of the United States of America"</span>,</span><br><span class="line">       <span class="string">"cancer letters"</span>,</span><br><span class="line">       <span class="string">"journal of biological chemistry"</span>,</span><br><span class="line">       <span class="string">"molecular cancer"</span>,</span><br><span class="line">       <span class="string">"cancer prevention research"</span>,</span><br><span class="line">       <span class="string">"journal of investigative dermatology"</span>,</span><br><span class="line">       <span class="string">"journal of pineal research"</span>,</span><br><span class="line">       <span class="string">"Redox Biology"</span>)</span><br><span class="line">get_impactfactor(jn)</span><br><span class="line"><span class="comment"># A tibble: 13 x 4</span></span><br><span class="line">   Journal                                                                        Cites ImpactFactor Eigenfactor</span><br><span class="line">   &lt;chr&gt;                                                                          &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;</span><br><span class="line"> <span class="number">1</span> ONCOGENE                                                                       <span class="number">66411</span>         <span class="number">6.85</span>      <span class="number">0.0760</span></span><br><span class="line"> <span class="number">2</span> CANCER RESEARCH                                                               <span class="number">139291</span>         <span class="number">9.13</span>      <span class="number">0.130</span> </span><br><span class="line"> <span class="number">3</span> CA-A CANCER JOURNAL FOR CLINICIANS                                             <span class="number">28839</span>       <span class="number">245.</span>        <span class="number">0.0660</span></span><br><span class="line"> <span class="number">4</span> eLife                                                                          <span class="number">25592</span>         <span class="number">7.62</span>      <span class="number">0.196</span> </span><br><span class="line"> <span class="number">5</span> Cancer Discovery                                                               <span class="number">11896</span>        <span class="number">24.4</span>       <span class="number">0.0654</span></span><br><span class="line"> <span class="number">6</span> PROCEEDINGS OF THE NATIONAL ACADEMY OF SCIENCES OF THE UNITED STATES OF AMER~ <span class="number">637268</span>         <span class="number">9.50</span>      <span class="number">1.11</span>  </span><br><span class="line"> <span class="number">7</span> CANCER LETTERS                                                                 <span class="number">29311</span>         <span class="number">6.49</span>      <span class="number">0.0423</span></span><br><span class="line"> <span class="number">8</span> JOURNAL OF BIOLOGICAL CHEMISTRY                                               <span class="number">366247</span>         <span class="number">4.01</span>      <span class="number">0.321</span> </span><br><span class="line"> <span class="number">9</span> Molecular Cancer                                                               <span class="number">10301</span>         <span class="number">7.78</span>      <span class="number">0.0173</span></span><br><span class="line"><span class="number">10</span> Cancer Prevention Research                                                      <span class="number">5348</span>         <span class="number">4.02</span>      <span class="number">0.0119</span></span><br><span class="line"><span class="number">11</span> JOURNAL OF INVESTIGATIVE DERMATOLOGY                                           <span class="number">28457</span>         <span class="number">6.45</span>      <span class="number">0.0388</span></span><br><span class="line"><span class="number">12</span> JOURNAL OF PINEAL RESEARCH                                                      <span class="number">9079</span>        <span class="number">11.6</span>       <span class="number">0.0086</span></span><br><span class="line"><span class="number">13</span> Redox Biology                                                                   <span class="number">4083</span>         <span class="number">7.13</span>      <span class="number">0.0121</span></span><br></pre></td></tr></table></figure>
+<p>其中7-13为实验室此前有文章发表的部分杂志。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># publication</span></span><br><span class="line"><span class="comment"># tiemout!!!</span></span><br><span class="line">x &lt;- get_publications(<span class="string">"61MwfeMAAAAJ"</span>)</span><br><span class="line">y &lt;- x %&gt;% select(year, author, journal, title)%&gt;%</span><br><span class="line">+ mutate(impactFactor = get_impactfactor(journal)$ImpactFactor)%&gt;%</span><br><span class="line">group_by(year)</span><br><span class="line">y</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cldiao.github.io/2018/10/30/IF-ciation查询/" data-id="cjnvolkjh0000g0mvew6t96jw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IF-ciation-R-scholar/">IF, ciation, R, scholar</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/28/pubmed趋势/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Pubmed趋势</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GSEA/">GSEA,</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IF-ciation-R-scholar/">IF, ciation, R, scholar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINUX-VMware-RNA-Seq-R/">LINUX, VMware, RNA-Seq, R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/">Mac, office, Vmware fusion, Ps，Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pubmed-R-visualization/">Pubmed, R, visualization</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RNA-Seq/">RNA-Seq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog-hexo-github/">blog,hexo,github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/IF-ciation-R-scholar/" style="font-size: 10px;">IF, ciation, R, scholar</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/30/IF-ciation查询/">IF, publication 查询</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/28/pubmed趋势/">Pubmed趋势</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/18/GSEA分析/">GSEA分析</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/27/R语言20题/">R语言20题-学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Chaoliang Diao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
