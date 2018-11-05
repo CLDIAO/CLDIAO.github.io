@@ -7,15 +7,22 @@
   
 
   
-  <title>Tag: R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换 | Rumble&#39;s blog</title>
+  <title>Analysis correlation between geneA and geneB using R2 platform | Rumble&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Rumble&#39;s blog">
-<meta property="og:url" content="https://cldiao.github.io/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/index.html">
+  <meta name="description" content="用途：大样本验证 梯子： 用别人的数据发自己的Science | 给你的文章加5分 MYC regulates the antitumor immune response through CD47 and PD-L1 R2简介 R2 website R2的应用还在不断增加 我来实践：  single/multiple dataset nanlysis 但数据集中发现有超过30个结肠癌肿瘤数据集，所">
+<meta name="keywords" content="R2, database, correlation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Analysis correlation between geneA and geneB using R2 platform">
+<meta property="og:url" content="https://cldiao.github.io/2018/11/05/R2-platform/index.html">
 <meta property="og:site_name" content="Rumble&#39;s blog">
+<meta property="og:description" content="用途：大样本验证 梯子： 用别人的数据发自己的Science | 给你的文章加5分 MYC regulates the antitumor immune response through CD47 and PD-L1 R2简介 R2 website R2的应用还在不断增加 我来实践：  single/multiple dataset nanlysis 但数据集中发现有超过30个结肠癌肿瘤数据集，所">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="c:/Users/DCL/Desktop/1.png">
+<meta property="og:updated_time" content="2018-11-05T11:12:59.072Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rumble&#39;s blog">
+<meta name="twitter:title" content="Analysis correlation between geneA and geneB using R2 platform">
+<meta name="twitter:description" content="用途：大样本验证 梯子： 用别人的数据发自己的Science | 给你的文章加5分 MYC regulates the antitumor immune response through CD47 and PD-L1 R2简介 R2 website R2的应用还在不断增加 我来实践：  single/multiple dataset nanlysis 但数据集中发现有超过30个结肠癌肿瘤数据集，所">
+<meta name="twitter:image" content="c:/Users/DCL/Desktop/1.png">
   
     <link rel="alternate" href="/atom.xml" title="Rumble&#39;s blog" type="application/atom+xml">
   
@@ -68,40 +75,76 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/09/27/R语言20题/" class="archive-article-date">
-  <time datetime="2018-09-27T13:17:14.000Z" itemprop="datePublished">Sep 27</time>
+        <section id="main"><article id="post-R2-platform" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/05/R2-platform/" class="article-date">
+  <time datetime="2018-11-05T08:50:29.000Z" itemprop="datePublished">2018-11-05</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/27/R语言20题/">R语言20题-学习笔记</a>
+    <h1 class="article-title" itemprop="name">
+      Analysis correlation between geneA and geneB using R2 platform
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用途：大样本验证</p>
+<p>梯子：</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAxMjQ3MTU5Mg==&amp;mid=2650657135&amp;idx=1&amp;sn=f1a390be1622675d78ac05c8676f5f84&amp;chksm=83b82d28b4cfa43e6393e5fd784a3d4df8b1708081bcf0ff3909d66893c8de43347bab038170&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">用别人的数据发自己的Science | 给你的文章加5分</a></p>
+<p><a href="http://science.sciencemag.org/content/352/6282/227" target="_blank" rel="noopener">MYC regulates the antitumor immune response through CD47 and PD-L1</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAxMjQ3MTU5Mg==&amp;mid=2650657155&amp;idx=1&amp;sn=beaef840cf22b1b0f0e26e85078c34e3&amp;chksm=83b82dc4b4cfa4d21fc7c6a2b7737bef6f06c545cdd41332a7a6c8b460c4749cd29f66e4b382&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">R2简介</a></p>
+<p><a href="https://hgserver1.amc.nl/cgi-bin/r2/main.cgi" target="_blank" rel="noopener">R2 website</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzAxMjQ3MTU5Mg==&amp;mid=2650658414&amp;idx=1&amp;sn=92a59a9b63b1dbdae5cdd51d3289269b&amp;chksm=83b82a29b4cfa33f9062a2bf3ef9a7b9124607aade039b4b99adc8074006cfa2cc0dd89d1db3&amp;scene=0#rd" target="_blank" rel="noopener">R2的应用还在不断增加</a></p>
+<p>我来实践：</p>
+<ol>
+<li><p>single/multiple dataset nanlysis</p>
+<p>但数据集中发现有超过30个结肠癌肿瘤数据集，所以可以选择multiple dataset</p>
+</li>
+<li><p>select an analysis</p>
+<p>我想看两个gene的相关性所以选择2D gene overview</p>
+<p><img src="C:\Users\DCL\Desktop\1.png" alt=""></p>
+</li>
+<li><p>select additional conditions</p>
+<p>输入两个gene symbol</p>
+</li>
+<li><p>procee</p>
+<p>点击<code>next</code></p>
+</li>
+</ol>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cldiao.github.io/2018/11/05/R2-platform/" data-id="cjo491aax0003pomv6211q169" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R2-database-correlation/">R2, database, correlation</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/30/if-publications-查询/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">if_publications 查询</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         
