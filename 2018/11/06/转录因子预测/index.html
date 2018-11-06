@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181106/28.png">
 <meta property="og:image" content="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181106/29.png">
 <meta property="og:image" content="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181106/34.png">
-<meta property="og:updated_time" content="2018-11-06T16:03:50.565Z">
+<meta property="og:updated_time" content="2018-11-06T16:14:29.131Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="transcription factor binding site(TFBS) prediction">
 <meta name="twitter:description" content="梯子： 史上最全物种转录因子、motif数据库footprintDB 点鼠标就能找启动子区的motif | meme-FIMO">
@@ -109,17 +109,18 @@
 <p><a href="http://blog.sciencenet.cn/blog-3372875-1096783.html" target="_blank" rel="noopener">史上最全物种转录因子、motif数据库footprintDB</a></p>
 <p><a href="https://mp.weixin.qq.com/s?__biz=MzAxMjQ3MTU5Mg==&amp;mid=2650656785&amp;idx=1&amp;sn=a3b72ea64df125a190c3f7a1634a316c&amp;chksm=83b82c56b4cfa54033890e0cf52bed379f34bb2db372f83ec5d01e30b7272799906df58eecde&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">点鼠标就能找启动子区的motif | meme-FIMO</a></p>
 <a id="more"></a>  
-<h1 id="转录因子数据库"><a href="#转录因子数据库" class="headerlink" title="转录因子数据库"></a>转录因子数据库</h1><p><a href="http://www.biotrainee.com/thread-1215-1-1.html" target="_blank" rel="noopener">footprintDB是目前为止我看到的最全的转录因子数据库</a>Jimmy师兄的评价。</p>
-<h2 id="方法一：JASPAR-ENSEMBL-GENOME-BROSWER"><a href="#方法一：JASPAR-ENSEMBL-GENOME-BROSWER" class="headerlink" title="方法一：JASPAR+ENSEMBL GENOME BROSWER"></a>方法一：JASPAR+ENSEMBL GENOME BROSWER</h2><h2 id="方法二：footprintDB-MEME"><a href="#方法二：footprintDB-MEME" class="headerlink" title="方法二：footprintDB+MEME"></a>方法二：footprintDB+MEME</h2><p>当想要研究的转录因子在JASPAR中没有对应的motif时：</p>
-<p>打开<a href="http://floresta.eead.csic.es/footprintdb/index.php?search_entries" target="_blank" rel="noopener">footprintDB</a></p>
+<h2 id="转录因子数据库"><a href="#转录因子数据库" class="headerlink" title="转录因子数据库"></a>转录因子数据库</h2><p><a href="http://www.biotrainee.com/thread-1215-1-1.html" target="_blank" rel="noopener">footprintDB是目前为止我看到的最全的转录因子数据库</a>Jimmy师兄的评价。</p>
+<h2 id="方法一：JASPAR-ENSEMBL-GENOME-BROSWER"><a href="#方法一：JASPAR-ENSEMBL-GENOME-BROSWER" class="headerlink" title="方法一：JASPAR+ENSEMBL GENOME BROSWER"></a>方法一：JASPAR+ENSEMBL GENOME BROSWER</h2><p>研究较多的转录因子在JASPAR上可以搜到，scan匹配想要分析的sequence即可。sequence可以从ensemble或者ucsc获取。</p>
+<h2 id="方法二：footprintDB-MEME"><a href="#方法二：footprintDB-MEME" class="headerlink" title="方法二：footprintDB+MEME"></a>方法二：footprintDB+MEME</h2><p>当想要研究的转录因子在JASPAR中没有对应的motif时：</p>
+<h3 id="第一步：搜索转录因子"><a href="#第一步：搜索转录因子" class="headerlink" title="第一步：搜索转录因子"></a>第一步：搜索转录因子</h3><p>打开<a href="http://floresta.eead.csic.es/footprintdb/index.php?search_entries" target="_blank" rel="noopener">footprintDB</a></p>
 <p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181106/33.png" alt=""></p>
 <p>以BPTF为例检索，既然JASPAR中没有，信息量应该不大，选择homo, 其它选择all</p>
 <p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181106/21.png" alt=""></p>
 <p>找到了一个转录因子和一个motif</p>
 <p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181106/22.png" alt=""></p>
 <p>在JASPAR中没有搜到，那么就没被收录，使用时需要转换motif格式。</p>
-<p>点击binding motifs下方蓝字链接，点击download下载TRANSFAC格式的motif，用meme自带的工具转换为meme格式的motif。</p>
-<p><a href="http://meme-suite.org/doc/motif_conversion.html" target="_blank" rel="noopener">Motif Conversion Utilities</a>：The MEME Suite provides tools for conversion to the MEME motif format from other popular motif formats. To use these tools, you need to <a href="http://meme-suite.org/doc/download.html" target="_blank" rel="noopener">download </a>and install a local copy of the MEME Suite software. MEME Suite can be compiled to run on OS X or <strong>Linux</strong>.</p>
+<h3 id="第二步：下载transfac文件"><a href="#第二步：下载transfac文件" class="headerlink" title="第二步：下载transfac文件"></a>第二步：下载transfac文件</h3><p>点击binding motifs下方蓝字链接，点击download下载TRANSFAC格式的motif，用meme自带的工具转换为meme格式的motif。</p>
+<h3 id="第三步：-转换-transfac文件为-meme文件"><a href="#第三步：-转换-transfac文件为-meme文件" class="headerlink" title="第三步： 转换.transfac文件为.meme文件"></a>第三步： 转换.transfac文件为.meme文件</h3><p><a href="http://meme-suite.org/doc/motif_conversion.html" target="_blank" rel="noopener">Motif Conversion Utilities</a>：The MEME Suite provides tools for conversion to the MEME motif format from other popular motif formats. To use these tools, you need to <a href="http://meme-suite.org/doc/download.html" target="_blank" rel="noopener">download </a>and install a local copy of the MEME Suite software. MEME Suite can be compiled to run on OS X or <strong>Linux</strong>.</p>
 <p><a href="http://meme-suite.org/doc/install.html?man_type=web#quick" target="_blank" rel="noopener">Quick Install (for Linux, OS X and Cygwin systems)</a></p>
 <p>(这里我用的<strong>BIOLINUX</strong>，安装的时候有两个test fail.)</p>
 <p><a href="http://meme-suite.org/doc/transfac2meme.html" target="_blank" rel="noopener">transfac2meme</a>：Convert a TRANSFAC ‘matrix.dat’ file into a MEME motif file suitable for use with MEME Suite programs.</p>
@@ -134,16 +135,16 @@
 <p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181106/28.png" alt=""></p>
 <p>然后新建文件*.meme。</p>
 <p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181106/29.png" alt=""></p>
-<p><a href="http://meme-suite.org/tools/fimo" target="_blank" rel="noopener">打开FIMO</a></p>
+<h3 id="第四步：-FIMO进行检测"><a href="#第四步：-FIMO进行检测" class="headerlink" title="第四步： FIMO进行检测"></a>第四步： FIMO进行检测</h3><p><a href="http://meme-suite.org/tools/fimo" target="_blank" rel="noopener">打开FIMO</a></p>
 <p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181106/34.png" alt=""></p>
 <p>上传motif的.meme文件和检测的序列，<code>start</code></p>
 <p>等待运行（时间挺长的..)。可以收藏网页，回头再看，或者左侧有recent jobs。</p>
-<h3 id="结果的展示："><a href="#结果的展示：" class="headerlink" title="结果的展示："></a>结果的展示：</h3><h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><h4 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h4><h4 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h4><p>### </p>
+<h3 id="第五步：结果的展示"><a href="#第五步：结果的展示" class="headerlink" title="第五步：结果的展示"></a>第五步：结果的展示</h3><h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><h4 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h4><h4 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h4><p>### </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/11/06/转录因子预测/" data-id="cjo5xcnp5000jb0mv5jnahh3q" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/11/06/转录因子预测/" data-id="cjo5xqehi000lnkmvtarfymay" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TFBS/">TFBS</a></li></ul>
