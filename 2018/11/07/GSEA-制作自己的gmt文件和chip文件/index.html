@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="baidu-site-verification" content="d8vuriatOq" />
+ <meta name="google-site-verification" content="ZKzrltgUA1iKyVKyH5hNp1TzVg-9LIJqbb09vFyUcWg" />
+  <meta charset="utf-8">
+  
+
+  
+  <title>GSEA实践:制作自己的gmt文件和chip文件 | Rumble&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="梯子如何将GEO芯片注释文件整理成GSEA能使用的芯片注释文件？ GSEA分析支持的数据格式 制作自己的gene set文件给gsea软件">
+<meta name="keywords" content="GSEA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GSEA实践:制作自己的gmt文件和chip文件">
+<meta property="og:url" content="https://cldiao.github.io/2018/11/07/GSEA-制作自己的gmt文件和chip文件/index.html">
+<meta property="og:site_name" content="Rumble&#39;s blog">
+<meta property="og:description" content="梯子如何将GEO芯片注释文件整理成GSEA能使用的芯片注释文件？ GSEA分析支持的数据格式 制作自己的gene set文件给gsea软件">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/1.jpg">
+<meta property="og:image" content="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/3.jpg">
+<meta property="og:image" content="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/4.jpg">
+<meta property="og:image" content="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/2.jpg">
+<meta property="og:image" content="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/5.jpg">
+<meta property="og:image" content="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/6.jpg">
+<meta property="og:image" content="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/7.jpg">
+<meta property="og:image" content="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/enplot_CD44%2B_CD24-_3.png">
+<meta property="og:updated_time" content="2018-11-09T03:02:14.741Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GSEA实践:制作自己的gmt文件和chip文件">
+<meta name="twitter:description" content="梯子如何将GEO芯片注释文件整理成GSEA能使用的芯片注释文件？ GSEA分析支持的数据格式 制作自己的gene set文件给gsea软件">
+<meta name="twitter:image" content="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Rumble&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Rumble&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay hungry, stay foolish.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/resume">Resume</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://cldiao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-GSEA-制作自己的gmt文件和chip文件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/07/GSEA-制作自己的gmt文件和chip文件/" class="article-date">
+  <time datetime="2018-11-07T15:22:43.000Z" itemprop="datePublished">2018-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      GSEA实践:制作自己的gmt文件和chip文件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="梯子"><a href="#梯子" class="headerlink" title="梯子"></a>梯子</h1><p><a href="http://www.omicsclass.com/article/223" target="_blank" rel="noopener">如何将GEO芯片注释文件整理成GSEA能使用的芯片注释文件？</a></p>
+<p><a href="https://www.plob.org/article/12007.html" target="_blank" rel="noopener">GSEA分析支持的数据格式</a></p>
+<p><a href="http://www.bio-info-trainee.com/2144.html" target="_blank" rel="noopener">制作自己的gene set文件给gsea软件</a></p>
+<a id="more"></a>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>师姐讨论课题时看到一个gene set 十分合胃口。觉得我有能力解析一下！</p>
+<p>来自一篇文献分享：<a href="https://www.nature.com/articles/ncomms10180" target="_blank" rel="noopener">Nuclear AURKA acquires kinase-independent<br>transactivating function to enhance breast cancer<br>stem cell phenotype</a></p>
+<p>其中figer1f:</p>
+<p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/1.jpg" alt=""></p>
+<p>注释为：<code>(f) Gene expression data acquired from a public database (GEO ID: GSE23541, the group of AURKAþDox and AURKA-Dox) were subjected to GSEA using the gene expression signature that was downregulated in the CD24low/CD44high-sphere population.</code></p>
+<p>也就是用了GSE23541中的samples以CD44+/CD24-表型的一个gene set做GSEA分析。也就有了下面的解释：</p>
+<p><code>We also performed gene set enrichment analysis (GSEA) and found that cells expressing low levels of AURKA showed a significant enrichment of genes that are downregulated in the CD24low/CD44high-sphere population.</code></p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>那么要进行GSEA分析，需要准备：</p>
+<p>expression dataset, gene sets database, chip platform, phenotype labels四项内容。</p>
+<h2 id="expression-dataset"><a href="#expression-dataset" class="headerlink" title="expression dataset"></a>expression dataset</h2><p>搜索<a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE23541" target="_blank" rel="noopener">GSE24531</a>, 查看samples共有12个，其中前六个为图中研究的样本Aurka_R_+Dox, Aurka_R_-Dox。</p>
+<p>下载GSE23541_non_normalized.txt.gz，修改内容得到六个样本的expression dataset。</p>
+<h2 id="gene-set-database"><a href="#gene-set-database" class="headerlink" title="gene set database"></a>gene set database</h2><p>因为使用的是特定的set, GSEA的库中没有的话是需要自己制作的。</p>
+<p>首先要获得gene，原文网站提供了下载<a href="http://www.pnas.org/content/suppl/2009/08/03/0905718106.DCSupplemental" target="_blank" rel="noopener">DATASET</a>。</p>
+<p>gmt文件中，每行代表一个基因集，第一列是基因集的命名，第二列是简要介绍，后面为gene symbol。（第一列好像不要带符号，不然网页出不了图）</p>
+<p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/3.jpg" alt=""></p>
+<h2 id="phenotype-labels"><a href="#phenotype-labels" class="headerlink" title="phenotype labels"></a>phenotype labels</h2><p>前面讲过，制作一个cls文件。</p>
+<p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/4.jpg" alt=""></p>
+<h2 id="chip-platform"><a href="#chip-platform" class="headerlink" title="chip platform"></a>chip platform</h2><p>起初制作了以上三个文件，在选择在线chip时发现没有GSE23541对应的<a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL6885" target="_blank" rel="noopener">GPL6885</a>Illumina MouseRef-8 v2.0 expression beadchip。</p>
+<p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/2.jpg" alt=""></p>
+<p>那么就得自己制作chip文件了。</p>
+<p>首先在GPL6885页面下载芯片的注释文件，解压后查看文件：</p>
+<p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/5.jpg" alt=""></p>
+<p>上方是一些注释信息，下方第一列为ID, 第二列gene title, 第三列gene symbol。这三列使我们需要的信息。</p>
+<p>提取这三列数据后，第一列列名改为Probe Set ID; 第二列和第三列更换顺序。删除含有空白的行（可以用Excel中的筛选功能）。</p>
+<p>最后我们得到这样的文件：</p>
+<p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/6.jpg" alt=""></p>
+<h1 id="运行GSEA"><a href="#运行GSEA" class="headerlink" title="运行GSEA"></a>运行GSEA</h1><p>load data and run GSEA.</p>
+<p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/7.jpg" alt=""></p>
+<p><img src="https://github.com/CLDIAO/photo-for-blog-1.md/raw/master/20181107/enplot_CD44%2B_CD24-_3.png" alt=""></p>
+<p>结果与原文有差异。需要探究一下。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cldiao.github.io/2018/11/07/GSEA-制作自己的gmt文件和chip文件/" data-id="cjo9fod9c0000iomvkq1j7ds9" class="article-share-link">Share</a>
+      
+<section id="comments">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2018/11/07/GSEA-制作自己的gmt文件和chip文件/" data-title="GSEA实践:制作自己的gmt文件和chip文件" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chaooo"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GSEA/">GSEA</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/06/转录因子预测/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">transcription factor binding site(TFBS) prediction</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/07/GSEA-制作自己的gmt文件和chip文件/">GSEA实践:制作自己的gmt文件和chip文件</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/06/转录因子预测/">transcription factor binding site(TFBS) prediction</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/05/R2-platform/">Analysis correlation between geneA and geneB using R2 platform</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/30/if-publications-查询/">if_publications 查询</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/28/pubmed趋势/">Pubmed趋势</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Chaoliang Diao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/resume" class="mobile-nav-link">Resume</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
