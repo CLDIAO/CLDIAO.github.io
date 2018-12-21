@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="baidu-site-verification" content="d8vuriatOq" />
+ <meta name="google-site-verification" content="ZKzrltgUA1iKyVKyH5hNp1TzVg-9LIJqbb09vFyUcWg" />
+  <meta charset="utf-8">
+  
+
+  
+  <title>Rumble&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基本的bash shell 命令目录1. man命令:用来访问存储在Linux系统上的手册页面。在想要查找的工具的名称前面输入man命令，就可以找到那个工具相应的手册条目。 123456789101112131415161718192021222324252627282930vip5@VM-0-15-ubuntu:~/test$ man touchNAME       touch - change">
+<meta name="keywords" content="linux, shell, bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rumble&#39;s blog">
+<meta property="og:url" content="https://cldiao.github.io/2018/12/06/linux命令行与shell脚本编程大全学习笔记/index.html">
+<meta property="og:site_name" content="Rumble&#39;s blog">
+<meta property="og:description" content="基本的bash shell 命令目录1. man命令:用来访问存储在Linux系统上的手册页面。在想要查找的工具的名称前面输入man命令，就可以找到那个工具相应的手册条目。 123456789101112131415161718192021222324252627282930vip5@VM-0-15-ubuntu:~/test$ man touchNAME       touch - change">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-11T15:03:52.536Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rumble&#39;s blog">
+<meta name="twitter:description" content="基本的bash shell 命令目录1. man命令:用来访问存储在Linux系统上的手册页面。在想要查找的工具的名称前面输入man命令，就可以找到那个工具相应的手册条目。 123456789101112131415161718192021222324252627282930vip5@VM-0-15-ubuntu:~/test$ man touchNAME       touch - change">
+  
+    <link rel="alternate" href="/atom.xml" title="Rumble&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Rumble&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay hungry, stay foolish.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/resume">Resume</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://cldiao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-linux命令行与shell脚本编程大全学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/06/linux命令行与shell脚本编程大全学习笔记/" class="article-date">
+  <time datetime="2018-12-06T06:54:14.000Z" itemprop="datePublished">2018-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本的bash-shell-命令"><a href="#基本的bash-shell-命令" class="headerlink" title="基本的bash shell 命令"></a>基本的bash shell 命令</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h3 id="1-man命令"><a href="#1-man命令" class="headerlink" title="1. man命令:"></a>1. man命令:</h3><p>用来访问存储在Linux系统上的手册页面。在想要查找的工具的名称前面输入man命令，就可以找到那个工具相应的手册条目。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ man touch</span><br><span class="line">NAME</span><br><span class="line">       touch - change file timestamps</span><br><span class="line"></span><br><span class="line">SYNOPSIS</span><br><span class="line">       touch [OPTION]... FILE...</span><br><span class="line"></span><br><span class="line">DESCRIPTION</span><br><span class="line">       Update the access and modification times of each FILE to the current time.</span><br><span class="line"></span><br><span class="line">       A FILE argument that does not exist is created empty, unless -c or -h is supplied.</span><br><span class="line"></span><br><span class="line">       A FILE argument string of - is handled specially and causes touch to change the times of the file associated with standard output.</span><br><span class="line"></span><br><span class="line">       Mandatory arguments to long options are mandatory for short options too.</span><br><span class="line"></span><br><span class="line">       -a     change only the access time</span><br><span class="line"></span><br><span class="line">       -c, --no-create</span><br><span class="line">              do not create any files</span><br><span class="line"></span><br><span class="line">       -d, --date=STRING</span><br><span class="line">              parse STRING and use it instead of current time</span><br><span class="line"></span><br><span class="line">       -f     (ignored)</span><br><span class="line"></span><br><span class="line">       -h, --no-dereference</span><br><span class="line">              affect each symbolic link instead of any referenced file (useful only on systems that can change the timestamps of a symlink)</span><br><span class="line"></span><br><span class="line">       -m     change only the modification time</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="2-制表键自动补全：Tab"><a href="#2-制表键自动补全：Tab" class="headerlink" title="2. 制表键自动补全：Tab"></a>2. 制表键自动补全：<code>Tab</code></h3><p>制表键自动补全可以子啊输入文件名或目录名时按<code>Tab</code>键，让shell将内容补充完整。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ cd biosoft/</span><br><span class="line">vip5@VM-0-15-ubuntu:~/biosoft$</span><br></pre></td></tr></table></figure>
+<p>输入cp bow后按<code>Tab</code>键，文件名/文件夹名可以自动补全。</p>
+<h3 id="3-绝对路径："><a href="#3-绝对路径：" class="headerlink" title="3. 绝对路径："></a>3. 绝对路径：</h3><p>定义目录的确切位置，以虚拟目录的根目录开始，相当于目录的全名。总是以<code>/</code>作为起始。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ cd /home/vip5/biosoft/bowtie/</span><br><span class="line">vip5@VM-0-15-ubuntu:~/biosoft/bowtie$</span><br></pre></td></tr></table></figure>
+<p>显示当前所处位置:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ pwd</span><br><span class="line">/home/vip5</span><br></pre></td></tr></table></figure>
+<h3 id="4-相对路径："><a href="#4-相对路径：" class="headerlink" title="4. 相对路径："></a>4. 相对路径：</h3><p>指定一个基于当前位置的目标文件路径。以目录名或一个特殊字符开始。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/biosoft$ ls </span><br><span class="line">anaconda  bowtie</span><br><span class="line">vip5@VM-0-15-ubuntu:~/biosoft$ pwd</span><br><span class="line">/home/vip5/biosoft</span><br><span class="line">vip5@VM-0-15-ubuntu:~/biosoft$ cd bowtie/</span><br><span class="line">vip5@VM-0-15-ubuntu:~/biosoft/bowtie$</span><br></pre></td></tr></table></figure>
+<h3 id="5-列表命令-ls"><a href="#5-列表命令-ls" class="headerlink" title="5. 列表命令: ls"></a>5. 列表命令: ls</h3><p>显示当前目录下的文件和目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ ls </span><br><span class="line">biosoft  readme.txt  test</span><br></pre></td></tr></table></figure>
+<p>-F 参数可以轻松区分文件和目录。目录后加了<code>/</code>，可执行文件后加了<code>*</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ ls -F</span><br><span class="line">biosoft/  readme.txt  test/</span><br></pre></td></tr></table></figure>
+<p>-a 参数可以把隐藏文件和普通文件及目录一起显示。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ ls -a</span><br><span class="line">.   .bash_history  biosoft  .conda    readme.txt  .vim</span><br><span class="line">..  .bashrc        .cache   .condarc  test        .viminfo</span><br></pre></td></tr></table></figure>
+<p>-R 参数列出当前目录下包含的子目录中的文件。目录 很庞大，输出会很长。</p>
+<p>-l 显示附加信息，会产生长列表格式的输出，包括文件类型，权限，属主，属组，大小，上次修改时间，文件名。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ ls -l</span><br><span class="line">total 12</span><br><span class="line">drwxrwxr-x 4 vip5 vip5 4096 Nov 13 16:12 biosoft</span><br><span class="line">-rw-r--r-- 1 root root  207 Nov 11 20:33 readme.txt</span><br><span class="line">drwxrwxr-x 2 vip5 vip5 4096 Nov 12 10:01 test</span><br></pre></td></tr></table></figure>
+<p>-l 后可以添加过滤器：</p>
+<ul>
+<li><p><code>？</code>代表一个字符</p>
+</li>
+<li><p><code>*</code>代表零个或多个字符</p>
+</li>
+<li><p><code>[]</code>代表一个字符位置并给出多个可能选择</p>
+</li>
+<li><p><code>!</code>将不需要的内容排除</p>
+<p>(两种符号可以放在过滤器的任意位置)</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/biosoft/bowtie$ ls</span><br><span class="line">bowtie2-2.3.4.3  bowtie2-2.3.4.3-source.zip</span><br><span class="line">vip5@VM-0-15-ubuntu:~/biosoft/bowtie$ ls -l bowtie2-2.3.4.3-source.zip </span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 17156180 Sep 17 13:02 bowtie2-2.3.4.3-source.zip</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/biosoft/bowtie$ ls -l bowtie2-2.3.4.3-sour?e.zip </span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 17156180 Sep 17 13:02 bowtie2-2.3.4.3-source.zip</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/biosoft/bowtie$ ls -l *.zip </span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 17156180 Sep 17 13:02 bowtie2-2.3.4.3-source.zip</span><br></pre></td></tr></table></figure>
+<h3 id="6-创建文件：touch"><a href="#6-创建文件：touch" class="headerlink" title="6. 创建文件：touch"></a>6. 创建文件：touch</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ touch test_one</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -l test_one </span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 0 Dec  6 21:54 test_one</span><br></pre></td></tr></table></figure>
+<p>改变文件的修改时间</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -l test_one </span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 0 Dec  6 21:54 test_one</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ touch test_one</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -l test_one </span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 0 Dec  6 21:57 test_one</span><br></pre></td></tr></table></figure>
+<h3 id="7-复制文件-cp"><a href="#7-复制文件-cp" class="headerlink" title="7. 复制文件: cp"></a>7. 复制文件: cp</h3><p>cp命令需要两个参数——源对象和目标对象：<code>cp source destination</code></p>
+<p>当二者都是文件名时，cp命令将源文件复制成一个新文件，命名为后者。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cp test_one  test_two</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -l test_*</span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 0 Dec  6 21:57 test_one</span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 0 Dec  6 22:10 test_two</span><br></pre></td></tr></table></figure>
+<p>两个文件的修改时间不同。-i选项会在目标文件存在的情况下询问是否覆盖。不回答y，复制会中止。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -l test_*</span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 0 Dec  6 21:57 test_one</span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 0 Dec  6 22:10 test_two</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ cp -i test_one test_two </span><br><span class="line">cp: overwrite 'test_two'? n</span><br></pre></td></tr></table></figure>
+<p>也可以将文件复制到现有目录中。目录可以使用绝对路径或者相对路径。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cp -i test_one /home/vip5/biosoft/</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -l /home/vip5/biosoft</span><br><span class="line">total 8</span><br><span class="line">drwxrwxr-x 3 vip5 vip5 4096 Nov 13 16:28 anaconda</span><br><span class="line">drwxrwxr-x 3 vip5 vip5 4096 Nov 13 21:29 bowtie</span><br><span class="line">-rw-rw-r-- 1 vip5 vip5    0 Dec  6 22:16 test_one</span><br></pre></td></tr></table></figure>
+<p>相对路径可以使用特殊符号，其中<code>.</code>表示当前工作目录。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cp -i /home/vip5/biosoft/bowtie/bowtie2-2.3.4.3/VERSION .</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -l VERSION </span><br><span class="line">-rw-r--r-- 1 vip5 vip5 8 Dec  6 22:39 VERSION</span><br></pre></td></tr></table></figure>
+<p>-R参数，递归地复制整个目录的内容。</p>
+<p>也可以使用通配符。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/biosoft$ cp *one test/</span><br><span class="line">vip5@VM-0-15-ubuntu:~/biosoft$ ls -l test_one</span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 0 Dec  6 22:16 test_one</span><br></pre></td></tr></table></figure>
+<h3 id="8-移动-重命名文件：mv"><a href="#8-移动-重命名文件：mv" class="headerlink" title="8. 移动/重命名文件：mv"></a>8. 移动/重命名文件：mv</h3><p>Linux中，重命名文件成为移动（moving）。mv命令可以将文件和目录移动到另一个位置或重新命名。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -li f?ll</span><br><span class="line">30415746 -rw-rw-r-- 1 vip5 vip5 0 Dec 11 16:58 fall</span><br><span class="line">30415747 -rw-rw-r-- 1 vip5 vip5 0 Dec 11 16:57 fell</span><br><span class="line">30415748 -rw-rw-r-- 1 vip5 vip5 0 Dec 11 16:57 fill</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ mv fall fzll</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -li f?ll</span><br><span class="line">30415747 -rw-rw-r-- 1 vip5 vip5 0 Dec 11 16:57 fell</span><br><span class="line">30415748 -rw-rw-r-- 1 vip5 vip5 0 Dec 11 16:57 fill</span><br><span class="line">30415746 -rw-rw-r-- 1 vip5 vip5 0 Dec 11 16:58 fzll</span><br></pre></td></tr></table></figure>
+<p>mv可以更改文件名，不改变inode编号和时间戳。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -li </span><br><span class="line">total 4428</span><br><span class="line">30408713 -rw-rw-r-- 1 vip5 vip5 4524262 Oct 30 08:22 10.1038@s41556-018-0219-8.pdf</span><br><span class="line">30415747 -rw-rw-r-- 1 vip5 vip5       0 Dec 11 16:57 fell</span><br><span class="line">30415748 -rw-rw-r-- 1 vip5 vip5       0 Dec 11 16:57 fill</span><br><span class="line">30415746 -rw-rw-r-- 1 vip5 vip5       0 Dec 11 16:58 fzll</span><br><span class="line"> 3672325 drwxrwxr-x 2 vip5 vip5    4096 Dec  6 22:50 test_a</span><br><span class="line">30415653 -rw-rw-r-- 1 vip5 vip5       0 Dec  6 21:57 test_one</span><br><span class="line">30415654 -rw-rw-r-- 1 vip5 vip5       0 Dec  6 22:10 test_two</span><br><span class="line">30415656 -rw-r--r-- 1 vip5 vip5       8 Dec  6 22:39 VERSION</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -li test_a/</span><br><span class="line">total 0</span><br><span class="line">3672326 -rw-rw-r-- 1 vip5 vip5 0 Dec  6 22:50 test_one</span><br><span class="line">3672327 -rw-rw-r-- 1 vip5 vip5 0 Dec  6 22:50 test_two</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ mv fzll test_a/</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -li test_a/</span><br><span class="line">total 0</span><br><span class="line">30415746 -rw-rw-r-- 1 vip5 vip5 0 Dec 11 16:58 fzll</span><br><span class="line"> 3672326 -rw-rw-r-- 1 vip5 vip5 0 Dec  6 22:50 test_one</span><br><span class="line"> 3672327 -rw-rw-r-- 1 vip5 vip5 0 Dec  6 22:50 test_two</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -li fzll</span><br><span class="line">ls: cannot access 'fzll': No such file or directory</span><br></pre></td></tr></table></figure>
+<p>mv也可以移动文件的位置。如上，将fzll从/test移动到/test/test_a。没有改变文件的inode编号或时间戳。使用-i参数同样可以在试图覆盖已有文件时得到提示。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -li test_a/fzll</span><br><span class="line">30415746 -rw-rw-r-- 1 vip5 vip5 0 Dec 11 16:58 test_a/fzll</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ mv test_a/fzll  fall</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -li </span><br><span class="line">total 4428</span><br><span class="line">30408713 -rw-rw-r-- 1 vip5 vip5 4524262 Oct 30 08:22 10.1038@s41556-018-0219-8.pdf</span><br><span class="line">30415746 -rw-rw-r-- 1 vip5 vip5       0 Dec 11 16:58 fall</span><br><span class="line">30415747 -rw-rw-r-- 1 vip5 vip5       0 Dec 11 16:57 fell</span><br><span class="line">30415748 -rw-rw-r-- 1 vip5 vip5       0 Dec 11 16:57 fill</span><br><span class="line"> 3672325 drwxrwxr-x 2 vip5 vip5    4096 Dec 11 17:07 test_a</span><br><span class="line">30415653 -rw-rw-r-- 1 vip5 vip5       0 Dec  6 21:57 test_one</span><br><span class="line">30415654 -rw-rw-r-- 1 vip5 vip5       0 Dec  6 22:10 test_two</span><br><span class="line">30415656 -rw-r--r-- 1 vip5 vip5       8 Dec  6 22:39 VERSION</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -li test_a/fzll</span><br><span class="line">ls: cannot access 'test_a/fzll': No such file or directory</span><br></pre></td></tr></table></figure>
+<p>mv命令也可以同时移动文件位置并修改文件名称。</p>
+<h3 id="9-删除文件：rm"><a href="#9-删除文件：rm" class="headerlink" title="9. 删除文件：rm"></a>9. 删除文件：rm</h3><p>Linux中删除称为一处（removing)。命令为rm。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls</span><br><span class="line">10.1038@s41556-018-0219-8.pdf  fell  test_a    test_two</span><br><span class="line">fall                           fill  test_one  VERSION</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ rm -i fall</span><br><span class="line">rm: remove regular empty file 'fall'? y</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -l fall</span><br><span class="line">ls: cannot access 'fall': No such file or directory</span><br></pre></td></tr></table></figure>
+<p>-i提示是否真的要删除。bash shell中没有回收站，使用rm命令时要养成加入-i参数的好习惯。</p>
+<p>-f强制删除，小心使用。</p>
+<h3 id="10-创建目录：mkdir"><a href="#10-创建目录：mkdir" class="headerlink" title="10. 创建目录：mkdir"></a>10. 创建目录：mkdir</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cldiao.github.io/2018/12/06/linux命令行与shell脚本编程大全学习笔记/" data-id="cjpxtdwp2000bk4mvxi1xc9s7" class="article-share-link">Share</a>
+      
+<section id="comments">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2018/12/06/linux命令行与shell脚本编程大全学习笔记/" data-title="" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chaooo"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-shell-bash/">linux, shell, bash</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/12/GEO数据挖掘/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          GEO数据挖掘
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/07/GSEA-制作自己的gmt文件和chip文件/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">GSEA实践:制作自己的gmt文件和chip文件</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 10px;">linux, shell, bash</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/21/side-population-assay/">side population assay</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/12/GEO数据挖掘/">GEO数据挖掘</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/06/linux命令行与shell脚本编程大全学习笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/07/GSEA-制作自己的gmt文件和chip文件/">GSEA实践:制作自己的gmt文件和chip文件</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/06/转录因子预测/">transcription factor binding site(TFBS) prediction</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Chaoliang Diao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/resume" class="mobile-nav-link">Resume</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

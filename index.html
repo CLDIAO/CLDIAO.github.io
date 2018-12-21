@@ -70,6 +70,148 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-side-population-assay" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/21/side-population-assay/" class="article-date">
+  <time datetime="2018-12-21T08:32:05.000Z" itemprop="datePublished">2018-12-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/21/side-population-assay/">side population assay</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="preparation"><a href="#preparation" class="headerlink" title="preparation"></a>preparation</h1><ul>
+<li><p>cells（10^6/tube)</p>
+</li>
+<li><p>Hoechst33342 (sigma, B2261)</p>
+</li>
+<li><p>PI (2mg/ml)</p>
+</li>
+<li><p>Verapamil (sigma, 152-11-4)</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/12/21/side-population-assay/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cldiao.github.io/2018/12/21/side-population-assay/" data-id="cjpxtdwpg000ik4mvj3zhh84b" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SP-FCAS/">SP, FCAS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-GEO数据挖掘" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/12/GEO数据挖掘/" class="article-date">
+  <time datetime="2018-12-12T08:23:08.000Z" itemprop="datePublished">2018-12-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/12/GEO数据挖掘/">GEO数据挖掘</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-表达矩阵下载"><a href="#1-表达矩阵下载" class="headerlink" title="1.表达矩阵下载"></a>1.表达矩阵下载</h2><ul>
+<li><p>GEO Raw data(不推荐)</p>
+</li>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42872" target="_blank" rel="noopener">网页下载 </a> Series Matrix File(s)</p>
+<p><img src="C:\Users\DCL\Desktop\1.png" alt=""></p>
+<p><img src="C:\Users\DCL\Desktop\2.png" alt="2"></p>
+</li>
+<li><p>R-GEOquery</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># download the matrix</span></span><br><span class="line"><span class="keyword">library</span>(GEOquery)</span><br><span class="line"><span class="keyword">library</span>(stringr)</span><br><span class="line"></span><br><span class="line">gset &lt;- getGEO(<span class="string">'GSE42872'</span>, destdir=<span class="string">"."</span>, AnnotGPL = <span class="literal">F</span>, getGPL = <span class="literal">F</span>)</span><br><span class="line">save(gset, file = <span class="string">"GSE42872.gset.Rdata"</span>)</span><br><span class="line">load(<span class="string">'GSE42872.gset.Rdata'</span>)</span><br><span class="line"><span class="comment"># gset is a list.</span></span><br><span class="line">mar &lt;- gset[[<span class="number">1</span>]]</span><br><span class="line"><span class="comment"># expression matrix </span></span><br><span class="line">raw_exprSet &lt;- exprs(mar)</span><br><span class="line"><span class="comment"># phenotype</span></span><br><span class="line">phe &lt;- pData(mar)</span><br><span class="line"><span class="comment"># grouplist</span></span><br><span class="line">group_list &lt;- str_split(as.character(phe$title), <span class="string">' '</span>, simplify = <span class="literal">T</span>)[,<span class="number">4</span>]</span><br><span class="line"><span class="comment"># store the data</span></span><br><span class="line">save(raw_exprSet, group_list, file = <span class="string">"GSE42872.gset.Rdata"</span>)</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.bio-info-trainee.com/2087.html" target="_blank" rel="noopener">R来完成表达芯片分析全流程</a></p>
+<p><a href="https://vip.biotrainee.com/d/342-geo" target="_blank" rel="noopener">从GEO数据库下载得到表达矩阵 一文就够</a></p>
+</li>
+</ul>
+<h2 id="2-测试基因的表达-ID转换"><a href="#2-测试基因的表达-ID转换" class="headerlink" title="2.  测试基因的表达,ID转换"></a>2.  测试基因的表达,ID转换</h2><p><a href="http://www.bio-info-trainee.com/1399.html" target="_blank" rel="noopener">用R获取芯片探针与基因的对应关系三部曲-bioconductor</a></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># transfer probe id to gene symbol, some arraies' annotations have packages</span></span><br><span class="line"><span class="keyword">library</span>(hugene10sttranscriptcluster.db)</span><br><span class="line"><span class="comment"># get the table of probe and symbol.</span></span><br><span class="line">eg2proble &lt;- toTable(hugene10sttranscriptclusterSYMBOL)</span><br><span class="line"><span class="comment"># test a gene </span></span><br><span class="line">eg2proble[eg2proble$symbol == <span class="string">'TRAF4'</span>,]</span><br><span class="line">raw_exprSet[<span class="number">1</span>:<span class="number">4</span>, <span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line"><span class="comment"># normalization of the expression</span></span><br><span class="line">exprSet &lt;- log2(raw_exprSet)</span><br><span class="line"><span class="comment"># check TRAF4's expression in all samples</span></span><br><span class="line">dat &lt;- data.frame(gene = exprSet[<span class="string">'8005978'</span>,], mut = group_list)</span><br><span class="line">head(dat)</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  boxplot of TRAF4 expression with ggpubr</span></span><br><span class="line"><span class="keyword">library</span>(ggpubr)</span><br><span class="line">p &lt;- ggboxplot(dat, x = <span class="string">"mut"</span>, y = <span class="string">"gene"</span>, color = <span class="string">"mut"</span>, palette = <span class="string">"jco"</span>, add = <span class="string">"jitter"</span>)</span><br><span class="line">p = p +stat_compare_means(method = <span class="string">"t.test"</span>)</span><br><span class="line">p</span><br><span class="line"><span class="comment"># plots with statistical details</span></span><br><span class="line"><span class="keyword">library</span>(ggstatsplot)</span><br><span class="line">ggbetweenstats(data = dat, x = mut, y = gene)</span><br><span class="line"><span class="comment"># boxplot of TRAF4 expression with ggplot2</span></span><br><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line">ggplot(dat, aes(x = mut, y = gene))+</span><br><span class="line">  geom_boxplot()+</span><br><span class="line">  theme_bw()</span><br></pre></td></tr></table></figure>
+<p><img src="D:\forR\project\geoquery\1.png" alt=""></p>
+<p><img src="D:\forR\project\geoquery\2.png" alt=""></p>
+<p><img src="D:\forR\project\geoquery\3.png" alt=""></p>
+<h2 id="3-表达矩阵过滤"><a href="#3-表达矩阵过滤" class="headerlink" title="3.表达矩阵过滤"></a>3.表达矩阵过滤</h2><h2 id="4-差异分析"><a href="#4-差异分析" class="headerlink" title="4. 差异分析"></a>4. 差异分析</h2><p><a href="https://vip.biotrainee.com/d/116-limma" target="_blank" rel="noopener">用limma对芯片数据做差异分析</a></p>
+<h2 id="5-富集分析"><a href="#5-富集分析" class="headerlink" title="5. 富集分析"></a>5. 富集分析</h2><h2 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cldiao.github.io/2018/12/12/GEO数据挖掘/" data-id="cjpxtdwn00000k4mvqz537ngy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GEO/">GEO</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux命令行与shell脚本编程大全学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/06/linux命令行与shell脚本编程大全学习笔记/" class="article-date">
+  <time datetime="2018-12-06T06:54:14.000Z" itemprop="datePublished">2018-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本的bash-shell-命令"><a href="#基本的bash-shell-命令" class="headerlink" title="基本的bash shell 命令"></a>基本的bash shell 命令</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h3 id="1-man命令"><a href="#1-man命令" class="headerlink" title="1. man命令:"></a>1. man命令:</h3><p>用来访问存储在Linux系统上的手册页面。在想要查找的工具的名称前面输入man命令，就可以找到那个工具相应的手册条目。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ man touch</span><br><span class="line">NAME</span><br><span class="line">       touch - change file timestamps</span><br><span class="line"></span><br><span class="line">SYNOPSIS</span><br><span class="line">       touch [OPTION]... FILE...</span><br><span class="line"></span><br><span class="line">DESCRIPTION</span><br><span class="line">       Update the access and modification times of each FILE to the current time.</span><br><span class="line"></span><br><span class="line">       A FILE argument that does not exist is created empty, unless -c or -h is supplied.</span><br><span class="line"></span><br><span class="line">       A FILE argument string of - is handled specially and causes touch to change the times of the file associated with standard output.</span><br><span class="line"></span><br><span class="line">       Mandatory arguments to long options are mandatory for short options too.</span><br><span class="line"></span><br><span class="line">       -a     change only the access time</span><br><span class="line"></span><br><span class="line">       -c, --no-create</span><br><span class="line">              do not create any files</span><br><span class="line"></span><br><span class="line">       -d, --date=STRING</span><br><span class="line">              parse STRING and use it instead of current time</span><br><span class="line"></span><br><span class="line">       -f     (ignored)</span><br><span class="line"></span><br><span class="line">       -h, --no-dereference</span><br><span class="line">              affect each symbolic link instead of any referenced file (useful only on systems that can change the timestamps of a symlink)</span><br><span class="line"></span><br><span class="line">       -m     change only the modification time</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2018/12/06/linux命令行与shell脚本编程大全学习笔记/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cldiao.github.io/2018/12/06/linux命令行与shell脚本编程大全学习笔记/" data-id="cjpxtdwp2000bk4mvxi1xc9s7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-shell-bash/">linux, shell, bash</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-GSEA-制作自己的gmt文件和chip文件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/11/07/GSEA-制作自己的gmt文件和chip文件/" class="article-date">
@@ -103,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/11/07/GSEA-制作自己的gmt文件和chip文件/" data-id="cjo9fod9c0000iomvkq1j7ds9" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/11/07/GSEA-制作自己的gmt文件和chip文件/" data-id="cjpxtdwoh0003k4mvj1672phd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GSEA/">GSEA</a></li></ul>
@@ -148,7 +290,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/11/06/转录因子预测/" data-id="cjo9fodb1000aiomvpuoyl3w5" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/11/06/转录因子预测/" data-id="cjpxtdwpp000ok4mvhdzpg1q6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TFBS/">TFBS</a></li></ul>
@@ -192,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/11/05/R2-platform/" data-id="cjo9foda60003iomvnnkb9snm" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/11/05/R2-platform/" data-id="cjpxtdwok0004k4mv9vqfg81k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R2-database-correlation/">R2, database, correlation</a></li></ul>
@@ -235,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/10/30/if-publications-查询/" data-id="cjo9fodbr000kiomvo1cp6oc7" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/10/30/if-publications-查询/" data-id="cjpxtdwpt000pk4mv3g1tzypl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scholar-IF-publications/">scholar, IF, publications</a></li></ul>
@@ -278,7 +420,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/10/28/pubmed趋势/" data-id="cjo9fodby000miomvo6bh4dax" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/10/28/pubmed趋势/" data-id="cjpxtdwpn000mk4mve3humyre" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pubmed-R-visualization/">Pubmed, R, visualization</a></li></ul>
@@ -321,7 +463,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/10/18/GSEA分析/" data-id="cjo9fodae0005iomvy87env14" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/10/18/GSEA分析/" data-id="cjpxtdwoo0006k4mvfh2vmgcd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GSEA/">GSEA,</a></li></ul>
@@ -367,142 +509,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/09/27/R语言20题/" data-id="cjo9fodb7000diomvfkvys99m" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/09/27/R语言20题/" data-id="cjpxtdwqd0018k4mvhjjd6ndo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/09/02/hello-world/" class="article-date">
-  <time datetime="2018-09-02T14:38:36.368Z" itemprop="datePublished">2018-09-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/02/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>. </p>
-        
-          <p class="article-more-link">
-            <a href="/2018/09/02/hello-world/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/09/02/hello-world/" data-id="cjo9fodba000eiomvqgu0d7p4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Mac上安装一些应用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/09/01/Mac上安装一些应用/" class="article-date">
-  <time datetime="2018-09-01T06:51:45.000Z" itemprop="datePublished">2018-09-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/01/Mac上安装一些应用/">Mac上安装一些应用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>帮师姐找的应用。
-        
-          <p class="article-more-link">
-            <a href="/2018/09/01/Mac上安装一些应用/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/09/01/Mac上安装一些应用/" data-id="cjo9fodaw0009iomvm9kg2bqa" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/">Mac, office, Vmware fusion, Ps，Adobe</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-RNA-Seq analysis in R" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/29/RNA-Seq analysis in R/" class="article-date">
-  <time datetime="2018-07-28T16:28:44.000Z" itemprop="datePublished">2018-07-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/29/RNA-Seq analysis in R/">RNA-Seq analysis in R(EDITING)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="RNA-Seq-analysis-in-R"><a href="#RNA-Seq-analysis-in-R" class="headerlink" title="RNA-Seq analysis in R"></a>RNA-Seq analysis in R</h1><h2 id="Some-preparation"><a href="#Some-preparation" class="headerlink" title="Some preparation:"></a>Some preparation:</h2><h3 id="Packages-used"><a href="#Packages-used" class="headerlink" title="Packages used:"></a>Packages used:</h3><p>limma</p>
-<p>edgeR</p>
-<p>gplots</p>
-<p>org.Mm.eg.db</p>
-<p>RColorBrewer</p>
-<p>Glimma
-        
-          <p class="article-more-link">
-            <a href="/2018/07/29/RNA-Seq analysis in R/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/07/29/RNA-Seq analysis in R/" data-id="cjo9fodat0008iomvr5uulbb0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LINUX-VMware-RNA-Seq-R/">LINUX, VMware, RNA-Seq, R</a></li></ul>
 
     </footer>
   </div>
@@ -529,7 +539,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a>
+      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 10px;">linux, shell, bash</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a>
     </div>
   </div>
 
@@ -541,23 +551,23 @@
       <ul>
         
           <li>
+            <a href="/2018/12/21/side-population-assay/">side population assay</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/12/GEO数据挖掘/">GEO数据挖掘</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/06/linux命令行与shell脚本编程大全学习笔记/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2018/11/07/GSEA-制作自己的gmt文件和chip文件/">GSEA实践:制作自己的gmt文件和chip文件</a>
           </li>
         
           <li>
             <a href="/2018/11/06/转录因子预测/">transcription factor binding site(TFBS) prediction</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/05/R2-platform/">Analysis correlation between geneA and geneB using R2 platform</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/30/if-publications-查询/">if_publications 查询</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/28/pubmed趋势/">Pubmed趋势</a>
           </li>
         
       </ul>
