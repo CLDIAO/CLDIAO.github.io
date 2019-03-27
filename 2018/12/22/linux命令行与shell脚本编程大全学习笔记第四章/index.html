@@ -7,15 +7,20 @@
   
 
   
-  <title>Rumble&#39;s blog</title>
+  <title>linux命令行与shell脚本编程大全学习笔记第四章 | Rumble&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Rumble&#39;s blog">
-<meta property="og:url" content="https://cldiao.github.io/index.html">
+  <meta name="description" content="第四章：更多的bash shell 命令进程检测1. 探查进程: ps程序运行在系统上时，称之为进程（process）。ps命令可以监测这些进程。但是它的参数诸多，要掌握能提供自己需要信息的一组参数即可。 12345# 默认情况下，ps命令不提供太多信息,即当前控制台下当前用户的进程vip5@VM-0-15-ubuntu:~$ ps  PID TTY          TIME CMD13106">
+<meta name="keywords" content="linux, shell, bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux命令行与shell脚本编程大全学习笔记第四章">
+<meta property="og:url" content="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/index.html">
 <meta property="og:site_name" content="Rumble&#39;s blog">
+<meta property="og:description" content="第四章：更多的bash shell 命令进程检测1. 探查进程: ps程序运行在系统上时，称之为进程（process）。ps命令可以监测这些进程。但是它的参数诸多，要掌握能提供自己需要信息的一组参数即可。 12345# 默认情况下，ps命令不提供太多信息,即当前控制台下当前用户的进程vip5@VM-0-15-ubuntu:~$ ps  PID TTY          TIME CMD13106">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-11T13:49:00.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rumble&#39;s blog">
+<meta name="twitter:title" content="linux命令行与shell脚本编程大全学习笔记第四章">
+<meta name="twitter:description" content="第四章：更多的bash shell 命令进程检测1. 探查进程: ps程序运行在系统上时，称之为进程（process）。ps命令可以监测这些进程。但是它的参数诸多，要掌握能提供自己需要信息的一组参数即可。 12345# 默认情况下，ps命令不提供太多信息,即当前控制台下当前用户的进程vip5@VM-0-15-ubuntu:~$ ps  PID TTY          TIME CMD13106">
   
     <link rel="alternate" href="/atom.xml" title="Rumble&#39;s blog" type="application/atom+xml">
   
@@ -68,72 +73,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-win10安装" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/27/win10安装/" class="article-date">
-  <time datetime="2019-03-27T04:42:08.000Z" itemprop="datePublished">2019-03-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/27/win10安装/">win10 installation and activation</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>实验室新进一位阿拉伯留学生，电脑系统语言是中文。win10更新至1809后，不能修改系统显示语言。本着增加语言交流的目的，我在虚拟机中验证可行性后，帮其更换英文版系统。（个人安装，仅供科研学习，无商业用途）前段时间准备博士申请，markdown也变生疏，仍需多多学习，多多码字。</p>
-<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul>
-<li><p><a href="https://www.microsoft.com/en-us/software-download/windows10" target="_blank" rel="noopener">系统下载</a></p>
-</li>
-<li><p><a href="https://www.dropbox.com/s/7eueeragoymstex/win10.txt?dl=0" target="_blank" rel="noopener">激活文件</a></p>
-</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
-<li><p>下载系统</p>
-<p>使用上方下载链接下载<code>media creation tool</code>。然后根据需要下载Windows语言版本。</p>
-</li>
-<li><p>安装系统<br>windonws8开始，系统可以识别ISO文件，也就可以直接在当前系统使用<code>**.iso</code>文件进行系统安装。</p>
-</li>
-<li><p>激活系统</p>
-<p>将以下文本粘贴至记事本。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">title Windows 10 ALL version activator&amp;cls&amp;echo ************************************&amp;echo Supported products:&amp;echo - Windows 10 Home&amp;echo - Windows 10 Professional&amp;echo - Windows 10 Enterprise, Enterprise LTSB&amp;echo - Windows 10 Education&amp;echo.&amp;echo.&amp;echo ************************************ &amp;echo Windows 10 activation...</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99 &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk 3KHY7-WNT83-DGQKR-F7HPR-844BM &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk 7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk PVMJN-6DFY6-9CCP6-7BKTT-D3WVR &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk MH37W-N47XK-V7XM9-C7227-GCQG9 &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk NW6C2-QMPVW-D7KKK-3GKT6-VCFB2 &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43 &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4 &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk WNMTR-4C88C-JK8YV-HQ7T2-76DF9 &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk 2F77B-TNFGY-69QQF-B8YKP-D69TJ &gt;nul</span><br><span class="line">echo ************************************ &amp;echo.&amp;echo.&amp;set i=1</span><br><span class="line">:server</span><br><span class="line">if %i%==1 set KMS_Sev=kms.shuax.com</span><br><span class="line">if %i%==2 set KMS_Sev=NextLevel.uk.to</span><br><span class="line">if %i%==3 set KMS_Sev=GuangPeng.uk.to</span><br><span class="line">if %i%==4 set KMS_Sev=AlwaysSmile.uk.to</span><br><span class="line">if %i%==5 set KMS_Sev=kms.chinancce.com </span><br><span class="line">if %i%==6 exit</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /skms %KMS_Sev% &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ato | find /i &quot;successfully&quot; &amp;&amp; (echo.&amp; echo ************************************ &amp; echo. &amp; choice /n /c YN /m &quot;Do you want to restart your PC now [Y,N]?&quot; &amp; if errorlevel 2 exit) || (echo The connection to the server failed! Trying to connect to another one... &amp; echo Please wait... &amp; echo. &amp; echo. &amp; set /a i+=1 &amp; goto server)</span><br><span class="line">shutdown.exe /r /t 00</span><br></pre></td></tr></table></figure>
-<p>修改文件名为<code>windows10.cmd</code>。以管理员身份运行。即可完成激活。</p>
-<p><img src="https://github.com/CLDIAO/CLDIAO.github.io/raw/master/2019/%E6%89%B9%E6%B3%A8%202019-03-27%20130432.jpg" alt=""></p>
-<p><img src="https://github.com/CLDIAO/CLDIAO.github.io/raw/master/2019/%E6%89%B9%E6%B3%A8%202019-03-27%20130514.jpg" alt=""></p>
-</li>
-</ul>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>如图：</p>
-<p><img src="https://github.com/CLDIAO/CLDIAO.github.io/raw/master/2019/%E6%89%B9%E6%B3%A8%202019-03-27%20130311.jpg" alt=""></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://sihmar.com/download-windows-10-version-1803-iso-64-bit-or-32-bit-officially/" target="_blank" rel="noopener">http://sihmar.com/download-windows-10-version-1803-iso-64-bit-or-32-bit-officially/</a></p>
-<p><a href="https://www.youtube.com/watch?v=x07dH20pVYs" target="_blank" rel="noopener">https://www.youtube.com/watch?v=x07dH20pVYs</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/03/27/win10安装/" data-id="cjtqrihoe000oocmv0qmo9whd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows10-activation/">windows10, activation</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-linux命令行与shell脚本编程大全学习笔记第四章" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-linux命令行与shell脚本编程大全学习笔记第四章" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" class="article-date">
   <time datetime="2018-12-22T06:53:52.000Z" itemprop="datePublished">2018-12-22</time>
@@ -146,8 +86,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/">linux命令行与shell脚本编程大全学习笔记第四章</a>
+    <h1 class="article-title" itemprop="name">
+      linux命令行与shell脚本编程大全学习笔记第四章
     </h1>
   
 
@@ -420,393 +360,53 @@
     <footer class="article-footer">
       <a data-url="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-id="cjtqrihoq000yocmvbfr0arla" class="article-share-link">Share</a>
       
+<section id="comments">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-title="linux命令行与shell脚本编程大全学习笔记第四章" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chaooo"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-shell-bash/">linux, shell, bash</a></li></ul>
 
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-preparation-of-lipoplex" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/22/preparation-of-lipoplex/" class="article-date">
-  <time datetime="2018-12-22T06:26:43.000Z" itemprop="datePublished">2018-12-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2019/03/27/win10安装/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
+          win10 installation and activation
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/22/preparation-of-lipoplex/">preparation of lipoplex</a>
-    </h1>
   
+    <a href="/2018/12/22/preparation-of-lipoplex/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">preparation of lipoplex</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Preparation of 10 ml of 20 mM DODAP:Chol (1:1)</p>
-<ol>
-<li>preparation </li>
-</ol>
-<p>DOTAP (Avanti, 890890)</p>
-<p>cholesterol (Avanti,700000)</p>
-<p>rotary water bath</p>
-<p>D5W (5% Dextrose in water)</p>
-<p>sonicator </p>
-<p>filter</p>
-        
-          <p class="article-more-link">
-            <a href="/2018/12/22/preparation-of-lipoplex/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/22/preparation-of-lipoplex/" data-id="cjtqrihoa000nocmvtk0nkg18" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lipoplex/">lipoplex</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-side-population-assay" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/21/side-population-assay/" class="article-date">
-  <time datetime="2018-12-21T08:32:05.000Z" itemprop="datePublished">2018-12-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/21/side-population-assay/">side population assay</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="preparation"><a href="#preparation" class="headerlink" title="preparation"></a>preparation</h1><ul>
-<li><p>cells（10^6/tube)</p>
-</li>
-<li><p>Hoechst33342 (sigma, B2261)</p>
-</li>
-<li><p>PI (2mg/ml)</p>
-</li>
-<li><p>Verapamil (sigma, 152-11-4)</p>
-        
-          <p class="article-more-link">
-            <a href="/2018/12/21/side-population-assay/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/21/side-population-assay/" data-id="cjtqrihoo000wocmvd9w75yic" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SP-FCAS/">SP, FCAS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-GEO数据挖掘" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/12/GEO数据挖掘/" class="article-date">
-  <time datetime="2018-12-12T08:23:08.000Z" itemprop="datePublished">2018-12-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/12/GEO数据挖掘/">GEO数据挖掘</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-表达矩阵下载"><a href="#1-表达矩阵下载" class="headerlink" title="1.表达矩阵下载"></a>1.表达矩阵下载</h2><ul>
-<li><p>GEO Raw data(不推荐)</p>
-</li>
-<li><p><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42872" target="_blank" rel="noopener">网页下载 </a> Series Matrix File(s)</p>
-<p><img src="C:\Users\DCL\Desktop\1.png" alt=""></p>
-<p><img src="C:\Users\DCL\Desktop\2.png" alt="2"></p>
-</li>
-<li><p>R-GEOquery</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># download the matrix</span></span><br><span class="line"><span class="keyword">library</span>(GEOquery)</span><br><span class="line"><span class="keyword">library</span>(stringr)</span><br><span class="line"></span><br><span class="line">gset &lt;- getGEO(<span class="string">'GSE42872'</span>, destdir=<span class="string">"."</span>, AnnotGPL = <span class="literal">F</span>, getGPL = <span class="literal">F</span>)</span><br><span class="line">save(gset, file = <span class="string">"GSE42872.gset.Rdata"</span>)</span><br><span class="line">load(<span class="string">'GSE42872.gset.Rdata'</span>)</span><br><span class="line"><span class="comment"># gset is a list.</span></span><br><span class="line">mar &lt;- gset[[<span class="number">1</span>]]</span><br><span class="line"><span class="comment"># expression matrix </span></span><br><span class="line">raw_exprSet &lt;- exprs(mar)</span><br><span class="line"><span class="comment"># phenotype</span></span><br><span class="line">phe &lt;- pData(mar)</span><br><span class="line"><span class="comment"># grouplist</span></span><br><span class="line">group_list &lt;- str_split(as.character(phe$title), <span class="string">' '</span>, simplify = <span class="literal">T</span>)[,<span class="number">4</span>]</span><br><span class="line"><span class="comment"># store the data</span></span><br><span class="line">save(raw_exprSet, group_list, file = <span class="string">"GSE42872.gset.Rdata"</span>)</span><br></pre></td></tr></table></figure>
-<p><a href="http://www.bio-info-trainee.com/2087.html" target="_blank" rel="noopener">R来完成表达芯片分析全流程</a></p>
-<p><a href="https://vip.biotrainee.com/d/342-geo" target="_blank" rel="noopener">从GEO数据库下载得到表达矩阵 一文就够</a></p>
-</li>
-</ul>
-<h2 id="2-测试基因的表达-ID转换"><a href="#2-测试基因的表达-ID转换" class="headerlink" title="2.  测试基因的表达,ID转换"></a>2.  测试基因的表达,ID转换</h2><p><a href="http://www.bio-info-trainee.com/1399.html" target="_blank" rel="noopener">用R获取芯片探针与基因的对应关系三部曲-bioconductor</a></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># transfer probe id to gene symbol, some arraies' annotations have packages</span></span><br><span class="line"><span class="keyword">library</span>(hugene10sttranscriptcluster.db)</span><br><span class="line"><span class="comment"># get the table of probe and symbol.</span></span><br><span class="line">eg2proble &lt;- toTable(hugene10sttranscriptclusterSYMBOL)</span><br><span class="line"><span class="comment"># test a gene </span></span><br><span class="line">eg2proble[eg2proble$symbol == <span class="string">'TRAF4'</span>,]</span><br><span class="line">raw_exprSet[<span class="number">1</span>:<span class="number">4</span>, <span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line"><span class="comment"># normalization of the expression</span></span><br><span class="line">exprSet &lt;- log2(raw_exprSet)</span><br><span class="line"><span class="comment"># check TRAF4's expression in all samples</span></span><br><span class="line">dat &lt;- data.frame(gene = exprSet[<span class="string">'8005978'</span>,], mut = group_list)</span><br><span class="line">head(dat)</span><br></pre></td></tr></table></figure>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  boxplot of TRAF4 expression with ggpubr</span></span><br><span class="line"><span class="keyword">library</span>(ggpubr)</span><br><span class="line">p &lt;- ggboxplot(dat, x = <span class="string">"mut"</span>, y = <span class="string">"gene"</span>, color = <span class="string">"mut"</span>, palette = <span class="string">"jco"</span>, add = <span class="string">"jitter"</span>)</span><br><span class="line">p = p +stat_compare_means(method = <span class="string">"t.test"</span>)</span><br><span class="line">p</span><br><span class="line"><span class="comment"># plots with statistical details</span></span><br><span class="line"><span class="keyword">library</span>(ggstatsplot)</span><br><span class="line">ggbetweenstats(data = dat, x = mut, y = gene)</span><br><span class="line"><span class="comment"># boxplot of TRAF4 expression with ggplot2</span></span><br><span class="line"><span class="keyword">library</span>(ggplot2)</span><br><span class="line">ggplot(dat, aes(x = mut, y = gene))+</span><br><span class="line">  geom_boxplot()+</span><br><span class="line">  theme_bw()</span><br></pre></td></tr></table></figure>
-<p><img src="D:\forR\project\geoquery\1.png" alt=""></p>
-<p><img src="D:\forR\project\geoquery\2.png" alt=""></p>
-<p><img src="D:\forR\project\geoquery\3.png" alt=""></p>
-<h2 id="3-表达矩阵过滤"><a href="#3-表达矩阵过滤" class="headerlink" title="3.表达矩阵过滤"></a>3.表达矩阵过滤</h2><h2 id="4-差异分析"><a href="#4-差异分析" class="headerlink" title="4. 差异分析"></a>4. 差异分析</h2><p><a href="https://vip.biotrainee.com/d/116-limma" target="_blank" rel="noopener">用limma对芯片数据做差异分析</a></p>
-<h2 id="5-富集分析"><a href="#5-富集分析" class="headerlink" title="5. 富集分析"></a>5. 富集分析</h2><h2 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/12/GEO数据挖掘/" data-id="cjtqrihnp000hocmvjawedpyn" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GEO/">GEO</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-linux命令行与shell脚本编程大全学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/06/linux命令行与shell脚本编程大全学习笔记/" class="article-date">
-  <time datetime="2018-12-06T06:54:14.000Z" itemprop="datePublished">2018-12-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="第三章：基本的bash-shell-命令"><a href="#第三章：基本的bash-shell-命令" class="headerlink" title="第三章：基本的bash shell 命令"></a>第三章：基本的bash shell 命令</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h3 id="1-man命令"><a href="#1-man命令" class="headerlink" title="1. man命令:"></a>1. man命令:</h3><p>用来访问存储在Linux系统上的手册页面。在想要查找的工具的名称前面输入man命令，就可以找到那个工具相应的手册条目。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ man touch</span><br><span class="line">NAME</span><br><span class="line">       touch - change file timestamps</span><br><span class="line"></span><br><span class="line">SYNOPSIS</span><br><span class="line">       touch [OPTION]... FILE...</span><br><span class="line"></span><br><span class="line">DESCRIPTION</span><br><span class="line">       Update the access and modification times of each FILE to the current time.</span><br><span class="line"></span><br><span class="line">       A FILE argument that does not exist is created empty, unless -c or -h is supplied.</span><br><span class="line"></span><br><span class="line">       A FILE argument string of - is handled specially and causes touch to change the times of the file associated with standard output.</span><br><span class="line"></span><br><span class="line">       Mandatory arguments to long options are mandatory for short options too.</span><br><span class="line"></span><br><span class="line">       -a     change only the access time</span><br><span class="line"></span><br><span class="line">       -c, --no-create</span><br><span class="line">              do not create any files</span><br><span class="line"></span><br><span class="line">       -d, --date=STRING</span><br><span class="line">              parse STRING and use it instead of current time</span><br><span class="line"></span><br><span class="line">       -f     (ignored)</span><br><span class="line"></span><br><span class="line">       -h, --no-dereference</span><br><span class="line">              affect each symbolic link instead of any referenced file (useful only on systems that can change the timestamps of a symlink)</span><br><span class="line"></span><br><span class="line">       -m     change only the modification time</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2018/12/06/linux命令行与shell脚本编程大全学习笔记/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/06/linux命令行与shell脚本编程大全学习笔记/" data-id="cjtqriho4000locmvizhtl1e4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-shell-bash/">linux, shell, bash</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-GSEA-制作自己的gmt文件和chip文件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/07/GSEA-制作自己的gmt文件和chip文件/" class="article-date">
-  <time datetime="2018-11-07T15:22:43.000Z" itemprop="datePublished">2018-11-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/07/GSEA-制作自己的gmt文件和chip文件/">GSEA实践:制作自己的gmt文件和chip文件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="梯子"><a href="#梯子" class="headerlink" title="梯子"></a>梯子</h1><p><a href="http://www.omicsclass.com/article/223" target="_blank" rel="noopener">如何将GEO芯片注释文件整理成GSEA能使用的芯片注释文件？</a></p>
-<p><a href="https://www.plob.org/article/12007.html" target="_blank" rel="noopener">GSEA分析支持的数据格式</a></p>
-<p><a href="http://www.bio-info-trainee.com/2144.html" target="_blank" rel="noopener">制作自己的gene set文件给gsea软件</a></p>
-        
-          <p class="article-more-link">
-            <a href="/2018/11/07/GSEA-制作自己的gmt文件和chip文件/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/11/07/GSEA-制作自己的gmt文件和chip文件/" data-id="cjtqrihn8000bocmvwumao9ln" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GSEA/">GSEA</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-转录因子预测" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/06/转录因子预测/" class="article-date">
-  <time datetime="2018-11-06T11:32:49.000Z" itemprop="datePublished">2018-11-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/06/转录因子预测/">transcription factor binding site(TFBS) prediction</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>梯子：</p>
-<p><a href="http://blog.sciencenet.cn/blog-3372875-1096783.html" target="_blank" rel="noopener">史上最全物种转录因子、motif数据库footprintDB</a></p>
-<p><a href="https://mp.weixin.qq.com/s?__biz=MzAxMjQ3MTU5Mg==&amp;mid=2650656785&amp;idx=1&amp;sn=a3b72ea64df125a190c3f7a1634a316c&amp;chksm=83b82c56b4cfa54033890e0cf52bed379f34bb2db372f83ec5d01e30b7272799906df58eecde&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">点鼠标就能找启动子区的motif | meme-FIMO</a></p>
-        
-          <p class="article-more-link">
-            <a href="/2018/11/06/转录因子预测/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/11/06/转录因子预测/" data-id="cjtqrihok000socmvr8fq1fyr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TFBS/">TFBS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-R2-platform" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/05/R2-platform/" class="article-date">
-  <time datetime="2018-11-05T08:50:29.000Z" itemprop="datePublished">2018-11-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/05/R2-platform/">Analysis correlation between geneA and geneB using R2 platform</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>用途：大样本验证</p>
-<p>梯子：</p>
-        
-          <p class="article-more-link">
-            <a href="/2018/11/05/R2-platform/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/11/05/R2-platform/" data-id="cjtqrihnh000focmvqsfv9cgj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R2-database-correlation/">R2, database, correlation</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-if-publications-查询" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/30/if-publications-查询/" class="article-date">
-  <time datetime="2018-10-30T12:08:35.000Z" itemprop="datePublished">2018-10-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/30/if-publications-查询/">if_publications 查询</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://guangchuangyu.github.io/cn/2018/07/scholar-impact-factor/" target="_blank" rel="noopener">scholar包检索期刊影响因子</a></p>
-        
-          <p class="article-more-link">
-            <a href="/2018/10/30/if-publications-查询/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/10/30/if-publications-查询/" data-id="cjtqrihnt000jocmv7dqwwx0o" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scholar-IF-publications/">scholar, IF, publications</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         
