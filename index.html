@@ -93,35 +93,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>实验室新进一位阿拉伯留学生，电脑系统语言是中文。win10更新至1809后，不能修改系统显示语言。本着增加语言交流的目的，我在虚拟机中验证可行性后，帮其更换英文版系统。（个人安装，仅供科研学习，无商业用途）前段时间准备博士申请，markdown也变生疏，仍需多多学习，多多码字。</p>
-<h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul>
-<li><p><a href="https://www.microsoft.com/en-us/software-download/windows10" target="_blank" rel="noopener">系统下载</a></p>
-</li>
-<li><p><a href="https://www.dropbox.com/s/7eueeragoymstex/win10.txt?dl=0" target="_blank" rel="noopener">激活文件</a></p>
-</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ul>
-<li><p>下载系统</p>
-<p>使用上方下载链接下载<code>media creation tool</code>。然后根据需要下载Windows语言版本。</p>
-</li>
-<li><p>安装系统<br>windonws8开始，系统可以识别ISO文件，也就可以直接在当前系统使用<code>**.iso</code>文件进行系统安装。</p>
-</li>
-<li><p>激活系统</p>
-<p>将以下文本粘贴至记事本。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">title Windows 10 ALL version activator&amp;cls&amp;echo ************************************&amp;echo Supported products:&amp;echo - Windows 10 Home&amp;echo - Windows 10 Professional&amp;echo - Windows 10 Enterprise, Enterprise LTSB&amp;echo - Windows 10 Education&amp;echo.&amp;echo.&amp;echo ************************************ &amp;echo Windows 10 activation...</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk TX9XD-98N7V-6WMQ6-BX7FG-H8Q99 &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk 3KHY7-WNT83-DGQKR-F7HPR-844BM &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk 7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk PVMJN-6DFY6-9CCP6-7BKTT-D3WVR &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk MH37W-N47XK-V7XM9-C7227-GCQG9 &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk NW6C2-QMPVW-D7KKK-3GKT6-VCFB2 &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43 &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4 &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk WNMTR-4C88C-JK8YV-HQ7T2-76DF9 &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ipk 2F77B-TNFGY-69QQF-B8YKP-D69TJ &gt;nul</span><br><span class="line">echo ************************************ &amp;echo.&amp;echo.&amp;set i=1</span><br><span class="line">:server</span><br><span class="line">if %i%==1 set KMS_Sev=kms.shuax.com</span><br><span class="line">if %i%==2 set KMS_Sev=NextLevel.uk.to</span><br><span class="line">if %i%==3 set KMS_Sev=GuangPeng.uk.to</span><br><span class="line">if %i%==4 set KMS_Sev=AlwaysSmile.uk.to</span><br><span class="line">if %i%==5 set KMS_Sev=kms.chinancce.com </span><br><span class="line">if %i%==6 exit</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /skms %KMS_Sev% &gt;nul</span><br><span class="line">cscript //nologo c:\windows\system32\slmgr.vbs /ato | find /i &quot;successfully&quot; &amp;&amp; (echo.&amp; echo ************************************ &amp; echo. &amp; choice /n /c YN /m &quot;Do you want to restart your PC now [Y,N]?&quot; &amp; if errorlevel 2 exit) || (echo The connection to the server failed! Trying to connect to another one... &amp; echo Please wait... &amp; echo. &amp; echo. &amp; set /a i+=1 &amp; goto server)</span><br><span class="line">shutdown.exe /r /t 00</span><br></pre></td></tr></table></figure>
-<p>修改文件名为<code>windows10.cmd</code>。以管理员身份运行。即可完成激活。</p>
-<p><img src="https://github.com/CLDIAO/CLDIAO.github.io/raw/master/2019/%E6%89%B9%E6%B3%A8%202019-03-27%20130432.jpg" alt=""></p>
-<p><img src="https://github.com/CLDIAO/CLDIAO.github.io/raw/master/2019/%E6%89%B9%E6%B3%A8%202019-03-27%20130514.jpg" alt=""></p>
-</li>
-</ul>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>如图：</p>
-<p><img src="https://github.com/CLDIAO/CLDIAO.github.io/raw/master/2019/%E6%89%B9%E6%B3%A8%202019-03-27%20130311.jpg" alt=""></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://sihmar.com/download-windows-10-version-1803-iso-64-bit-or-32-bit-officially/" target="_blank" rel="noopener">http://sihmar.com/download-windows-10-version-1803-iso-64-bit-or-32-bit-officially/</a></p>
-<p><a href="https://www.youtube.com/watch?v=x07dH20pVYs" target="_blank" rel="noopener">https://www.youtube.com/watch?v=x07dH20pVYs</a></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2019/03/27/win10安装/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/03/27/win10安装/" data-id="cjtqrihoe000oocmv0qmo9whd" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/03/27/win10安装/" data-id="cjtqrlofr000yn4mvz389sdeb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows10-activation/">windows10, activation</a></li></ul>
@@ -418,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-id="cjtqrihoq000yocmvbfr0arla" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-id="cjtqrlof0000nn4mvchgzwfim" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-shell-bash/">linux, shell, bash</a></li></ul>
@@ -470,7 +450,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/22/preparation-of-lipoplex/" data-id="cjtqrihoa000nocmvtk0nkg18" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/22/preparation-of-lipoplex/" data-id="cjtqrlofl000un4mvb42kw850" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lipoplex/">lipoplex</a></li></ul>
@@ -520,7 +500,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/21/side-population-assay/" data-id="cjtqrihoo000wocmvd9w75yic" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/21/side-population-assay/" data-id="cjtqrlofb000rn4mvpcpul294" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SP-FCAS/">SP, FCAS</a></li></ul>
@@ -578,7 +558,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/12/GEO数据挖掘/" data-id="cjtqrihnp000hocmvjawedpyn" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/12/GEO数据挖掘/" data-id="cjtqrlodg0005n4mvgvawcgas" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GEO/">GEO</a></li></ul>
@@ -612,7 +592,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/06/linux命令行与shell脚本编程大全学习笔记/" data-id="cjtqriho4000locmvizhtl1e4" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/06/linux命令行与shell脚本编程大全学习笔记/" data-id="cjtqrloew000ln4mv33cegzhq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-shell-bash/">linux, shell, bash</a></li></ul>
@@ -657,7 +637,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/11/07/GSEA-制作自己的gmt文件和chip文件/" data-id="cjtqrihn8000bocmvwumao9ln" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/11/07/GSEA-制作自己的gmt文件和chip文件/" data-id="cjtqrlocb0000n4mvne4miimo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GSEA/">GSEA</a></li></ul>
@@ -702,7 +682,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/11/06/转录因子预测/" data-id="cjtqrihok000socmvr8fq1fyr" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/11/06/转录因子预测/" data-id="cjtqrlofn000wn4mvgj6fzsat" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TFBS/">TFBS</a></li></ul>
@@ -746,7 +726,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/11/05/R2-platform/" data-id="cjtqrihnh000focmvqsfv9cgj" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/11/05/R2-platform/" data-id="cjtqrlodr0007n4mvbi8ecs3h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R2-database-correlation/">R2, database, correlation</a></li></ul>
@@ -789,7 +769,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/10/30/if-publications-查询/" data-id="cjtqrihnt000jocmv7dqwwx0o" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/10/30/if-publications-查询/" data-id="cjtqrloen000jn4mvrlvpmpg5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scholar-IF-publications/">scholar, IF, publications</a></li></ul>
