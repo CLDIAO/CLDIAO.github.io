@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Rumble&#39;s blog">
 <meta property="og:description" content="第四章：更多的bash shell 命令进程检测1. 探查进程: ps程序运行在系统上时，称之为进程（process）。ps命令可以监测这些进程。但是它的参数诸多，要掌握能提供自己需要信息的一组参数即可。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-27T05:26:51.380Z">
+<meta property="og:updated_time" content="2019-03-30T06:39:22.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux命令行与shell脚本编程大全学习笔记第四章">
 <meta name="twitter:description" content="第四章：更多的bash shell 命令进程检测1. 探查进程: ps程序运行在系统上时，称之为进程（process）。ps命令可以监测这些进程。但是它的参数诸多，要掌握能提供自己需要信息的一组参数即可。">
@@ -95,8 +95,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="第四章：更多的bash-shell-命令"><a href="#第四章：更多的bash-shell-命令" class="headerlink" title="第四章：更多的bash shell 命令"></a>第四章：更多的bash shell 命令</h1><h2 id="进程检测"><a href="#进程检测" class="headerlink" title="进程检测"></a>进程检测</h2><h3 id="1-探查进程-ps"><a href="#1-探查进程-ps" class="headerlink" title="1. 探查进程: ps"></a>1. 探查进程: ps</h3><p>程序运行在系统上时，称之为进程（process）。ps命令可以监测这些进程。但是它的参数诸多，要掌握能提供自己需要信息的一组参数即可。</p>
-<a id="more"></a>
+        <h1 id="第四章：更多的bash-shell-命令"><a href="#第四章：更多的bash-shell-命令" class="headerlink" title="第四章：更多的bash shell 命令"></a>第四章：更多的bash shell 命令</h1><h2 id="进程检测"><a href="#进程检测" class="headerlink" title="进程检测"></a>进程检测</h2><h3 id="1-探查进程-ps"><a href="#1-探查进程-ps" class="headerlink" title="1. 探查进程: ps"></a>1. 探查进程: ps</h3><p>程序运行在系统上时，称之为进程（process）。ps命令可以监测这些进程。但是它的参数诸多，要掌握能提供自己需要信息的一组参数即可。<a id="more"></a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 默认情况下，ps命令不提供太多信息,即当前控制台下当前用户的进程</span></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ps</span><br><span class="line">  PID TTY          TIME CMD</span><br><span class="line">13106 pts/1    00:00:00 bash</span><br><span class="line">13320 pts/1    00:00:00 ps</span><br></pre></td></tr></table></figure>
 <p>Linux中ps命令支持3种不同类型的命令行参数：</p>
 <ul>
@@ -355,11 +354,105 @@
 </li>
 </ul>
 <p>这些工具基本上和bzip2的用法一样。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls</span><br><span class="line">file1  file3  my_file.txt</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ gzip my_file.txt </span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls</span><br><span class="line">file1  file3  my_file.txt.gz</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ gunzip my_file.txt.gz </span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls</span><br><span class="line">file1  file3  my_file.txt</span><br></pre></td></tr></table></figure>
+<p>gzip命令可以压缩指定单个文件，多个文件甚至用通配符来批量压缩文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls</span><br><span class="line">file1  file3  my_file.txt</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ gzip fi*</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls</span><br><span class="line">file1.gz  file3.gz  my_file.txt</span><br></pre></td></tr></table></figure>
+<h3 id="4-归档数据"><a href="#4-归档数据" class="headerlink" title="4. 归档数据"></a>4. 归档数据</h3><p>​    zip命令可以进行数据压缩和归档，但Unix和Linux中最广泛使用的归档工具是tar命令。</p>
+<p>​    <code>tar</code>命令的格式：<code>tar function [options] object1 object2 ...</code></p>
+<p>tar命令的功能：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>长名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-A</td>
+<td>–concatenate</td>
+<td>将一个已有tar归档文件追加到另一个已有tar归档文件</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>–create</td>
+<td>创建一个新的tar归档文件</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>–diff</td>
+<td>检查归档文件和文件系统的不同之处</td>
+</tr>
+<tr>
+<td></td>
+<td>–delete</td>
+<td>从已有tar归档文件中删除</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>–append</td>
+<td>追加文件到已有tar归档文件末尾</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>–list</td>
+<td>列出已有tar归档文件的内容</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>–update</td>
+<td>将比tar归档文件中已有的同名文件新的文件追加到该tar归档文件中</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>–extract</td>
+<td>从已有tar归档文件中提取文件</td>
+</tr>
+</tbody>
+</table>
+<p>tar命令选项</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c dir</td>
+<td style="text-align:left">切换到指定目录</td>
+</tr>
+<tr>
+<td>-f file</td>
+<td style="text-align:left">输出结果到文件或设备file</td>
+</tr>
+<tr>
+<td>-j</td>
+<td style="text-align:left">将输出重定向给bzip2命令来压缩内容</td>
+</tr>
+<tr>
+<td>-p</td>
+<td style="text-align:left">保留所有文件权限</td>
+</tr>
+<tr>
+<td>-v</td>
+<td style="text-align:left">在处理文件时显示文件</td>
+</tr>
+<tr>
+<td>-z</td>
+<td style="text-align:left">将输出重定向给gzip命令来压缩内容</td>
+</tr>
+</tbody>
+</table>
+<p>这些选项通常合并到一起使用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建一个归档文件</span></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ tar -cvf test.tar test/</span><br><span class="line">test/</span><br><span class="line">test/my_file.txt</span><br><span class="line">test/file3.gz</span><br><span class="line">test/file1.gz</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ls</span><br><span class="line">biosoft  readme.txt  test  test.tar</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 列出归档文件的内容</span></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ tar -tf test.tar</span><br><span class="line">test/</span><br><span class="line">test/my_file.txt</span><br><span class="line">test/file3.gz</span><br><span class="line">test/file1.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 提取归档文件的内容</span></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ tar -xvf test.tar</span><br><span class="line">test/</span><br><span class="line">test/my_file.txt</span><br><span class="line">test/file3.gz</span><br><span class="line">test/file1.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建归档文件并使用gzip命令压缩</span></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ tar -zcvf test.tar.gz test/</span><br><span class="line">test/</span><br><span class="line">test/my_file.txt</span><br><span class="line">test/file3.gz</span><br><span class="line">test/file1.gz</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ls</span><br><span class="line">biosoft  readme.txt  test  test.tar  test.tar.gz</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-id="cjtqrrqq0000megmv90mj1g0x" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-id="cjtv4wzi2000jekmv68t8de0f" class="article-share-link">Share</a>
       
 <section id="comments">
 <!-- 多说评论框 start -->
