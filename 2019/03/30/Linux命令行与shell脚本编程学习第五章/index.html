@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Rumble&#39;s blog">
 <meta property="og:description" content="第五章 理解shell​    通过进一步学习shell进程，将了解如何创建子shell以及父shell与子shell之间的关系。探究各种用于创建子进程的命令和内建命令。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-03T08:50:00.234Z">
+<meta property="og:updated_time" content="2019-04-03T09:39:29.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux命令行与shell脚本编程大全学习第五章">
 <meta name="twitter:description" content="第五章 理解shell​    通过进一步学习shell进程，将了解如何创建子shell以及父shell与子shell之间的关系。探究各种用于创建子进程的命令和内建命令。">
@@ -101,7 +101,8 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ cat /etc/passwd</span><br><span class="line">[...]</span><br><span class="line">vip5:x:1009:1013::/home/vip5:/bin/bash</span><br></pre></td></tr></table></figure>
 <p>​    bash shell程序位于/bin目录中。是一个可执行程序：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ ls -lF /bin/bash</span><br><span class="line">-rwxr-xr-x 1 root root 1037528 May 16  2017 /bin/bash*</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	默认的交互shell会在用户登录后运行终端时启动。另外还有一个默认shell是/bin/sh，它作为默认的系统shell，用于那些需要启动时使用的shell脚本。在Ubuntu中，默认的系统shell和默认的交互shell并不相同：</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ls -l /bin/sh</span><br><span class="line">lrwxrwxrwx 1 root root 4 Oct 26  2016 /bin/sh -&gt; dash</span><br></pre></td></tr></table></figure>
+<p>​    默认的交互shell会在用户登录后运行终端时启动。另外还有一个默认shell是/bin/sh，它作为默认的系统shell，用于那些需要启动时使用的shell脚本。在Ubuntu中，默认的系统shell和默认的交互shell并不相同：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ ls -l /bin/sh</span><br><span class="line">lrwxrwxrwx 1 root root 4 Oct 26  2016 /bin/sh -&gt; dash</span><br></pre></td></tr></table></figure>
 <h2 id="2-shell的父子关系"><a href="#2-shell的父子关系" class="headerlink" title="2.shell的父子关系"></a>2.shell的父子关系</h2><p>​    登录终端时所启动的默认的交互shell，是一个父shell。提示符$是父shell提供CLI提示符，等待命令输入。</p>
 <p>​    在CLI提示符后输入/bin/bash命令或其他等效的bash命令时，会创建一个新的shell程序。这个shell程序称为子shell。子shell也有CLI提示符，同样等待命令输入。</p>
 <p>​    当输入bash、生成子shell的时候，我们是看不到的，需要ps命令配合选项-f来使用。</p>
@@ -170,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cju0z1o3j0000n4mvdtihs7mw" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cju10sco40002ksmvf00n7m12" class="article-share-link">Share</a>
       
 <section id="comments">
 <!-- 多说评论框 start -->
