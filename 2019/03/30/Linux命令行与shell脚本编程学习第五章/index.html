@@ -7,16 +7,20 @@
   
 
   
-  <title>Linux命令行与shell脚本编程学习第五章 | Rumble&#39;s blog</title>
+  <title>Linux命令行与shell脚本编程大全学习第五章 | Rumble&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Linux命令行与shell脚本编程学习第五章">
+  <meta name="description" content="第五章 理解shell​    通过进一步学习shell进程，将了解如何创建子shell以及父shell与子shell之间的关系。探究各种用于创建子进程的命令和内建命令。 1.shell的类型​    系统启动什么样的shell程序取决于个人的用户id配置。在/etc/passwd文件夹中，用户ID记录的第七个字段中列出默认的shell程序。用户登录后，默认的shell程序就会开始运行。 ​">
+<meta name="keywords" content="Linux, shell, bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux命令行与shell脚本编程大全学习第五章">
 <meta property="og:url" content="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/index.html">
 <meta property="og:site_name" content="Rumble&#39;s blog">
+<meta property="og:description" content="第五章 理解shell​    通过进一步学习shell进程，将了解如何创建子shell以及父shell与子shell之间的关系。探究各种用于创建子进程的命令和内建命令。 1.shell的类型​    系统启动什么样的shell程序取决于个人的用户id配置。在/etc/passwd文件夹中，用户ID记录的第七个字段中列出默认的shell程序。用户登录后，默认的shell程序就会开始运行。 ​">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-30T08:05:13.950Z">
+<meta property="og:updated_time" content="2019-03-30T14:52:38.374Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux命令行与shell脚本编程学习第五章">
+<meta name="twitter:title" content="Linux命令行与shell脚本编程大全学习第五章">
+<meta name="twitter:description" content="第五章 理解shell​    通过进一步学习shell进程，将了解如何创建子shell以及父shell与子shell之间的关系。探究各种用于创建子进程的命令和内建命令。 1.shell的类型​    系统启动什么样的shell程序取决于个人的用户id配置。在/etc/passwd文件夹中，用户ID记录的第七个字段中列出默认的shell程序。用户登录后，默认的shell程序就会开始运行。 ​">
   
     <link rel="alternate" href="/atom.xml" title="Rumble&#39;s blog" type="application/atom+xml">
   
@@ -53,7 +57,7 @@
         
           <a class="main-nav-link" href="/archives">Archives</a>
         
-          <a class="main-nav-link" href="/resume">Resume</a>
+          <a class="main-nav-link" href="/about">About</a>
         
       </nav>
       <nav id="sub-nav">
@@ -83,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Linux命令行与shell脚本编程学习第五章
+      Linux命令行与shell脚本编程大全学习第五章
     </h1>
   
 
@@ -91,15 +95,50 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="第五章-理解shell"><a href="#第五章-理解shell" class="headerlink" title="第五章 理解shell"></a>第五章 理解shell</h1><p>​    通过进一步学习shell进程，将了解如何创建子shell以及父shell与子shell之间的关系。探究各种用于创建子进程的命令和内建命令。</p>
+<h2 id="1-shell的类型"><a href="#1-shell的类型" class="headerlink" title="1.shell的类型"></a>1.shell的类型</h2><p>​    系统启动什么样的shell程序取决于个人的用户id配置。在/etc/passwd文件夹中，用户ID记录的第七个字段中列出默认的shell程序。用户登录后，默认的shell程序就会开始运行。</p>
+<p>​    下面的例子中，用户使用bash shell作为默认的shell程序：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ cat /etc/passwd</span><br><span class="line">[...]</span><br><span class="line">vip5:x:1009:1013::/home/vip5:/bin/bash</span><br></pre></td></tr></table></figure>
+<p>​    bash shell程序位于/bin目录中。是一个可执行程序：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ ls -lF /bin/bash</span><br><span class="line">-rwxr-xr-x 1 root root 1037528 May 16  2017 /bin/bash*</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	默认的交互shell会在用户登录后运行终端时启动。另外还有一个默认shell是/bin/sh，它作为默认的系统shell，用于那些需要启动时使用的shell脚本。在Ubuntu中，默认的系统shell和默认的交互shell并不相同：</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ls -l /bin/sh</span><br><span class="line">lrwxrwxrwx 1 root root 4 Oct 26  2016 /bin/sh -&gt; dash</span><br></pre></td></tr></table></figure>
+<h2 id="2-shell的父子关系"><a href="#2-shell的父子关系" class="headerlink" title="2.shell的父子关系"></a>2.shell的父子关系</h2><p>​    登录终端时所启动的默认的交互shell，是一个父shell。提示符$是父shell提供CLI提示符，等待命令输入。</p>
+<p>​    在CLI提示符后输入/bin/bash命令或其他等效的bash命令时，会创建一个新的shell程序。这个shell程序称为子shell。子shell也有CLI提示符，同样等待命令输入。</p>
+<p>​    当输入bash、生成子shell的时候，我们是看不到的，需要ps命令配合选项-f来使用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ ps -f</span><br><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">vip5     25481 32086  0 22:01 pts/4    00:00:00 ps -f</span><br><span class="line">vip5     32086 32081  0 13:08 pts/4    00:00:00 -bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ps -f</span><br><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">vip5     26590 32086  0 22:03 pts/4    00:00:00 bash</span><br><span class="line">vip5     26658 26590  0 22:03 pts/4    00:00:00 ps -f</span><br><span class="line">vip5     32086 32081  0 13:08 pts/4    00:00:00 -bash</span><br></pre></td></tr></table></figure>
+<p>​    第一次使用ps -f的时候，显示出了两个进程。输入bash命令后，一个子shell出现了。根据PPID，可以发现第二个ps -f是在子shell中执行的。可以看到两个bash shell程序在运行。</p>
+<p>​    生成子shell进程时，只有部分父进程的环境被复制到子shell环境中。这会对包括变量在内的一些东西造成影响。</p>
+<p>​    子shell可以从父shell中创建，也可以从另一个子shell中创建。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ ps -f</span><br><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">vip5      3943 32086  0 22:15 pts/4    00:00:00 ps -f</span><br><span class="line">vip5     32086 32081  0 13:08 pts/4    00:00:00 -bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ps --forest</span><br><span class="line">  PID TTY          TIME CMD</span><br><span class="line">32086 pts/4    00:00:00 bash</span><br><span class="line"> 4018 pts/4    00:00:00  \_ bash</span><br><span class="line"> 4090 pts/4    00:00:00      \_ bash</span><br><span class="line"> 4119 pts/4    00:00:00          \_ bash</span><br><span class="line"> 4229 pts/4    00:00:00              \_ ps</span><br></pre></td></tr></table></figure>
+<p>​    如上，bash命令被输入了三次。创建了三个子shell。ps -forest命令展示了这些子shell间的嵌套结构。</p>
+<p>​    exit命令可以有条不紊地退出子shell。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ exit </span><br><span class="line">exit</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ exit</span><br><span class="line">exit</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ exit</span><br><span class="line">exit</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ps -f</span><br><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">vip5      6636 32086  0 22:18 pts/4    00:00:00 ps -f</span><br><span class="line">vip5     32086 32081  0 13:08 pts/4    00:00:00 -bash</span><br></pre></td></tr></table></figure>
+<p>​    exit还可以退出当前终端。</p>
+<h3 id="1-进程列表"><a href="#1-进程列表" class="headerlink" title="1. 进程列表"></a>1. 进程列表</h3><p>​    在一行中指定要依次运行的一系列命令。这可以通过命令列表来实现，只需要在命令之间加入分号（;）。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ pwd; ls; cd /etc; pwd; cd; pwd; ls</span><br><span class="line">/home/vip5</span><br><span class="line">biosoft  readme.txt  test  test.tar  test.tar.gz</span><br><span class="line">/etc</span><br><span class="line">/home/vip5</span><br><span class="line">biosoft  readme.txt  test  test.tar  test.tar.gz</span><br></pre></td></tr></table></figure>
+<p>​    命令列表要想成为进程列表，这些命令必须包含在括号里。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ (pwd; ls; cd /etc; pwd; cd; pwd; ls)</span><br><span class="line">/home/vip5</span><br><span class="line">biosoft  readme.txt  test  test.tar  test.tar.gz</span><br><span class="line">/etc</span><br><span class="line">/home/vip5</span><br><span class="line">biosoft  readme.txt  test  test.tar  test.tar.gz</span><br></pre></td></tr></table></figure>
+<p>​    多出来的括号看起来没什么不同，但起到的效果是非同寻常的。括号使得命令列表变成进程列表，生成了一个子shell来执行对应的命令。</p>
+<p>​    要想知道是否生成了子shell，可以借助环境变量命令echo $BASH_SUBSHELL。若返回为0，表明没有子shell。返回1或更大数字，就表明有子shell。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ pwd; ls; cd /etc; pwd; cd; pwd; ls; echo $BASH_SUBSHELL</span><br><span class="line">/home/vip5</span><br><span class="line">biosoft  readme.txt  test  test.tar  test.tar.gz</span><br><span class="line">/etc</span><br><span class="line">/home/vip5</span><br><span class="line">biosoft  readme.txt  test  test.tar  test.tar.gz</span><br><span class="line">0</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ (pwd; ls; cd /etc; pwd; cd; pwd; ls; echo $BASH_SUBSHELL)</span><br><span class="line">/home/vip5</span><br><span class="line">biosoft  readme.txt  test  test.tar  test.tar.gz</span><br><span class="line">/etc</span><br><span class="line">/home/vip5</span><br><span class="line">biosoft  readme.txt  test  test.tar  test.tar.gz</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<p>​    在shell脚本中，经常使用子shell进行多进程处理。但会拖慢处理速度。</p>
+<h3 id="2-子shell的用法"><a href="#2-子shell的用法" class="headerlink" title="2. 子shell的用法"></a>2. 子shell的用法</h3><p>​    交互式shell中，一个搞笑的子shell用法就是使用后台模式。</p>
+<h4 id="1-探索后台模式"><a href="#1-探索后台模式" class="headerlink" title="1. 探索后台模式"></a>1. 探索后台模式</h4><p>​    后台模式中运行命令可以在处理命令的同时让出CLI，演示后台模式的经典命令就是sleep。</p>
+<p>​    sleep命令接受一个参数是进程等待的秒数。命令sleep 5会将会话暂停5秒钟，然后返回shell CLI提示符。要想将命令置入后台模式，在命令末尾加上&amp;。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ sleep 100&amp;</span><br><span class="line">[1] 28503</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ps -f</span><br><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">vip5     28503 32086  0 22:44 pts/4    00:00:00 sleep 100</span><br><span class="line">vip5     28599 32086  0 22:44 pts/4    00:00:00 ps -f</span><br><span class="line">vip5     32086 32081  0 13:08 pts/4    00:00:00 -bash</span><br></pre></td></tr></table></figure>
+<p>​    当命令被置入后台，CLI提示符返回之前，出现两条信息。一个条是后台作业号[1]，第二条是后台作业的进程ID(28503)。</p>
+<p>​    除了ps命令，还可以使用jobs命令来显示后台作业信息。-l 参数可以显示命令的PID。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ jobs -l</span><br><span class="line">[1]+   689 Running                 sleep 1000 &amp;</span><br></pre></td></tr></table></figure>
+<p>​    jobs命令显示了作业号，当前状态，及对应的命令。</p>
+<h4 id="2-将进程列表置入后台"><a href="#2-将进程列表置入后台" class="headerlink" title="2. 将进程列表置入后台"></a>2. 将进程列表置入后台</h4>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cjtv8aas80006lomvz31z9dju" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cju0mu61z0000p4mvyrblqaxn" class="article-share-link">Share</a>
       
 <section id="comments">
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-title="Linux命令行与shell脚本编程学习第五章" data-url=""></div>
+  <div class="ds-thread" data-thread-key="2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-title="Linux命令行与shell脚本编程大全学习第五章" data-url=""></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -117,6 +156,8 @@ var duoshuoQuery = {short_name:"chaooo"};
 </section>
 
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
+
     </footer>
   </div>
   
@@ -145,7 +186,7 @@ var duoshuoQuery = {short_name:"chaooo"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 20px;">linux, shell, bash</a> <a href="/tags/lipoplex/" style="font-size: 10px;">lipoplex</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a> <a href="/tags/windows10-activation/" style="font-size: 10px;">windows10, activation</a>
+      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Linux-shell-bash/" style="font-size: 10px;">Linux, shell, bash</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 20px;">linux, shell, bash</a> <a href="/tags/lipoplex/" style="font-size: 10px;">lipoplex</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a> <a href="/tags/windows10-activation/" style="font-size: 10px;">windows10, activation</a>
     </div>
   </div>
 
@@ -157,7 +198,7 @@ var duoshuoQuery = {short_name:"chaooo"};
       <ul>
         
           <li>
-            <a href="/2019/03/30/Linux命令行与shell脚本编程学习第五章/">Linux命令行与shell脚本编程学习第五章</a>
+            <a href="/2019/03/30/Linux命令行与shell脚本编程学习第五章/">Linux命令行与shell脚本编程大全学习第五章</a>
           </li>
         
           <li>
@@ -200,7 +241,7 @@ var duoshuoQuery = {short_name:"chaooo"};
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
   
-    <a href="/resume" class="mobile-nav-link">Resume</a>
+    <a href="/about" class="mobile-nav-link">About</a>
   
 </nav>
     
