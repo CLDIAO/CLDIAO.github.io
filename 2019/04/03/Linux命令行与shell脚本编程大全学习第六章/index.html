@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="baidu-site-verification" content="d8vuriatOq" />
+ <meta name="google-site-verification" content="ZKzrltgUA1iKyVKyH5hNp1TzVg-9LIJqbb09vFyUcWg" />
+  <meta charset="utf-8">
+  
+
+  
+  <title>Linux命令行与shell脚本编程学习第六章 | Rumble&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用Linux环境变量Linux环境变量，我们需要了解：它们存储在哪里，怎样使用，以及怎样创建自己的环境变量。">
+<meta name="keywords" content="Linux, shell, bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux命令行与shell脚本编程学习第六章">
+<meta property="og:url" content="https://cldiao.github.io/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/index.html">
+<meta property="og:site_name" content="Rumble&#39;s blog">
+<meta property="og:description" content="使用Linux环境变量Linux环境变量，我们需要了解：它们存储在哪里，怎样使用，以及怎样创建自己的环境变量。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-05T09:14:13.293Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux命令行与shell脚本编程学习第六章">
+<meta name="twitter:description" content="使用Linux环境变量Linux环境变量，我们需要了解：它们存储在哪里，怎样使用，以及怎样创建自己的环境变量。">
+  
+    <link rel="alternate" href="/atom.xml" title="Rumble&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Rumble&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay hungry, stay foolish.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://cldiao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Linux命令行与shell脚本编程大全学习第六章" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" class="article-date">
+  <time datetime="2019-04-03T12:05:03.000Z" itemprop="datePublished">2019-04-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux命令行与shell脚本编程学习第六章
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="使用Linux环境变量"><a href="#使用Linux环境变量" class="headerlink" title="使用Linux环境变量"></a>使用Linux环境变量</h1><p>Linux环境变量，我们需要了解：它们存储在哪里，怎样使用，以及怎样创建自己的环境变量。<a id="more"></a></p>
+<h2 id="1-什么是环境变量"><a href="#1-什么是环境变量" class="headerlink" title="1. 什么是环境变量"></a>1. 什么是环境变量</h2><p>bash shell用一个叫做环境变量（environment variable）的特性来存储有关shell会话和工作环境的信息。这项特性允许你在内存中存储数据，以便程序或shell中运行的脚本能够轻松访问到它们。这也是存储持久数据的一种方法。环境变量分为两种：全局变量和局部变量。</p>
+<h3 id="1-1-全局环境变量"><a href="#1-1-全局环境变量" class="headerlink" title="1.1 全局环境变量"></a>1.1 全局环境变量</h3><p>全局环境变量对于shell会话和所生成的子shell都是可见的。局部变量只对创建他们的shell可见.系统环境变量基本上都是使用全大写字母,以区别普通用户的环境变量。要查看全局变量,可以使用env或printenv命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ printenv</span><br><span class="line">XDG_SESSION_ID=236714</span><br><span class="line">TERM=xterm</span><br><span class="line">SHELL=/bin/bash</span><br><span class="line">HISTSIZE=3000</span><br><span class="line">SSH_CLIENT=59.46.158.67 4042 22</span><br><span class="line">SSH_TTY=/dev/pts/0</span><br><span class="line">USER=vip5</span><br><span class="line">MAIL=/var/mail/vip5</span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin</span><br><span class="line">PWD=/home/vip5</span><br><span class="line">LANG=en_US.utf8</span><br><span class="line">SHLVL=1</span><br><span class="line">HOME=/home/vip5</span><br><span class="line">LOGNAME=vip5</span><br><span class="line">SSH_CONNECTION=59.46.158.67 4042 172.30.0.15 22</span><br><span class="line">PROMPT_COMMAND=history -a; </span><br><span class="line">XDG_RUNTIME_DIR=/run/user/1009</span><br><span class="line">HISTTIMEFORMAT=%F %T </span><br><span class="line">_=/usr/bin/printenv</span><br></pre></td></tr></table></figure>
+<p>系统为bash shell设置的全局环境变量数目众多。很多是在登录过程中设置的，另外，登陆方式也会影响所设置的环境变量。查看个别环境变量的值，可以使用printenv命令，但不要使用env命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ printenv HOME</span><br><span class="line">/home/vip5</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ env HOME</span><br><span class="line">env: ‘HOME’: No such file or directory</span><br></pre></td></tr></table></figure>
+<p>也可以使用echo显示变量的值。这种情况下引用某个环境变量的时候，必须在变量前面加$。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ echo $HOME</span><br><span class="line">/home/vip5</span><br></pre></td></tr></table></figure>
+<p>变量名前加$不仅可以显示变量当前的值。它能够作为命令行参数。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ ls $HOME</span><br><span class="line">biosoft  readme.txt  test  test.tar  test.tar.gz</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ls /home/vip5</span><br><span class="line">biosoft  readme.txt  test  test.tar  test.tar.gz</span><br></pre></td></tr></table></figure>
+<p>全局变量可用于进程的所有子shell。在下面的例子中，bash命令生成一个子shell后，显示了HOME环境变量的当前值，这个值和父shell中是一样的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ps -f</span><br><span class="line">UID        PID  PPID  C STIME TTY          TIME CMD</span><br><span class="line">vip5      4174 27158  0 20:36 pts/0    00:00:00 bash</span><br><span class="line">vip5      4242  4174  0 20:36 pts/0    00:00:00 ps -f</span><br><span class="line">vip5     27158 27147  0 20:25 pts/0    00:00:00 -bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $HOME</span><br><span class="line">/home/vip5</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ exit</span><br><span class="line">exit</span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-局部环境变量"><a href="#1-2-局部环境变量" class="headerlink" title="1.2 局部环境变量"></a>1.2 局部环境变量</h3><p>局部环境变量只能在定义它们的进程中可见，但和全局环境变量一样重要。Linux中没有一个只显示局部变量的命令。set命令会显示为某个特定进程设置的所有环境变量，包括局部变量、全局变量以及用户自定义的变量。通过printenv命令看到的全局变量都出现在了set命令的输出中。</p>
+<h2 id="2-设置用户定义变量"><a href="#2-设置用户定义变量" class="headerlink" title="2.设置用户定义变量"></a>2.设置用户定义变量</h2><p>bash shell中可以直接设置自己的变量。那么怎样在交互式shell或者shell脚本程序中创建自己的变量并引用它们。</p>
+<h3 id="2-1-设置局部用户自定义变量"><a href="#2-1-设置局部用户自定义变量" class="headerlink" title="2.1 设置局部用户自定义变量"></a>2.1 设置局部用户自定义变量</h3><p>一旦启动了bash shell，就能创建在这个shell进程内可见的局部变量了。可以通过等号给环境变量赋值，值可以是数值或者字符串。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable=Hello</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">Hello</span><br></pre></td></tr></table></figure>
+<p>如果要给变量赋一个含空格的字符串值，必须用引号界定字符串的首和尾。变量名、等号和值之间没有空格，否则值会被当做单独的命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable=Hello World</span><br><span class="line">World: command not found</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable="Hello World"</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">Hello World</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable='Hello World'</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">Hello World</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable</span><br><span class="line">my_variable:: command not found</span><br></pre></td></tr></table></figure>
+<p>设置了局部环境变量后，可以在shell进程任何地方使用它，但如果生成了另一个shell，它在子shell中不可用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable='Hello World'</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ exit</span><br><span class="line">exit</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable Hello World</span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure>
+<p>如上，在子shell中无法使用用户定义变量my_variable。当推出子shell回到原来的shell时，局部环境变量依然可用。类似的，在子shell中设置了局部环境变量，退出子进程，那个局部环境变量就不可用。</p>
+<h3 id="2-2-设置全局环境变量"><a href="#2-2-设置全局环境变量" class="headerlink" title="2.2 设置全局环境变量"></a>2.2 设置全局环境变量</h3><p>在设定全局环境变量的进程所创建的子进程中，该变量都是可见的。创建全局环境变量的方法时先创建一个局部环境变量，再把它导出到全局环境中。这个过程需要export命令来完成，变量名前不加$。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable="I am Global now"</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ export my_variable</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ exit</span><br><span class="line">exit</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure>
+<p>定义并到处局部环境变量my_variable后，bash命令启动了一个子shell。在这个子shell中能够正确的显示出变量my_variable的值，因为export命令使其变成了全局环境变量。修改子shell中全局环境变量并不会影响到父shell中该变量的值。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable="I am Global now"</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ export my_variable</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable</span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable="Null"</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ exit</span><br><span class="line">exit</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure>
+<p>在定义并导出变量my_variable后，bash命令启动了一个子shell。这个子shell可正确显示出全局环境便令my_variable的值。子shell随后改变了这个变量的值。但是这种改变仅在子shell中有效，不会反映到父shell中。子shell甚至无法使用export命令改变父shell中全局环境变量的值。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable="I am Global now"</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ export my_variable</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable="Null"</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ export my_variable</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">Null</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ exit</span><br><span class="line">exit</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br></pre></td></tr></table></figure>
+<h2 id="3-删除环境变量"><a href="#3-删除环境变量" class="headerlink" title="3. 删除环境变量"></a>3. 删除环境变量</h2><p>使用unset命令来删除已经存在的环境变量。在unset命令中引用环境变量时，不要使用$。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable="I am Global now"</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ unset my_variable </span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>涉及到环境便令名时，如果要用变量，使用$,如果要操作变量，不适用$。</p>
+<p>在子shell中删除全局环境变量，只对子shell进程有效，无法反映到父shell中。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ my_variable="I am Global now"</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ export my_variable</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line"><span class="meta">&gt;</span> I am Global now</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line"><span class="meta">&gt;</span> I am Global now</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ unset my_variable</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ echo $my_variable</span><br><span class="line"><span class="meta">&gt;</span> </span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ exit </span><br><span class="line"><span class="meta">&gt;</span> exit</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line"><span class="meta">&gt;</span> I am Global now</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ </span><br><span class="line"><span class="meta">&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+</blockquote>
+<h2 id="4-设置PATH环境变量"><a href="#4-设置PATH环境变量" class="headerlink" title="4. 设置PATH环境变量"></a>4. 设置PATH环境变量</h2><p>当shell命令行界面输入一个外部命令时，shell必须搜索系统来找到对应的程序。PATH环境变量定义了用于进行命令和程序查找的目录。学习所用的Ubuntu系统中，PATH环境变量内容是这样的：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ echo $PATH</span><br><span class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin</span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure>
+<p>输出中显示了9个可供shell用来查找命令和程序。PATH中的目录使用冒号分隔。如果命令或者程序的未知没有包括在PATH变量中，若不适用绝对路径的话，shell是没法找到的。当shell找不到指定的命令或程序，会产生一个错误信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ myprog</span><br><span class="line">myprog: command not found</span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure>
+<p>所以我们要保证PATH环境变量包含了所有存放应用程序的目录。我们可以把新的搜索目录添加到现有的PATH环境变量中，无需从头定义。只需引用原来的PATH值，冒号间隔，再给这个字符串添加新的目录就行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ echo $PATH </span><br><span class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ PATH=$PATH:/home/vip5/biosoft/anaconda/anaconda3/bin</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $PATH </span><br><span class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/vip5/biosoft/anaconda/anaconda3/bin</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ conda</span><br><span class="line">usage: conda [-h] [-V] command ...</span><br><span class="line"></span><br><span class="line">conda is a tool for managing and deploying applications, environments and packages.</span><br></pre></td></tr></table></figure>
+<p>将目录添加到PATH环境变量之后，可以在虚拟目录结构的任何位置执行程序。也可以将单点符加入PATH环境变量，代表当前目录。</p>
+<p>对PATH变量的修改只能持续到退出或者重启系统。这个效果不能一直持续。后面学习如何永久保持环境变量的修改效果。</p>
+<h2 id="5-定位系统环境变量"><a href="#5-定位系统环境变量" class="headerlink" title="5.定位系统环境变量"></a>5.定位系统环境变量</h2><p>知道了如何修改系统环境变量，也知道了如何创建自己的环境变量，那么如何让环境变量的作用持久化？</p>
+<p>bash shell启动方式有三种</p>
+<h3 id="5-1-登录shell"><a href="#5-1-登录shell" class="headerlink" title="5.1 登录shell"></a>5.1 登录shell</h3><h3 id="5-2-交互式shell进程"><a href="#5-2-交互式shell进程" class="headerlink" title="5.2 交互式shell进程"></a>5.2 交互式shell进程</h3><h3 id="5-3-非交互式shell"><a href="#5-3-非交互式shell" class="headerlink" title="5.3 非交互式shell"></a>5.3 非交互式shell</h3><h3 id="5-4-环境变量持久化"><a href="#5-4-环境变量持久化" class="headerlink" title="5.4 环境变量持久化"></a>5.4 环境变量持久化</h3><p>对全局环境变量来说，更倾向于将新的或修改过的变量设置放在/etc/profile文件中。如果升级了所用的发行版，这个文件会更新，所有定制过的变量设置就没了。最好在/etc/profile.d目录中创建一个.sh结尾的文件。把所有新的或修改过的全局环境变量设置放在这个文件中。</p>
+<p>在多数发行版中，存储个人用户永久性bash shell变量的地方是$HOME/.bashrc文件。</p>
+<p>alias命令设置是不能持久的。可以把自己的alias设置放在$HOME/.bashrc启动文件中，使其效果永久化。</p>
+<h2 id="6-数组变量"><a href="#6-数组变量" class="headerlink" title="6. 数组变量"></a>6. 数组变量</h2><p>环境变量可作为数组使用。数组可以存储多个值，这些值可以单独引用或作为整个数组来使用。</p>
+<p>要给某个环境变量设置多个值，可以把值放在括号里，值与值之间用空格分隔。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ mytest=(one two three four five)</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $mytest </span><br><span class="line">one</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $&#123;mytest[2]&#125; </span><br><span class="line">three</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ </span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $&#123;mytest[*]&#125; </span><br><span class="line">one two three four five</span><br></pre></td></tr></table></figure>
+<p>要引用一个单独的数组元素，必须用代表它在数组中位置的数值索引值，用方括号括起来。索引值从零开始。要显示整个数组变量，用星号作为通配符放在索引值的位置。</p>
+<p>可以改变某个索引值位置的值。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ mytest[2]=seven</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $&#123;mytest[*]&#125; </span><br><span class="line">one two seven four five</span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure>
+<p>甚至使用unset命令删除某个值或整个数组。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ unset mytest[2]</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $&#123;mytest[*]&#125; </span><br><span class="line">one two four five</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $&#123;mytest[2]&#125; </span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $&#123;mytest[4]&#125; </span><br><span class="line">five</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ </span><br><span class="line">vip5@VM-0-15-ubuntu:~$ unset mytest </span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $&#123;myset[*]&#125;</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure>
+<p>数组变量有时会让事情麻烦，不常用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cldiao.github.io/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" data-id="cju3ut1kz0000ygmvqwu8u663" class="article-share-link">Share</a>
+      
+<section id="comments">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" data-title="Linux命令行与shell脚本编程学习第六章" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chaooo"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/30/Linux命令行与shell脚本编程学习第五章/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Linux命令行与shell脚本编程大全学习第五章</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Linux-shell-bash/" style="font-size: 20px;">Linux, shell, bash</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 20px;">linux, shell, bash</a> <a href="/tags/lipoplex/" style="font-size: 10px;">lipoplex</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a> <a href="/tags/windows10-activation/" style="font-size: 10px;">windows10, activation</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/">Linux命令行与shell脚本编程学习第六章</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/30/Linux命令行与shell脚本编程学习第五章/">Linux命令行与shell脚本编程大全学习第五章</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/27/win10安装/">win10 installation and activation</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/">linux命令行与shell脚本编程大全学习笔记第四章</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/22/preparation-of-lipoplex/">preparation of lipoplex</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Chaoliang Diao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
