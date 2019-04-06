@@ -95,6 +95,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+	         <!-- Table of Contents -->
+                 
         <h1 id="第五章-理解shell"><a href="#第五章-理解shell" class="headerlink" title="第五章 理解shell"></a>第五章 理解shell</h1><p>​    通过进一步学习shell进程，将了解如何创建子shell以及父shell与子shell之间的关系。探究各种用于创建子进程的命令和内建命令。<a id="more"></a></p>
 <h2 id="1-shell的类型"><a href="#1-shell的类型" class="headerlink" title="1.shell的类型"></a>1.shell的类型</h2><p>​    系统启动什么样的shell程序取决于个人的用户id配置。在/etc/passwd文件夹中，用户ID记录的第七个字段中列出默认的shell程序。用户登录后，默认的shell程序就会开始运行。</p>
 <p>​    下面的例子中，用户使用bash shell作为默认的shell程序：</p>
@@ -171,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cju3ut1lt0003ygmvsav5fcpm" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cju54s1200008e0mv4u3b5nsi" class="article-share-link">Share</a>
       
 <section id="comments">
 <!-- 多说评论框 start -->
@@ -232,7 +234,7 @@ var duoshuoQuery = {short_name:"chaooo"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Linux-shell-bash/" style="font-size: 20px;">Linux, shell, bash</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 20px;">linux, shell, bash</a> <a href="/tags/lipoplex/" style="font-size: 10px;">lipoplex</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a> <a href="/tags/windows10-activation/" style="font-size: 10px;">windows10, activation</a>
+      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Linux-shell-bash/" style="font-size: 20px;">Linux, shell, bash</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 15px;">linux, shell, bash</a> <a href="/tags/lipoplex/" style="font-size: 10px;">lipoplex</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a> <a href="/tags/windows10-activation/" style="font-size: 10px;">windows10, activation</a>
     </div>
   </div>
 
@@ -242,6 +244,10 @@ var duoshuoQuery = {short_name:"chaooo"};
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/04/05/Linux命令行与shell脚本编程学习第九章/">Linux命令行与shell脚本编程学习第九章</a>
+          </li>
         
           <li>
             <a href="/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/">Linux命令行与shell脚本编程学习第六章</a>
@@ -257,10 +263,6 @@ var duoshuoQuery = {short_name:"chaooo"};
         
           <li>
             <a href="/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/">linux命令行与shell脚本编程大全学习笔记第四章</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/22/preparation-of-lipoplex/">preparation of lipoplex</a>
           </li>
         
       </ul>

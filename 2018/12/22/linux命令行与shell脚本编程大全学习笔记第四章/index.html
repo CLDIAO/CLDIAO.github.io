@@ -95,6 +95,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+	         <!-- Table of Contents -->
+                 
         <h1 id="第四章：更多的bash-shell-命令"><a href="#第四章：更多的bash-shell-命令" class="headerlink" title="第四章：更多的bash shell 命令"></a>第四章：更多的bash shell 命令</h1><h2 id="进程检测"><a href="#进程检测" class="headerlink" title="进程检测"></a>进程检测</h2><h3 id="1-探查进程-ps"><a href="#1-探查进程-ps" class="headerlink" title="1. 探查进程: ps"></a>1. 探查进程: ps</h3><p>程序运行在系统上时，称之为进程（process）。ps命令可以监测这些进程。但是它的参数诸多，要掌握能提供自己需要信息的一组参数即可。<a id="more"></a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 默认情况下，ps命令不提供太多信息,即当前控制台下当前用户的进程</span></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ps</span><br><span class="line">  PID TTY          TIME CMD</span><br><span class="line">13106 pts/1    00:00:00 bash</span><br><span class="line">13320 pts/1    00:00:00 ps</span><br></pre></td></tr></table></figure>
 <p>Linux中ps命令支持3种不同类型的命令行参数：</p>
@@ -452,7 +454,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-id="cju3ut1pt000tygmvcy93yfdp" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-id="cju54s13d000ue0mvyd1x1pg2" class="article-share-link">Share</a>
       
 <section id="comments">
 <!-- 多说评论框 start -->
@@ -513,7 +515,7 @@ var duoshuoQuery = {short_name:"chaooo"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Linux-shell-bash/" style="font-size: 20px;">Linux, shell, bash</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 20px;">linux, shell, bash</a> <a href="/tags/lipoplex/" style="font-size: 10px;">lipoplex</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a> <a href="/tags/windows10-activation/" style="font-size: 10px;">windows10, activation</a>
+      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Linux-shell-bash/" style="font-size: 20px;">Linux, shell, bash</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 15px;">linux, shell, bash</a> <a href="/tags/lipoplex/" style="font-size: 10px;">lipoplex</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a> <a href="/tags/windows10-activation/" style="font-size: 10px;">windows10, activation</a>
     </div>
   </div>
 
@@ -523,6 +525,10 @@ var duoshuoQuery = {short_name:"chaooo"};
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/04/05/Linux命令行与shell脚本编程学习第九章/">Linux命令行与shell脚本编程学习第九章</a>
+          </li>
         
           <li>
             <a href="/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/">Linux命令行与shell脚本编程学习第六章</a>
@@ -538,10 +544,6 @@ var duoshuoQuery = {short_name:"chaooo"};
         
           <li>
             <a href="/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/">linux命令行与shell脚本编程大全学习笔记第四章</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/22/preparation-of-lipoplex/">preparation of lipoplex</a>
           </li>
         
       </ul>

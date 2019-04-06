@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Rumble&#39;s blog">
 <meta property="og:description" content="使用Linux环境变量Linux环境变量，我们需要了解：它们存储在哪里，怎样使用，以及怎样创建自己的环境变量。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-05T09:14:13.293Z">
+<meta property="og:updated_time" content="2019-04-06T06:41:50.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux命令行与shell脚本编程学习第六章">
 <meta name="twitter:description" content="使用Linux环境变量Linux环境变量，我们需要了解：它们存储在哪里，怎样使用，以及怎样创建自己的环境变量。">
@@ -95,6 +95,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+	         <!-- Table of Contents -->
+                 
+                   <div id="toc" class="toc-article">
+                     <strong class="toc-title">目录</strong>
+                     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用Linux环境变量"><span class="toc-text">使用Linux环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什么是环境变量"><span class="toc-text">1. 什么是环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-全局环境变量"><span class="toc-text">1.1 全局环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-局部环境变量"><span class="toc-text">1.2 局部环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-设置用户定义变量"><span class="toc-text">2.设置用户定义变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-设置局部用户自定义变量"><span class="toc-text">2.1 设置局部用户自定义变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-设置全局环境变量"><span class="toc-text">2.2 设置全局环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-删除环境变量"><span class="toc-text">3. 删除环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-设置PATH环境变量"><span class="toc-text">4. 设置PATH环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-定位系统环境变量"><span class="toc-text">5.定位系统环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-登录shell"><span class="toc-text">5.1 登录shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-交互式shell进程"><span class="toc-text">5.2 交互式shell进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-非交互式shell"><span class="toc-text">5.3 非交互式shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-环境变量持久化"><span class="toc-text">5.4 环境变量持久化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-数组变量"><span class="toc-text">6. 数组变量</span></a></li></ol></li></ol>
+                   </div>
+                 
         <h1 id="使用Linux环境变量"><a href="#使用Linux环境变量" class="headerlink" title="使用Linux环境变量"></a>使用Linux环境变量</h1><p>Linux环境变量，我们需要了解：它们存储在哪里，怎样使用，以及怎样创建自己的环境变量。<a id="more"></a></p>
 <h2 id="1-什么是环境变量"><a href="#1-什么是环境变量" class="headerlink" title="1. 什么是环境变量"></a>1. 什么是环境变量</h2><p>bash shell用一个叫做环境变量（environment variable）的特性来存储有关shell会话和工作环境的信息。这项特性允许你在内存中存储数据，以便程序或shell中运行的脚本能够轻松访问到它们。这也是存储持久数据的一种方法。环境变量分为两种：全局变量和局部变量。</p>
 <h3 id="1-1-全局环境变量"><a href="#1-1-全局环境变量" class="headerlink" title="1.1 全局环境变量"></a>1.1 全局环境变量</h3><p>全局环境变量对于shell会话和所生成的子shell都是可见的。局部变量只对创建他们的shell可见.系统环境变量基本上都是使用全大写字母,以区别普通用户的环境变量。要查看全局变量,可以使用env或printenv命令。</p>
@@ -130,6 +137,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ my_variable="I am Global now"</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ export my_variable</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line"><span class="meta">&gt;</span> I am Global now</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line"><span class="meta">&gt;</span> I am Global now</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ unset my_variable</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ echo $my_variable</span><br><span class="line"><span class="meta">&gt;</span> </span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ exit </span><br><span class="line"><span class="meta">&gt;</span> exit</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line"><span class="meta">&gt;</span> I am Global now</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ </span><br><span class="line"><span class="meta">&gt;</span></span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
+<p> ​        </p>
 </blockquote>
 <h2 id="4-设置PATH环境变量"><a href="#4-设置PATH环境变量" class="headerlink" title="4. 设置PATH环境变量"></a>4. 设置PATH环境变量</h2><p>当shell命令行界面输入一个外部命令时，shell必须搜索系统来找到对应的程序。PATH环境变量定义了用于进行命令和程序查找的目录。学习所用的Ubuntu系统中，PATH环境变量内容是这样的：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ echo $PATH</span><br><span class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin</span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure>
@@ -157,7 +165,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" data-id="cju3ut1kz0000ygmvqwu8u663" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" data-id="cju54s1190003e0mvclvwivea" class="article-share-link">Share</a>
       
 <section id="comments">
 <!-- 多说评论框 start -->
@@ -187,6 +195,15 @@ var duoshuoQuery = {short_name:"chaooo"};
     
 <nav id="article-nav">
   
+    <a href="/2019/04/05/Linux命令行与shell脚本编程学习第九章/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Linux命令行与shell脚本编程学习第九章
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/03/30/Linux命令行与shell脚本编程学习第五章/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
@@ -209,7 +226,7 @@ var duoshuoQuery = {short_name:"chaooo"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Linux-shell-bash/" style="font-size: 20px;">Linux, shell, bash</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 20px;">linux, shell, bash</a> <a href="/tags/lipoplex/" style="font-size: 10px;">lipoplex</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a> <a href="/tags/windows10-activation/" style="font-size: 10px;">windows10, activation</a>
+      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Linux-shell-bash/" style="font-size: 20px;">Linux, shell, bash</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 15px;">linux, shell, bash</a> <a href="/tags/lipoplex/" style="font-size: 10px;">lipoplex</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a> <a href="/tags/windows10-activation/" style="font-size: 10px;">windows10, activation</a>
     </div>
   </div>
 
@@ -219,6 +236,10 @@ var duoshuoQuery = {short_name:"chaooo"};
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/04/05/Linux命令行与shell脚本编程学习第九章/">Linux命令行与shell脚本编程学习第九章</a>
+          </li>
         
           <li>
             <a href="/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/">Linux命令行与shell脚本编程学习第六章</a>
@@ -234,10 +255,6 @@ var duoshuoQuery = {short_name:"chaooo"};
         
           <li>
             <a href="/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/">linux命令行与shell脚本编程大全学习笔记第四章</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/22/preparation-of-lipoplex/">preparation of lipoplex</a>
           </li>
         
       </ul>

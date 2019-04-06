@@ -95,6 +95,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+	         <!-- Table of Contents -->
+                 
         <h1 id="第三章：基本的bash-shell-命令"><a href="#第三章：基本的bash-shell-命令" class="headerlink" title="第三章：基本的bash shell 命令"></a>第三章：基本的bash shell 命令</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h3 id="1-man命令"><a href="#1-man命令" class="headerlink" title="1. man命令:"></a>1. man命令:</h3><p>用来访问存储在Linux系统上的手册页面。在想要查找的工具的名称前面输入man命令，就可以找到那个工具相应的手册条目。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ man touch</span><br><span class="line">NAME</span><br><span class="line">       touch - change file timestamps</span><br><span class="line"></span><br><span class="line">SYNOPSIS</span><br><span class="line">       touch [OPTION]... FILE...</span><br><span class="line"></span><br><span class="line">DESCRIPTION</span><br><span class="line">       Update the access and modification times of each FILE to the current time.</span><br><span class="line"></span><br><span class="line">       A FILE argument that does not exist is created empty, unless -c or -h is supplied.</span><br><span class="line"></span><br><span class="line">       A FILE argument string of - is handled specially and causes touch to change the times of the file associated with standard output.</span><br><span class="line"></span><br><span class="line">       Mandatory arguments to long options are mandatory for short options too.</span><br><span class="line"></span><br><span class="line">       -a     change only the access time</span><br><span class="line"></span><br><span class="line">       -c, --no-create</span><br><span class="line">              do not create any files</span><br><span class="line"></span><br><span class="line">       -d, --date=STRING</span><br><span class="line">              parse STRING and use it instead of current time</span><br><span class="line"></span><br><span class="line">       -f     (ignored)</span><br><span class="line"></span><br><span class="line">       -h, --no-dereference</span><br><span class="line">              affect each symbolic link instead of any referenced file (useful only on systems that can change the timestamps of a symlink)</span><br><span class="line"></span><br><span class="line">       -m     change only the modification time</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -217,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/06/linux命令行与shell脚本编程大全学习笔记/" data-id="cju3ut1pn000sygmvkpprdzx1" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/06/linux命令行与shell脚本编程大全学习笔记/" data-id="cju54s12x000oe0mvz3okmnm2" class="article-share-link">Share</a>
       
 <section id="comments">
 <!-- 多说评论框 start -->
@@ -278,7 +280,7 @@ var duoshuoQuery = {short_name:"chaooo"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Linux-shell-bash/" style="font-size: 20px;">Linux, shell, bash</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 20px;">linux, shell, bash</a> <a href="/tags/lipoplex/" style="font-size: 10px;">lipoplex</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a> <a href="/tags/windows10-activation/" style="font-size: 10px;">windows10, activation</a>
+      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Linux-shell-bash/" style="font-size: 20px;">Linux, shell, bash</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 15px;">linux, shell, bash</a> <a href="/tags/lipoplex/" style="font-size: 10px;">lipoplex</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a> <a href="/tags/windows10-activation/" style="font-size: 10px;">windows10, activation</a>
     </div>
   </div>
 
@@ -288,6 +290,10 @@ var duoshuoQuery = {short_name:"chaooo"};
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/04/05/Linux命令行与shell脚本编程学习第九章/">Linux命令行与shell脚本编程学习第九章</a>
+          </li>
         
           <li>
             <a href="/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/">Linux命令行与shell脚本编程学习第六章</a>
@@ -303,10 +309,6 @@ var duoshuoQuery = {short_name:"chaooo"};
         
           <li>
             <a href="/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/">linux命令行与shell脚本编程大全学习笔记第四章</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/22/preparation-of-lipoplex/">preparation of lipoplex</a>
           </li>
         
       </ul>
