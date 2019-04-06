@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cldiao.github.io/"/>
-  <updated>2019-04-06T06:51:02.288Z</updated>
+  <updated>2019-04-06T06:53:27.357Z</updated>
   <id>https://cldiao.github.io/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="https://cldiao.github.io/2019/04/05/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B9%9D%E7%AB%A0/"/>
     <id>https://cldiao.github.io/2019/04/05/Linux命令行与shell脚本编程学习第九章/</id>
     <published>2019-04-05T09:26:05.000Z</published>
-    <updated>2019-04-06T06:51:02.288Z</updated>
+    <updated>2019-04-06T06:53:27.357Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="安装软件程序"><a href="#安装软件程序" class="headerlink" title="安装软件程序"></a>安装软件程序</h1><p>Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。</p><a id="more"></a><h2 id="1-包管理基础"><a href="#1-包管理基础" class="headerlink" title="1. 包管理基础"></a>1. 包管理基础</h2><p>PMS利用数据库来记录各种软件和库的相关内容：系统已安装了什么软件包；每个包安装了什么文件；每个已安装软件包的版本。Linux中广泛使用的两种主要的PMS基础工具是dpkg和rpm。</p><p>基于Debian的发行版（如Ubuntu）使用的是dpkg命令。dpkg会直接和Linux系统上的PMS交互，用来安装、管理和删除软件包。</p><h2 id="2-基于Debian的系统"><a href="#2-基于Debian的系统" class="headerlink" title="2.基于Debian的系统"></a>2.基于Debian的系统</h2><p>包含在dpkg这个PMS中的其他工具有：apt-get，apt-cache，aptitude。最常用的命令行工具是aptitude，dpkg是软件包管理系统工具，aptitude是完整的软件包管理系统。命令行下使用aptitude命令有助于比避免常见的软件安装问题，如依赖关系缺失、系统环境不稳定及其它不必要的麻烦。</p><h3 id="2-1-用aptitude管理软件包"><a href="#2-1-用aptitude管理软件包" class="headerlink" title="2.1 用aptitude管理软件包"></a>2.1 用aptitude管理软件包</h3>]]></content>
+    <content type="html"><![CDATA[<h1 id="安装软件程序"><a href="#安装软件程序" class="headerlink" title="安装软件程序"></a>安装软件程序</h1><p>Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。<a id="more"></a></p><h2 id="1-包管理基础"><a href="#1-包管理基础" class="headerlink" title="1. 包管理基础"></a>1. 包管理基础</h2><p>PMS利用数据库来记录各种软件和库的相关内容：系统已安装了什么软件包；每个包安装了什么文件；每个已安装软件包的版本。Linux中广泛使用的两种主要的PMS基础工具是dpkg和rpm。</p><p>基于Debian的发行版（如Ubuntu）使用的是dpkg命令。dpkg会直接和Linux系统上的PMS交互，用来安装、管理和删除软件包。</p><h2 id="2-基于Debian的系统"><a href="#2-基于Debian的系统" class="headerlink" title="2.基于Debian的系统"></a>2.基于Debian的系统</h2><p>包含在dpkg这个PMS中的其他工具有：apt-get，apt-cache，aptitude。最常用的命令行工具是aptitude，dpkg是软件包管理系统工具，aptitude是完整的软件包管理系统。命令行下使用aptitude命令有助于比避免常见的软件安装问题，如依赖关系缺失、系统环境不稳定及其它不必要的麻烦。</p><h3 id="2-1-用aptitude管理软件包"><a href="#2-1-用aptitude管理软件包" class="headerlink" title="2.1 用aptitude管理软件包"></a>2.1 用aptitude管理软件包</h3>]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;安装软件程序&quot;&gt;&lt;a href=&quot;#安装软件程序&quot; class=&quot;headerlink&quot; title=&quot;安装软件程序&quot;&gt;&lt;/a&gt;安装软件程序&lt;/h1&gt;&lt;p&gt;Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。&lt;/p&gt;
+      &lt;h1 id=&quot;安装软件程序&quot;&gt;&lt;a href=&quot;#安装软件程序&quot; class=&quot;headerlink&quot; title=&quot;安装软件程序&quot;&gt;&lt;/a&gt;安装软件程序&lt;/h1&gt;&lt;p&gt;Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。
     
     </summary>
     
