@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Rumble&#39;s blog">
 <meta property="og:description" content="安装软件程序Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-06T06:53:27.357Z">
+<meta property="og:updated_time" content="2019-04-06T07:52:54.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux命令行与shell脚本编程学习第九章">
 <meta name="twitter:description" content="安装软件程序Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。">
@@ -99,18 +99,26 @@
                  
                    <div id="toc" class="toc-article">
                      <strong class="toc-title">目录</strong>
-                     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装软件程序"><span class="toc-text">安装软件程序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-包管理基础"><span class="toc-text">1. 包管理基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-基于Debian的系统"><span class="toc-text">2.基于Debian的系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-用aptitude管理软件包"><span class="toc-text">2.1 用aptitude管理软件包</span></a></li></ol></li></ol></li></ol>
+                     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装软件程序"><span class="toc-text">安装软件程序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-包管理基础"><span class="toc-text">1. 包管理基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-基于Debian的系统"><span class="toc-text">2.基于Debian的系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-用aptitude管理软件包"><span class="toc-text">2.1 用aptitude管理软件包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-用aptitude安装软件包"><span class="toc-text">2.2 用aptitude安装软件包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-用aptitude更新软件"><span class="toc-text">2.3 用aptitude更新软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-用aptitude卸载软件"><span class="toc-text">2.4 用aptitude卸载软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-aptitude仓库"><span class="toc-text">2.5 aptitude仓库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-从源码安装"><span class="toc-text">3. 从源码安装</span></a></li></ol></li></ol>
                    </div>
                  
         <h1 id="安装软件程序"><a href="#安装软件程序" class="headerlink" title="安装软件程序"></a>安装软件程序</h1><p>Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。<a id="more"></a></p>
 <h2 id="1-包管理基础"><a href="#1-包管理基础" class="headerlink" title="1. 包管理基础"></a>1. 包管理基础</h2><p>PMS利用数据库来记录各种软件和库的相关内容：系统已安装了什么软件包；每个包安装了什么文件；每个已安装软件包的版本。Linux中广泛使用的两种主要的PMS基础工具是dpkg和rpm。</p>
 <p>基于Debian的发行版（如Ubuntu）使用的是dpkg命令。dpkg会直接和Linux系统上的PMS交互，用来安装、管理和删除软件包。</p>
 <h2 id="2-基于Debian的系统"><a href="#2-基于Debian的系统" class="headerlink" title="2.基于Debian的系统"></a>2.基于Debian的系统</h2><p>包含在dpkg这个PMS中的其他工具有：apt-get，apt-cache，aptitude。最常用的命令行工具是aptitude，dpkg是软件包管理系统工具，aptitude是完整的软件包管理系统。命令行下使用aptitude命令有助于比避免常见的软件安装问题，如依赖关系缺失、系统环境不稳定及其它不必要的麻烦。</p>
-<h3 id="2-1-用aptitude管理软件包"><a href="#2-1-用aptitude管理软件包" class="headerlink" title="2.1 用aptitude管理软件包"></a>2.1 用aptitude管理软件包</h3>
+<h3 id="2-1-用aptitude管理软件包"><a href="#2-1-用aptitude管理软件包" class="headerlink" title="2.1 用aptitude管理软件包"></a>2.1 用aptitude管理软件包</h3><p>如果Linux版本中已经安装了aptitude，只需在shell提示符键入aptitude并按下回车就行。接着会进入aptitude的全屏模式。但学习用的服务器没有安装aptitude，这节留白。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ aptitude</span><br><span class="line">The program 'aptitude' is currently not installed. To run 'aptitude' please ask your administrator to install the package 'aptitude'</span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-用aptitude安装软件包"><a href="#2-2-用aptitude安装软件包" class="headerlink" title="2.2 用aptitude安装软件包"></a>2.2 用aptitude安装软件包</h3><h3 id="2-3-用aptitude更新软件"><a href="#2-3-用aptitude更新软件" class="headerlink" title="2.3 用aptitude更新软件"></a>2.3 用aptitude更新软件</h3><h3 id="2-4-用aptitude卸载软件"><a href="#2-4-用aptitude卸载软件" class="headerlink" title="2.4 用aptitude卸载软件"></a>2.4 用aptitude卸载软件</h3><h3 id="2-5-aptitude仓库"><a href="#2-5-aptitude仓库" class="headerlink" title="2.5 aptitude仓库"></a>2.5 aptitude仓库</h3><h2 id="3-从源码安装"><a href="#3-从源码安装" class="headerlink" title="3. 从源码安装"></a>3. 从源码安装</h2><p>前面了解了通过tar命令行命令进行创建和解包。这里进一步了解其中过程。我们以软件包sysstat为例，它提供各种系统监测工具，非常好用。下载，解包：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/biosoft$ wget http://pagesperso-orange.fr/sebastien.godard/sysstat-12.1.3.tar.gz</span><br><span class="line">--2019-04-06 15:20:43--  http://pagesperso-orange.fr/sebastien.godard/sysstat-12.1.3.tar.gz</span><br><span class="line">[...]</span><br><span class="line">vip5@VM-0-15-ubuntu:~/biosoft$ ls</span><br><span class="line">anaconda  bowtie2-2.3.4.3-source.zip  test</span><br><span class="line">bowtie    sysstat-12.1.3.tar.gz       test_one</span><br><span class="line">vip5@VM-0-15-ubuntu:~/biosoft$ tar -zxvf sysstat-12.1.3.tar.gz </span><br><span class="line">sysstat-12.1.3/</span><br><span class="line">sysstat-12.1.3/cifsiostat.c</span><br><span class="line">sysstat-12.1.3/version.in</span><br><span class="line">[...]</span><br><span class="line">vip5@VM-0-15-ubuntu:~/biosoft$ ls</span><br><span class="line">anaconda  bowtie2-2.3.4.3-source.zip  sysstat-12.1.3.tar.gz  test_one</span><br><span class="line">bowtie    sysstat-12.1.3              test</span><br></pre></td></tr></table></figure>
+<p>解包完成后，所有文件放到了sysstat-12.1.3的目录中。查看目录的内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/biosoft$ cd sysstat-12.1.3/</span><br><span class="line">vip5@VM-0-15-ubuntu:~/biosoft/sysstat-12.1.3$ ls</span><br><span class="line">activity.c    images        rd_sensors.c  svg_stats.c</span><br><span class="line">BUG_REPORT    INSTALL       rd_sensors.h  svg_stats.h</span><br><span class="line">build         ioconf.c      rd_stats.c    sysconfig.in</span><br><span class="line">CHANGES       ioconf.h      rd_stats.h    sysstat-12.1.3.lsm</span><br><span class="line">cifsiostat.c  iostat.c      README.md     sysstat-12.1.3.spec</span><br><span class="line">cifsiostat.h  iostat.h      rndr_stats.c  sysstat.in</span><br><span class="line">common.c      json_stats.c  rndr_stats.h  sysstat.ioconf</span><br><span class="line">common.h      json_stats.h  sa1.in        sysstat.service.in</span><br><span class="line">configure     Makefile.in   sa2.in        sysstat.sysconfig.in</span><br><span class="line">configure.in  man           sa_common.c   tapestat.c</span><br><span class="line">contrib       mpstat.c      sa_conv.c     tapestat.h</span><br><span class="line">COPYING       mpstat.h      sa_conv.h     tests</span><br><span class="line">count.c       nls           sadc.c        version.in</span><br><span class="line">count.h       pidstat.c     sadf.c        xml</span><br><span class="line">CREDITS       pidstat.h     sadf.h        xml_stats.c</span><br><span class="line">cron          pr_stats.c    sadf_misc.c   xml_stats.h</span><br><span class="line">FAQ.md        pr_stats.h    sa.h</span><br><span class="line">format.c      raw_stats.c   sar.c</span><br><span class="line">iconfig       raw_stats.h   sa_wrap.c</span><br></pre></td></tr></table></figure>
+<p>按照README文件中的建议进行配置susstat。make步骤进行编译。若要将它安装到Linux系统中常用的位置上，需要root用户身份登录，然后用make install命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/biosoft/sysstat-12.1.3$ ./configure</span><br><span class="line">vip5@VM-0-15-ubuntu:~/biosoft/sysstat-12.1.3$ make</span><br><span class="line">vip5@VM-0-15-ubuntu:~/biosoft/sysstat-12.1.3$ make install</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/05/Linux命令行与shell脚本编程学习第九章/" data-id="cju556clz0007ygmv3m0lt68b" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/05/Linux命令行与shell脚本编程学习第九章/" data-id="cju5jhgfb0007psmvt00t8z3z" class="article-share-link">Share</a>
       
 <section id="comments">
 <!-- 多说评论框 start -->
@@ -139,6 +147,15 @@ var duoshuoQuery = {short_name:"chaooo"};
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/04/06/Linux命令行与shell脚本编程学习第十章/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Linux命令行与shell脚本编程学习第十章
+        
+      </div>
+    </a>
   
   
     <a href="/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" id="article-nav-older" class="article-nav-link-wrap">
@@ -174,6 +191,10 @@ var duoshuoQuery = {short_name:"chaooo"};
       <ul>
         
           <li>
+            <a href="/2019/04/06/Linux命令行与shell脚本编程学习第十章/">Linux命令行与shell脚本编程学习第十章</a>
+          </li>
+        
+          <li>
             <a href="/2019/04/05/Linux命令行与shell脚本编程学习第九章/">Linux命令行与shell脚本编程学习第九章</a>
           </li>
         
@@ -187,10 +208,6 @@ var duoshuoQuery = {short_name:"chaooo"};
         
           <li>
             <a href="/2019/03/27/win10安装/">win10 installation and activation</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/">linux命令行与shell脚本编程大全学习笔记第四章</a>
           </li>
         
       </ul>

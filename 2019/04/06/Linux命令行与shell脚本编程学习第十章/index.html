@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="baidu-site-verification" content="d8vuriatOq" />
+ <meta name="google-site-verification" content="ZKzrltgUA1iKyVKyH5hNp1TzVg-9LIJqbb09vFyUcWg" />
+  <meta charset="utf-8">
+  
+
+  
+  <title>Linux命令行与shell脚本编程学习第十章 | Rumble&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用编辑器进行shell脚本编程，需要指导Linux中至少一款文本编辑器的用法。">
+<meta name="keywords" content="Linux, shell, bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux命令行与shell脚本编程学习第十章">
+<meta property="og:url" content="https://cldiao.github.io/2019/04/06/Linux命令行与shell脚本编程学习第十章/index.html">
+<meta property="og:site_name" content="Rumble&#39;s blog">
+<meta property="og:description" content="使用编辑器进行shell脚本编程，需要指导Linux中至少一款文本编辑器的用法。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-06T13:33:50.580Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux命令行与shell脚本编程学习第十章">
+<meta name="twitter:description" content="使用编辑器进行shell脚本编程，需要指导Linux中至少一款文本编辑器的用法。">
+  
+    <link rel="alternate" href="/atom.xml" title="Rumble&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Rumble&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay hungry, stay foolish.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://cldiao.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Linux命令行与shell脚本编程学习第十章" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/06/Linux命令行与shell脚本编程学习第十章/" class="article-date">
+  <time datetime="2019-04-06T07:53:53.000Z" itemprop="datePublished">2019-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux命令行与shell脚本编程学习第十章
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	         <!-- Table of Contents -->
+                 
+                   <div id="toc" class="toc-article">
+                     <strong class="toc-title">目录</strong>
+                     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用编辑器"><span class="toc-text">使用编辑器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-vim文本编辑器"><span class="toc-text">1. vim文本编辑器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-vim基础"><span class="toc-text">1. vim基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-编辑数据"><span class="toc-text">2. 编辑数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-复制和粘贴"><span class="toc-text">3.复制和粘贴</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-查找和替换"><span class="toc-text">4. 查找和替换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-nano文本编辑器"><span class="toc-text">2. nano文本编辑器</span></a></li></ol></li></ol>
+                   </div>
+                 
+        <h1 id="使用编辑器"><a href="#使用编辑器" class="headerlink" title="使用编辑器"></a>使用编辑器</h1><p>进行shell脚本编程，需要指导Linux中至少一款文本编辑器的用法。<a id="more"></a></p>
+<h2 id="1-vim文本编辑器"><a href="#1-vim文本编辑器" class="headerlink" title="1. vim文本编辑器"></a>1. vim文本编辑器</h2><h3 id="1-vim基础"><a href="#1-vim基础" class="headerlink" title="1. vim基础"></a>1. vim基础</h3><p>vim编辑器在内存缓冲区中处理数据，只要键入vim命令和要编辑的文件的名字就可以启动vim编辑器；若未指定文件或者文件不存在，vim会开辟新的缓冲区域来编辑。底部的消息行根据文件的状态和vim安装时的默认设置显示所编辑的文件的信息。</p>
+<p>vim编辑器有两种操作模式：普通模式和插入模式。当打开要编辑的文件时，vim编辑器进入普通模式，按键为输入命令；按下i键进入插入模式进行编辑。推出插入模式，按下ESC键。</p>
+<p>普通模式下，方向键在文本区域移动光标。vim中也有用来移动光标的命令：</p>
+<p>h：左移一个字符；</p>
+<p>j：下移一行；</p>
+<p>k：上移一行；</p>
+<p>l：右移一个字符；</p>
+<p>ctrl+f：下一屏；</p>
+<p>ctrl+b：上一屏；</p>
+<p>G：移动到缓冲区最后一行；</p>
+<p>gg：移动到缓冲区的第一行；</p>
+<p>vim编辑器在普通模式下键入：，进入命令行模式，输入命令。几个命令可以将缓冲区的数据保存到文件中并退出：</p>
+<p>q：如果未修改缓冲区数据，退出；</p>
+<p>q!：取消所有对缓冲区数据的修改并退出；</p>
+<p>w <em>filename</em> ：将文件保存到另一个文件中；</p>
+<p>wq：将缓冲区数据保存到文件并退出。</p>
+<h3 id="2-编辑数据"><a href="#2-编辑数据" class="headerlink" title="2. 编辑数据"></a>2. 编辑数据</h3><p>插入模式下，可以向缓冲区插入数据。数据输入到缓冲区后，需要再进行添加或删除。普通模式下，vim有些命令可以编辑缓冲区的数据。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">x</td>
+<td style="text-align:left">删除当前光标所在位置的字符</td>
+</tr>
+<tr>
+<td style="text-align:left">dd</td>
+<td style="text-align:left">删除当前光标所在行</td>
+</tr>
+<tr>
+<td style="text-align:left">dw</td>
+<td style="text-align:left">删除当前光标所在位置的单词</td>
+</tr>
+<tr>
+<td style="text-align:left">d$</td>
+<td style="text-align:left">删除当前光标所在位置至行尾的内容</td>
+</tr>
+<tr>
+<td style="text-align:left">J</td>
+<td style="text-align:left">删除当前光标所在行行尾的换行符</td>
+</tr>
+<tr>
+<td style="text-align:left">u</td>
+<td style="text-align:left">撤销前一编辑命令</td>
+</tr>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:left">在当前光标后追加数据</td>
+</tr>
+<tr>
+<td style="text-align:left">A</td>
+<td style="text-align:left">在当前光标所在行行尾追加数据</td>
+</tr>
+<tr>
+<td style="text-align:left">r <em>char</em></td>
+<td style="text-align:left">用<em>char</em>替换当前光标所在位置的单个词符</td>
+</tr>
+<tr>
+<td style="text-align:left">R <em>text</em></td>
+<td style="text-align:left">用<em>text</em>覆盖当前所在位置的数据，直到按下ESC键</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-复制和粘贴"><a href="#3-复制和粘贴" class="headerlink" title="3.复制和粘贴"></a>3.复制和粘贴</h3><p>剪切和粘贴相对容易。上述删除命令删除数据时，数据会被保存在单独的寄存器中，用p命令取回数据。</p>
+<p>复制文本要稍复杂。复制的命令是y。在y后面使用和d命令相同的第二字符。在复制文本后，把光标移到想放置文本的地方，输入p。复杂之处在于不确定复制了什么，知道粘贴后才能明白。但可视模式会在移动光标时高亮显示文本。进入可视模式，应移动光标到开始复制的位置，按下v键。下一步，移动光标覆盖想要复制的文本。按y键复制。移动光标到想要复制的位置，使用p命令来粘贴。</p>
+<h3 id="4-查找和替换"><a href="#4-查找和替换" class="headerlink" title="4. 查找和替换"></a>4. 查找和替换</h3><p>要输入一个查找字符串，就按下斜线（/）键。光标会到消息行，vim显示出斜线。输入要查找的文本后，按下回车键。vim编辑器有三种回应：</p>
+<ul>
+<li>如果要查找的文本在光标当前位置之后，则光标跳到该文本出现的第一个位置</li>
+<li>如果要查找的文本未在光标当前位置之后出现，则光标出现在该文本的第一个位置</li>
+<li>输出一条错误消息，说明文件中没有找到要查找的文本</li>
+</ul>
+<p>要查找同一个单词，按/键，再按回车键。或者使用n键。</p>
+<p>替换命令需要进入命令行模式才能使用。格式是<code>:s/old/new/</code>。修改后可以替换多处文本。</p>
+<ul>
+<li><code>:s/old/new/g</code> ：一行命令替换所有old</li>
+<li><code>:n,ms/old/new/g</code> ：替换行号n和m之间所有old</li>
+<li><code>:%s/old/new/g</code> ：替换整个文件中的所有old</li>
+<li><code>:%s/old/new/gc</code> ：替换整个文件中的所有old，但每次出现时提示</li>
+</ul>
+<h2 id="2-nano文本编辑器"><a href="#2-nano文本编辑器" class="headerlink" title="2. nano文本编辑器"></a>2. nano文本编辑器</h2><p>nano编辑器简单易用。命令行键入nano打开文件。没有指定文件名时，或者指定的文件不存在，nano会开辟新的缓冲区进行编辑。若指定了已有的文件，nano会将该文件的全部内容读入缓冲区。</p>
+<p>nano编辑器的窗口底部显示了各种命令及简要描述。^表示ctrl键。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cldiao.github.io/2019/04/06/Linux命令行与shell脚本编程学习第十章/" data-id="cju5jhgfk000dpsmvibg01sli" class="article-share-link">Share</a>
+      
+<section id="comments">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2019/04/06/Linux命令行与shell脚本编程学习第十章/" data-title="Linux命令行与shell脚本编程学习第十章" data-url=""></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chaooo"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/05/Linux命令行与shell脚本编程学习第九章/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Linux命令行与shell脚本编程学习第九章</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/GEO/" style="font-size: 10px;">GEO</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA</a> <a href="/tags/GSEA/" style="font-size: 10px;">GSEA,</a> <a href="/tags/LINUX-VMware-RNA-Seq-R/" style="font-size: 10px;">LINUX, VMware, RNA-Seq, R</a> <a href="/tags/Linux-shell-bash/" style="font-size: 20px;">Linux, shell, bash</a> <a href="/tags/Mac-office-Vmware-fusion-Ps，Adobe/" style="font-size: 10px;">Mac, office, Vmware fusion, Ps，Adobe</a> <a href="/tags/Pubmed-R-visualization/" style="font-size: 10px;">Pubmed, R, visualization</a> <a href="/tags/R-表达矩阵，heatmap-PCA-T检验，火山图，ID转换/" style="font-size: 10px;">R, 表达矩阵，heatmap, PCA, T检验，火山图，ID转换</a> <a href="/tags/R2-database-correlation/" style="font-size: 10px;">R2, database, correlation</a> <a href="/tags/RNA-Seq/" style="font-size: 10px;">RNA-Seq</a> <a href="/tags/SP-FCAS/" style="font-size: 10px;">SP, FCAS</a> <a href="/tags/TFBS/" style="font-size: 10px;">TFBS</a> <a href="/tags/blog-hexo-github/" style="font-size: 10px;">blog,hexo,github</a> <a href="/tags/linux-shell-bash/" style="font-size: 15px;">linux, shell, bash</a> <a href="/tags/lipoplex/" style="font-size: 10px;">lipoplex</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/scholar-IF-publications/" style="font-size: 10px;">scholar, IF, publications</a> <a href="/tags/windows10-activation/" style="font-size: 10px;">windows10, activation</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/06/Linux命令行与shell脚本编程学习第十章/">Linux命令行与shell脚本编程学习第十章</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/05/Linux命令行与shell脚本编程学习第九章/">Linux命令行与shell脚本编程学习第九章</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/">Linux命令行与shell脚本编程学习第六章</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/30/Linux命令行与shell脚本编程学习第五章/">Linux命令行与shell脚本编程大全学习第五章</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/27/win10安装/">win10 installation and activation</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Chaoliang Diao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
