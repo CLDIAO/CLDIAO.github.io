@@ -9,18 +9,18 @@
   
   <title>Linux命令行与shell脚本编程学习第九章 | Rumble&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装软件程序Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。 1. 包管理基础PMS利用数据库来记录各种软件和库的相关内容：系统已安装了什么软件包；每个包安装了什么文件；每个已安装软件包的版本。Linux中广泛使用的两种主要的PMS基础工具是dpkg和rpm。 基于Debian的发行版（如Ubuntu）使用的是dpkg命令。dpkg会直接和Linux系统上的P">
+  <meta name="description" content="安装软件程序Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。">
 <meta name="keywords" content="Linux, shell, bash">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux命令行与shell脚本编程学习第九章">
 <meta property="og:url" content="https://cldiao.github.io/2019/04/05/Linux命令行与shell脚本编程学习第九章/index.html">
 <meta property="og:site_name" content="Rumble&#39;s blog">
-<meta property="og:description" content="安装软件程序Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。 1. 包管理基础PMS利用数据库来记录各种软件和库的相关内容：系统已安装了什么软件包；每个包安装了什么文件；每个已安装软件包的版本。Linux中广泛使用的两种主要的PMS基础工具是dpkg和rpm。 基于Debian的发行版（如Ubuntu）使用的是dpkg命令。dpkg会直接和Linux系统上的P">
+<meta property="og:description" content="安装软件程序Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-06T06:42:19.381Z">
+<meta property="og:updated_time" content="2019-04-06T06:51:02.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux命令行与shell脚本编程学习第九章">
-<meta name="twitter:description" content="安装软件程序Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。 1. 包管理基础PMS利用数据库来记录各种软件和库的相关内容：系统已安装了什么软件包；每个包安装了什么文件；每个已安装软件包的版本。Linux中广泛使用的两种主要的PMS基础工具是dpkg和rpm。 基于Debian的发行版（如Ubuntu）使用的是dpkg命令。dpkg会直接和Linux系统上的P">
+<meta name="twitter:description" content="安装软件程序Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。">
   
     <link rel="alternate" href="/atom.xml" title="Rumble&#39;s blog" type="application/atom+xml">
   
@@ -97,7 +97,13 @@
       
 	         <!-- Table of Contents -->
                  
+                   <div id="toc" class="toc-article">
+                     <strong class="toc-title">目录</strong>
+                     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装软件程序"><span class="toc-text">安装软件程序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-包管理基础"><span class="toc-text">1. 包管理基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-基于Debian的系统"><span class="toc-text">2.基于Debian的系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-用aptitude管理软件包"><span class="toc-text">2.1 用aptitude管理软件包</span></a></li></ol></li></ol></li></ol>
+                   </div>
+                 
         <h1 id="安装软件程序"><a href="#安装软件程序" class="headerlink" title="安装软件程序"></a>安装软件程序</h1><p>Linux上有各种包管理系统（PMS），以及用来进行软件安装、管理和删除的命令行工具。</p>
+<a id="more"></a>
 <h2 id="1-包管理基础"><a href="#1-包管理基础" class="headerlink" title="1. 包管理基础"></a>1. 包管理基础</h2><p>PMS利用数据库来记录各种软件和库的相关内容：系统已安装了什么软件包；每个包安装了什么文件；每个已安装软件包的版本。Linux中广泛使用的两种主要的PMS基础工具是dpkg和rpm。</p>
 <p>基于Debian的发行版（如Ubuntu）使用的是dpkg命令。dpkg会直接和Linux系统上的PMS交互，用来安装、管理和删除软件包。</p>
 <h2 id="2-基于Debian的系统"><a href="#2-基于Debian的系统" class="headerlink" title="2.基于Debian的系统"></a>2.基于Debian的系统</h2><p>包含在dpkg这个PMS中的其他工具有：apt-get，apt-cache，aptitude。最常用的命令行工具是aptitude，dpkg是软件包管理系统工具，aptitude是完整的软件包管理系统。命令行下使用aptitude命令有助于比避免常见的软件安装问题，如依赖关系缺失、系统环境不稳定及其它不必要的麻烦。</p>
@@ -105,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/05/Linux命令行与shell脚本编程学习第九章/" data-id="cju54s1070000e0mv0qui7us2" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/05/Linux命令行与shell脚本编程学习第九章/" data-id="cju553ho50006xkmv6g7zd0j4" class="article-share-link">Share</a>
       
 <section id="comments">
 <!-- 多说评论框 start -->

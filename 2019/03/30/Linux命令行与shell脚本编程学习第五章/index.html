@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Rumble&#39;s blog">
 <meta property="og:description" content="第五章 理解shell​    通过进一步学习shell进程，将了解如何创建子shell以及父shell与子shell之间的关系。探究各种用于创建子进程的命令和内建命令。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-03T09:39:29.951Z">
+<meta property="og:updated_time" content="2019-04-06T06:44:50.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux命令行与shell脚本编程大全学习第五章">
 <meta name="twitter:description" content="第五章 理解shell​    通过进一步学习shell进程，将了解如何创建子shell以及父shell与子shell之间的关系。探究各种用于创建子进程的命令和内建命令。">
@@ -97,6 +97,11 @@
       
 	         <!-- Table of Contents -->
                  
+                   <div id="toc" class="toc-article">
+                     <strong class="toc-title">目录</strong>
+                     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第五章-理解shell"><span class="toc-text">第五章 理解shell</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-shell的类型"><span class="toc-text">1.shell的类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-shell的父子关系"><span class="toc-text">2.shell的父子关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-进程列表"><span class="toc-text">1. 进程列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-子shell的用法"><span class="toc-text">2. 子shell的用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-探索后台模式"><span class="toc-text">2.1. 探索后台模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-将进程列表置入后台"><span class="toc-text">2.2. 将进程列表置入后台</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-协程"><span class="toc-text">2.3. 协程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-理解shell的内建命令"><span class="toc-text">3. 理解shell的内建命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-外部命令"><span class="toc-text">3.1 外部命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-内建命令"><span class="toc-text">3.2 内建命令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-使用history命令"><span class="toc-text">1.  使用history命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-命令别名"><span class="toc-text">2. 命令别名</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+                   </div>
+                 
         <h1 id="第五章-理解shell"><a href="#第五章-理解shell" class="headerlink" title="第五章 理解shell"></a>第五章 理解shell</h1><p>​    通过进一步学习shell进程，将了解如何创建子shell以及父shell与子shell之间的关系。探究各种用于创建子进程的命令和内建命令。<a id="more"></a></p>
 <h2 id="1-shell的类型"><a href="#1-shell的类型" class="headerlink" title="1.shell的类型"></a>1.shell的类型</h2><p>​    系统启动什么样的shell程序取决于个人的用户id配置。在/etc/passwd文件夹中，用户ID记录的第七个字段中列出默认的shell程序。用户登录后，默认的shell程序就会开始运行。</p>
 <p>​    下面的例子中，用户使用bash shell作为默认的shell程序：</p>
@@ -173,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cju54s1200008e0mv4u3b5nsi" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cju553ho80009xkmvippegkwl" class="article-share-link">Share</a>
       
 <section id="comments">
 <!-- 多说评论框 start -->
