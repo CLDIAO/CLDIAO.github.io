@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Rumble&#39;s blog">
 <meta property="og:description" content="使用Linux环境变量Linux环境变量，我们需要了解：它们存储在哪里，怎样使用，以及怎样创建自己的环境变量。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-06T06:41:50.834Z">
+<meta property="og:updated_time" content="2019-04-08T12:24:26.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux命令行与shell脚本编程学习第六章">
 <meta name="twitter:description" content="使用Linux环境变量Linux环境变量，我们需要了解：它们存储在哪里，怎样使用，以及怎样创建自己的环境变量。">
@@ -132,14 +132,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable="I am Global now"</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ export my_variable</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable="Null"</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ export my_variable</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">Null</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ exit</span><br><span class="line">exit</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br></pre></td></tr></table></figure>
 <h2 id="3-删除环境变量"><a href="#3-删除环境变量" class="headerlink" title="3. 删除环境变量"></a>3. 删除环境变量</h2><p>使用unset命令来删除已经存在的环境变量。在unset命令中引用环境变量时，不要使用$。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable="I am Global now"</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ unset my_variable </span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>涉及到环境便令名时，如果要用变量，使用$,如果要操作变量，不适用$。</p>
-<p>在子shell中删除全局环境变量，只对子shell进程有效，无法反映到父shell中。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ my_variable="I am Global now"</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ export my_variable</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line"><span class="meta">&gt;</span> I am Global now</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line"><span class="meta">&gt;</span> I am Global now</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ unset my_variable</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ echo $my_variable</span><br><span class="line"><span class="meta">&gt;</span> </span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ exit </span><br><span class="line"><span class="meta">&gt;</span> exit</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line"><span class="meta">&gt;</span> I am Global now</span><br><span class="line"><span class="meta">&gt;</span> vip5@VM-0-15-ubuntu:~$ </span><br><span class="line"><span class="meta">&gt;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p> ​        </p>
-</blockquote>
+<p>涉及到环境便令名时，如果要用变量，使用$,如果要操作变量，不适用$。<br>在子shell中删除全局环境变量，只对子shell进程有效，无法反映到父shell中。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ my_variable="I am Global now"</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ export my_variable</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ bash</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ unset my_variable</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~$ exit </span><br><span class="line">exit</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ echo $my_variable </span><br><span class="line">I am Global now</span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure></p>
 <h2 id="4-设置PATH环境变量"><a href="#4-设置PATH环境变量" class="headerlink" title="4. 设置PATH环境变量"></a>4. 设置PATH环境变量</h2><p>当shell命令行界面输入一个外部命令时，shell必须搜索系统来找到对应的程序。PATH环境变量定义了用于进行命令和程序查找的目录。学习所用的Ubuntu系统中，PATH环境变量内容是这样的：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ echo $PATH</span><br><span class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin</span><br><span class="line">vip5@VM-0-15-ubuntu:~$</span><br></pre></td></tr></table></figure>
 <p>输出中显示了9个可供shell用来查找命令和程序。PATH中的目录使用冒号分隔。如果命令或者程序的未知没有包括在PATH变量中，若不适用绝对路径的话，shell是没法找到的。当shell找不到指定的命令或程序，会产生一个错误信息：</p>
@@ -166,7 +159,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" data-id="cju6vivpa0006r0mvvegg0kzr" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" data-id="cjuf4jzog000130mvd4tbxmbr" class="article-share-link">Share</a>
       
 <section id="comments">
 <!-- 多说评论框 start -->
@@ -239,6 +232,10 @@ var duoshuoQuery = {short_name:"chaooo"};
       <ul>
         
           <li>
+            <a href="/2019/04/07/Linux命令行与shell脚本编程学习第十一章/">Linux命令行与shell脚本编程学习第十一章</a>
+          </li>
+        
+          <li>
             <a href="/2019/04/06/Linux命令行与shell脚本编程学习第十章/">Linux命令行与shell脚本编程学习第十章</a>
           </li>
         
@@ -252,10 +249,6 @@ var duoshuoQuery = {short_name:"chaooo"};
         
           <li>
             <a href="/2019/03/30/Linux命令行与shell脚本编程学习第五章/">Linux命令行与shell脚本编程大全学习第五章</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/27/win10安装/">win10 installation and activation</a>
           </li>
         
       </ul>
