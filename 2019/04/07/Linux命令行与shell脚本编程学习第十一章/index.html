@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Rumble&#39;s blog">
 <meta property="og:description" content="构建基本脚本前面一些章节了解了Linux命令行的背景知识。接下来将深入shell编程的世界。再开始编写自己的shell脚本前，要了解一些基础知识。 1. 使用多种命令shell脚本的关键在于输入多个命令并处理每个命令的结果，甚至将一个命令的结果传给另外一个命令。shell可以串联多个命令，一次执行完成。若两个命令一起运行，可以放在同一行，用分号隔开。 1234vip5@VM-0-15-ubuntu">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-13T06:32:16.776Z">
+<meta property="og:updated_time" content="2019-04-13T09:43:06.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux命令行与shell脚本编程学习第十一章">
 <meta name="twitter:description" content="构建基本脚本前面一些章节了解了Linux命令行的背景知识。接下来将深入shell编程的世界。再开始编写自己的shell脚本前，要了解一些基础知识。 1. 使用多种命令shell脚本的关键在于输入多个命令并处理每个命令的结果，甚至将一个命令的结果传给另外一个命令。shell可以串联多个命令，一次执行完成。若两个命令一起运行，可以放在同一行，用分号隔开。 1234vip5@VM-0-15-ubuntu">
@@ -175,15 +175,7 @@
 </ul>
 <p>通过将文本文件重定向到wc命令，可以得到文件中的行、词和字节的计数。</p>
 <p>另一个输入重定向的方法，成为内联输入重定向。无需使用文件进行重定向，只需要在命令行中指定用于输入重定向的数据就可以了，符号是&lt;&lt;。符号外，还必须指定一个文本标记来划分输入数据的开始和结尾。任何字符串都可以作为文本标记，但在数据开始和结尾文本标记必须一致。</p>
-<blockquote>
-<p>command &lt;&lt; marker</p>
-</blockquote>
-<blockquote>
-<p>data</p>
-</blockquote>
-<blockquote>
-<p>marker</p>
-</blockquote>
+<p><code>command &lt;&lt; marker</code><br><code>data</code><br><code>marker</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ wc &lt;&lt; EOF</span><br><span class="line"><span class="meta">&gt;</span> test string 1</span><br><span class="line"><span class="meta">&gt;</span> test string 2</span><br><span class="line"><span class="meta">&gt;</span> test string 3</span><br><span class="line"><span class="meta">&gt;</span> EOF</span><br><span class="line"> 3  9 42</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$</span><br></pre></td></tr></table></figure>
 <p>在命令行上使用内联输入重定向时，shell会用PS2环境变量中定义的次提示符来提示输入数据。次提示符持续提示，知道输入作为文本标记的那个字符串。</p>
 <h2 id="6-管道"><a href="#6-管道" class="headerlink" title="6. 管道"></a>6. 管道</h2><p>有时需要一个命令的输出作为另一个命令的输入。这可以用重定向来实现，但会比较笨拙。这时我们可以使用<strong>管道连接</strong>来直接重定向到另一个命令。</p>
@@ -269,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/07/Linux命令行与shell脚本编程学习第十一章/" data-id="cjuf57n3r000bd8mvmy0d2wdm" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/07/Linux命令行与shell脚本编程学习第十一章/" data-id="cjufbf53h000apsmvdyi7l4xh" class="article-share-link">Share</a>
       
 <section id="comments">
 <!-- 多说评论框 start -->

@@ -172,15 +172,7 @@
 </ul>
 <p>通过将文本文件重定向到wc命令，可以得到文件中的行、词和字节的计数。</p>
 <p>另一个输入重定向的方法，成为内联输入重定向。无需使用文件进行重定向，只需要在命令行中指定用于输入重定向的数据就可以了，符号是&lt;&lt;。符号外，还必须指定一个文本标记来划分输入数据的开始和结尾。任何字符串都可以作为文本标记，但在数据开始和结尾文本标记必须一致。</p>
-<blockquote>
-<p>command &lt;&lt; marker</p>
-</blockquote>
-<blockquote>
-<p>data</p>
-</blockquote>
-<blockquote>
-<p>marker</p>
-</blockquote>
+<p><code>command &lt;&lt; marker</code><br><code>data</code><br><code>marker</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ wc &lt;&lt; EOF</span><br><span class="line"><span class="meta">&gt;</span> test string 1</span><br><span class="line"><span class="meta">&gt;</span> test string 2</span><br><span class="line"><span class="meta">&gt;</span> test string 3</span><br><span class="line"><span class="meta">&gt;</span> EOF</span><br><span class="line"> 3  9 42</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$</span><br></pre></td></tr></table></figure>
 <p>在命令行上使用内联输入重定向时，shell会用PS2环境变量中定义的次提示符来提示输入数据。次提示符持续提示，知道输入作为文本标记的那个字符串。</p>
 <h2 id="6-管道"><a href="#6-管道" class="headerlink" title="6. 管道"></a>6. 管道</h2><p>有时需要一个命令的输出作为另一个命令的输入。这可以用重定向来实现，但会比较笨拙。这时我们可以使用<strong>管道连接</strong>来直接重定向到另一个命令。</p>
@@ -266,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/07/Linux命令行与shell脚本编程学习第十一章/" data-id="cjuf57n3r000bd8mvmy0d2wdm" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/07/Linux命令行与shell脚本编程学习第十一章/" data-id="cjufbf53h000apsmvdyi7l4xh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -309,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/06/Linux命令行与shell脚本编程学习第十章/" data-id="cjuf57n3w000dd8mvclswiijp" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/06/Linux命令行与shell脚本编程学习第十章/" data-id="cjufbf53p000epsmvi0nftkcm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -352,7 +344,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/05/Linux命令行与shell脚本编程学习第九章/" data-id="cjuf57n3k0007d8mvq09vsqxe" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/05/Linux命令行与shell脚本编程学习第九章/" data-id="cjufbf53e0007psmvqpogjxjt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -395,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" data-id="cjuf57n3h0006d8mv4zia5fm8" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" data-id="cjufbf52r0002psmv8vkmd5qf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -438,7 +430,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cjuf57n3o000ad8mv74phduh8" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cjufbf53k000bpsmv19uujvun" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -481,7 +473,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/03/27/win10安装/" data-id="cjuf57n5g0017d8mv9n7jj04y" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/03/27/win10安装/" data-id="cjufbf5570019psmvz8ryk7jd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows10-activation/">windows10, activation</a></li></ul>
@@ -524,7 +516,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-id="cjuf57n4y000xd8mvjup91qzl" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-id="cjufbf54r000zpsmva3xlfx9w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-shell-bash/">linux, shell, bash</a></li></ul>
@@ -576,7 +568,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/22/preparation-of-lipoplex/" data-id="cjuf57n570011d8mv9cq0d62k" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/22/preparation-of-lipoplex/" data-id="cjufbf54x0013psmv9686hdzu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lipoplex/">lipoplex</a></li></ul>
@@ -626,7 +618,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/21/side-population-assay/" data-id="cjuf57n5d0014d8mv0ioklud1" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/21/side-population-assay/" data-id="cjufbf5540017psmvfq45d3j4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SP-FCAS/">SP, FCAS</a></li></ul>
@@ -674,7 +666,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/12/GEO数据挖掘/" data-id="cjuf57n2o0000d8mv7lpi253d" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/12/GEO数据挖掘/" data-id="cjufbf52e0000psmv8bmpbrpf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GEO/">GEO</a></li></ul>
