@@ -102,7 +102,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/13/Linux命令行与shell脚本编程学习第十二章/" data-id="cjunsxrbj000b3omv5mzyrch8" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/13/Linux命令行与shell脚本编程学习第十二章/" data-id="cjuntwjrn000af4mvy1rnli9d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux，shell-bash/">Linux，shell, bash</a></li></ul>
@@ -136,172 +136,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-	         <!-- Table of Contents -->
-                 
-                   <div id="toc" class="toc-article">
-                     <strong class="toc-title">目录</strong>
-                     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#构建基本脚本"><span class="toc-text">构建基本脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-使用多种命令"><span class="toc-text">1. 使用多种命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-创建shell脚本文件"><span class="toc-text">2. 创建shell脚本文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-显示消息"><span class="toc-text">3. 显示消息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-使用变量"><span class="toc-text">4. 使用变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-环境变量"><span class="toc-text">4.1 环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-用户变量"><span class="toc-text">4.2 用户变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-命令替换"><span class="toc-text">4.3 命令替换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-重定向输入和输出"><span class="toc-text">5. 重定向输入和输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-输出重定向"><span class="toc-text">5.1 输出重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-输入重定向"><span class="toc-text">5.2 输入重定向</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-管道"><span class="toc-text">6. 管道</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-执行数学运算"><span class="toc-text">7. 执行数学运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-expr命令"><span class="toc-text">7.1 expr命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-使用方括号"><span class="toc-text">7.2 使用方括号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3浮点解决方案"><span class="toc-text">7.3浮点解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3-1-bc的基本用法"><span class="toc-text">7.3.1. bc的基本用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3-2-脚本中使用bcd"><span class="toc-text">7.3.2 脚本中使用bcd</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-退出脚本"><span class="toc-text">8. 退出脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1-查看退出状态码"><span class="toc-text">8.1 查看退出状态码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2-exit命令"><span class="toc-text">8.2 exit命令</span></a></li></ol></li></ol></li></ol>
-                   </div>
-                 
         <h1 id="构建基本脚本"><a href="#构建基本脚本" class="headerlink" title="构建基本脚本"></a>构建基本脚本</h1><p>前面一些章节了解了Linux命令行的背景知识。接下来将深入shell编程的世界。再开始编写自己的shell脚本前，要了解一些基础知识。</p>
-<h2 id="1-使用多种命令"><a href="#1-使用多种命令" class="headerlink" title="1. 使用多种命令"></a>1. 使用多种命令</h2><p>shell脚本的关键在于输入多个命令并处理每个命令的结果，甚至将一个命令的结果传给另外一个命令。shell可以串联多个命令，一次执行完成。若两个命令一起运行，可以放在同一行，用分号隔开。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ date; who</span><br><span class="line">Sun Apr  7 20:34:16 CST 2019</span><br><span class="line">vip5     pts/0        2019-04-07 20:34</span><br><span class="line">vip5     pts/2        2019-04-07 20:34</span><br></pre></td></tr></table></figure>
-<p>这样的小型脚本每次运行前要输入整个命令。可以将这些命令组合成一个简单的文本文件，再需要运行命令时，运行文本文件就可以。</p>
-<h2 id="2-创建shell脚本文件"><a href="#2-创建shell脚本文件" class="headerlink" title="2. 创建shell脚本文件"></a>2. 创建shell脚本文件</h2><p>要将shell命令放到文本文件中，首先用文本编辑器来创建一个文件，然后将命令输入到文件中。创建shell脚本文件时，必须在文件的第一行指定要使用的shell。我们创建一个test1的文件，并输入脚本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ vim test1</span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> This script displays the date and who's logged on</span><br><span class="line">date</span><br><span class="line">who</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test1 </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> This script displays the date and who's logged on</span><br><span class="line">date</span><br><span class="line">who</span><br></pre></td></tr></table></figure>
-<p>在shell脚本中，可以在独立的行中书写命令。shell会根据命令在文件中出现的顺序进行处理。第二行#开头添加了一个注释。</p>
-<p>当我们直接运行脚本时会有问题。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ test1</span><br><span class="line">test1: command not found</span><br></pre></td></tr></table></figure>
-<p>需要让bash shell找到脚本文件。shell通过PATH环境变量来查找命令。查看一下啊PATH环境变量就可以弄清问题。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ echo $PATH</span><br><span class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin</span><br></pre></td></tr></table></figure>
-<p>PATH 环境变量被设置成只在一组目录中查找命令。要让shell找到test1脚本，有两种方法：</p>
-<ul>
-<li>将shell脚本文件所处的目录添加到PATH环境变量中</li>
-<li>在提示符中用句对路径或相对路径来引用shell脚本文件</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ ./test/test1</span><br><span class="line">-bash: ./test/test1: Permission denied</span><br></pre></td></tr></table></figure>
-<p>shell找到脚本文件。但提示没有执行文件的权限。查看文件权限可以找到问题所在。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -l test1 </span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 73 Apr  7 22:38 test1</span><br></pre></td></tr></table></figure>
-<p>创建test1文件时，umask的值决定了新文件的默认权限设置。Ubuntu中umask变量被设置为022（第七章），系统创建的文件只有文件属主和属组才有读/写权限。所以要通过chmod命令（第七章）赋予文件属主执行文件的权限。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ chmod u+x test1</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test1 </span><br><span class="line">Sun Apr  7 22:52:48 CST 2019</span><br><span class="line">vip5     pts/0        2019-04-07 20:34 </span><br><span class="line">vip5     pts/2        2019-04-07 20:34</span><br></pre></td></tr></table></figure>
-<p>成功了！</p>
-<h2 id="3-显示消息"><a href="#3-显示消息" class="headerlink" title="3. 显示消息"></a>3. 显示消息</h2><p>大多数shell命令都会产生自己的输出，这些输出会显示在脚本所运行的控制台显示器上。一般要添加自己的文本消息来告诉脚本用户脚本在做什么。可以通过echo命令来实现。在echo命令后加上一个字符串，该命令就能显示出这个文本字符串。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ echo This is a test</span><br><span class="line">This is a test</span><br></pre></td></tr></table></figure>
-<p>默认情况下，不需要使用引号将要显示的文本字符串划定出来。但当字符串中出现引号会比较麻烦。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ echo Let's see if this'll work</span><br><span class="line">Lets see if thisll work</span><br></pre></td></tr></table></figure>
-<p>echo命令可用单引号或双引号来划定文本字符串。如果在字符串中用到了它们，需要在文本中使用一种引号，另一种引号来把字符串划定起来。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ echo "This is a test to see if you're paying attention"</span><br><span class="line">This is a test to see if you're paying attention</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ echo 'Rich says "scripting is easy".'</span><br><span class="line">Rich says "scripting is easy".</span><br></pre></td></tr></table></figure>
-<p>可以将echo语句添加到shell脚本中任何需要显示额外信息的地方。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test1 </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> This script displays the date and who's logged on</span><br><span class="line">date</span><br><span class="line">echo "Let's see who's logged into the system:"</span><br><span class="line">who</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test1 </span><br><span class="line">Sun Apr  7 23:07:30 CST 2019</span><br><span class="line">Let's see who's logged into the system:</span><br><span class="line">vip5     pts/0        2019-04-07 20:34 </span><br><span class="line">vip5     pts/2        2019-04-07 20:34</span><br></pre></td></tr></table></figure>
-<p>如果想把文本字符串和命令输出显示在同一行，可以用echo语句的-n参数。只要将第一个echo语句改成：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test1 </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> This script displays the date and who's logged on</span><br><span class="line">echo -n "The time and date are:"</span><br><span class="line">date</span><br><span class="line">echo "Let's see who's logged into the system:"</span><br><span class="line">who</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test1 </span><br><span class="line">The time and date are:Sun Apr  7 23:10:42 CST 2019</span><br><span class="line">Let's see who's logged into the system:</span><br><span class="line">vip5     pts/0        2019-04-07 20:34 </span><br><span class="line">vip5     pts/2        2019-04-07 20:34</span><br></pre></td></tr></table></figure>
-<p>完美！</p>
-<h2 id="4-使用变量"><a href="#4-使用变量" class="headerlink" title="4. 使用变量"></a>4. 使用变量</h2><p>运行shell脚本中的单个命令有自身的限制。变量允许临时将信息存储在shell脚本中，以便和脚本中的其他命令一起使用。</p>
-<h3 id="4-1-环境变量"><a href="#4-1-环境变量" class="headerlink" title="4.1 环境变量"></a>4.1 环境变量</h3><p>脚本中也可以使用环境变量。使用时，在环境变量名称之前加上$。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test2</span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> display user information form the system.</span><br><span class="line">echo "User info for userid: $USER"</span><br><span class="line">echo UID: $UID</span><br><span class="line">echo HOME: $HOME</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test2</span><br><span class="line">User info for userid: vip5</span><br><span class="line">UID: 1009</span><br><span class="line">HOME: /home/vip5</span><br></pre></td></tr></table></figure>
-<p>echo命令中的环境变量会在脚本运行时替换成当前值。在第一个字符串中，还可以将$USER系统变量放到双引号中，shell依然能够知道我们的意图。但脚本在引号中出现$后，它会以为在引用变量。需要在$前加\符号。</p>
-<h3 id="4-2-用户变量"><a href="#4-2-用户变量" class="headerlink" title="4.2 用户变量"></a>4.2 用户变量</h3><p>shell脚本还可以使用用户变量。定义变量允许临时存储数据在脚本中使用，从而使shell脚本看起来更像一个真正的程序。</p>
-<p>用户变量可以是长度20以内的字母、数字、下划线组成的字符串。区分大小写。引用变量值时需要使用$，引用变量来对其进行赋值时不用使用$。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test4</span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> assigning a variable value to another variable</span><br><span class="line"></span><br><span class="line">value1=10</span><br><span class="line">value2=$value1</span><br><span class="line">echo The resulting value is $value2</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test4</span><br><span class="line">The resulting value is 10</span><br></pre></td></tr></table></figure>
-<h3 id="4-3-命令替换"><a href="#4-3-命令替换" class="headerlink" title="4.3 命令替换"></a>4.3 命令替换</h3><p>shell脚本中最有用的特性之一就是可以从命令输出中提取信息，并将其赋给变量，之后就可以在脚本中随意使用。两种发发将命令输出赋给变量：</p>
-<ul>
-<li>反引号`</li>
-<li>$() 格式</li>
-</ul>
-<p>赋值符号和等号之间没有空格。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test5</span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">testing=$(date)</span><br><span class="line">echo "The date and time are: " $testing</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test5</span><br><span class="line">The date and time are:  Fri Apr 12 20:49:38 CST 2019</span><br></pre></td></tr></table></figure>
-<p>下面的例子在脚本中通过命令替换当前日期来生成唯一文件名。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test6</span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> copy the /user/bin directory listing to a log file</span><br><span class="line">today=$(date +%y%m%d)</span><br><span class="line">ls /usr/bin -a1 &gt; log.$today</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ chmod u+x test6</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test6</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls</span><br><span class="line">file1.gz  log.190412   test1  test3  test5</span><br><span class="line">file3.gz  my_file.txt  test2  test4  test6</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ date</span><br><span class="line">Fri Apr 12 20:54:30 CST 2019</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ date +%y%m%d</span><br><span class="line">190412</span><br></pre></td></tr></table></figure>
-<p>运行该脚本后，文件夹中出现了一个新文件。脚本中，today变量被赋予格式化后的date命令的输出。这是提取日期信息来生成日志文件名常用的一种技术。+%y%m%d格式告诉date命令将日期显示为两位数的年月日的组和。</p>
-<h2 id="5-重定向输入和输出"><a href="#5-重定向输入和输出" class="headerlink" title="5. 重定向输入和输出"></a>5. 重定向输入和输出</h2><p>当想要保存某个命令的输出，bash shell提供了几个操作符，可以将命令的输出重定向到另一个位置。重定向可以用于输入，也可以用于输出，可以将文件重定向到命令输入。</p>
-<h3 id="5-1-输出重定向"><a href="#5-1-输出重定向" class="headerlink" title="5.1 输出重定向"></a>5.1 输出重定向</h3><p>最基本的重定向将命令的输出发送到一个文件中。bash shell用&gt;来完成这项功能：</p>
-<blockquote>
-<p>command &gt; outputfile</p>
-</blockquote>
-<p>之前显示器上出现的命令输出会被保存到指定的输出文件中。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ date &gt; test7</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -l test7</span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 29 Apr 12 21:32 test7</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test7</span><br><span class="line">Fri Apr 12 21:32:04 CST 2019</span><br></pre></td></tr></table></figure>
-<p>重定向符创建了一个文件test7，并将date命令的输出重定向到该文件中。如果输出文件已经存在了，重定向操作符会用新的文件数据覆盖已有的文件。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ who &gt; test7</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test7</span><br><span class="line">vip5     pts/0        2019-04-12 21:31</span><br><span class="line">vip5     pts/2        2019-04-12 21:31</span><br></pre></td></tr></table></figure>
-<p>当不想覆盖，而是将输出追加到已有文件中，可以使用&gt;&gt;来追加数据。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ date &gt;&gt; test7</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test7</span><br><span class="line">vip5     pts/0        2019-04-12 21:31 </span><br><span class="line">vip5     pts/2        2019-04-12 21:31 </span><br><span class="line">Fri Apr 12 21:38:58 CST 2019</span><br></pre></td></tr></table></figure>
-<h3 id="5-2-输入重定向"><a href="#5-2-输入重定向" class="headerlink" title="5.2 输入重定向"></a>5.2 输入重定向</h3><p>输入重定向和输出重定向正好相反。输入重定向将文件的内容重定向到命令，而非将命令的输出重定向到文件。</p>
-<p><code>command &lt; inputfile</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ wc &lt; test7</span><br><span class="line">  4  21 192</span><br></pre></td></tr></table></figure>
-<p>wc命令可以对数据中的文本进行技术。默认情况下，它会输出三个值：</p>
-<ul>
-<li>文本的行数</li>
-<li>文本的词数</li>
-<li>文本的字节数</li>
-</ul>
-<p>通过将文本文件重定向到wc命令，可以得到文件中的行、词和字节的计数。</p>
-<p>另一个输入重定向的方法，成为内联输入重定向。无需使用文件进行重定向，只需要在命令行中指定用于输入重定向的数据就可以了，符号是&lt;&lt;。符号外，还必须指定一个文本标记来划分输入数据的开始和结尾。任何字符串都可以作为文本标记，但在数据开始和结尾文本标记必须一致。</p>
-<p><code>command &lt;&lt; marker</code><br><code>data</code><br><code>marker</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ wc &lt;&lt; EOF</span><br><span class="line"><span class="meta">&gt;</span> test string 1</span><br><span class="line"><span class="meta">&gt;</span> test string 2</span><br><span class="line"><span class="meta">&gt;</span> test string 3</span><br><span class="line"><span class="meta">&gt;</span> EOF</span><br><span class="line"> 3  9 42</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$</span><br></pre></td></tr></table></figure>
-<p>在命令行上使用内联输入重定向时，shell会用PS2环境变量中定义的次提示符来提示输入数据。次提示符持续提示，知道输入作为文本标记的那个字符串。</p>
-<h2 id="6-管道"><a href="#6-管道" class="headerlink" title="6. 管道"></a>6. 管道</h2><p>有时需要一个命令的输出作为另一个命令的输入。这可以用重定向来实现，但会比较笨拙。这时我们可以使用<strong>管道连接</strong>来直接重定向到另一个命令。</p>
-<p><code>command1 | command2</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ date &gt; test8 | who &gt;&gt; test8</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls</span><br><span class="line">file1.gz  log.190412   rpm.list  test2  test4  test6  test8</span><br><span class="line">file3.gz  my_file.txt  test1     test3  test5  test7</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test8</span><br><span class="line">Fri Apr 12 22:09:19 CST 2019</span><br><span class="line">vip5     pts/0        2019-04-12 21:31</span><br></pre></td></tr></table></figure>
-<p>前一个命令执行后，随即进行第二个命令的执行。可以用一条文本分页命令来强行将输出按屏显示。</p>
-<p><code>date &gt; test8 | sort | more</code></p>
-<p><code>date &gt;test8 | sort &gt; test8</code></p>
-<p><code>more test8</code></p>
-<h2 id="7-执行数学运算"><a href="#7-执行数学运算" class="headerlink" title="7. 执行数学运算"></a>7. 执行数学运算</h2><p>shell脚本操作数字的过程比较麻烦。有两种途径来进行数学运算。</p>
-<h3 id="7-1-expr命令"><a href="#7-1-expr命令" class="headerlink" title="7.1 expr命令"></a>7.1 expr命令</h3><p>这个命令特别笨拙。</p>
-<h3 id="7-2-使用方括号"><a href="#7-2-使用方括号" class="headerlink" title="7.2 使用方括号"></a>7.2 使用方括号</h3><p>在bash中，将一个数学运算结果赋给某个变量时，可以用$和[]（$[ operation ]）将数学表达式围起来。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ var1=$[1 + 5]</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ echo $var1</span><br><span class="line">6</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ var2=$[$var1 * 2]</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ echo $var2</span><br><span class="line">12</span><br></pre></td></tr></table></figure>
-<p>这种运算比expr方便得多，也适用于shell脚本。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test9</span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">var1=100</span><br><span class="line">var2=50</span><br><span class="line">var3=45</span><br><span class="line">var4=$[$var1 * ($var2 - $var3)]</span><br><span class="line">echo The final resule is $var4</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ chmod u+x test9</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test9</span><br><span class="line">The final resule is 500</span><br></pre></td></tr></table></figure>
-<p>但bash shell的数学运算<strong>只支持整数运算</strong>。</p>
-<h3 id="7-3浮点解决方案"><a href="#7-3浮点解决方案" class="headerlink" title="7.3浮点解决方案"></a>7.3浮点解决方案</h3><p>几种方法可以克服bash中数学运算的整数限制。最常见的是内建的bash计算器，即bc。</p>
-<h4 id="7-3-1-bc的基本用法"><a href="#7-3-1-bc的基本用法" class="headerlink" title="7.3.1. bc的基本用法"></a>7.3.1. bc的基本用法</h4><p>bash计算器实际上是一种编程语言，允许在命令行中输入浮点表达式，然后解释并计算，最后返回结果。bc能够识别：</p>
-<ul>
-<li>数字（整数和浮点数）</li>
-<li>变量（简单变量和数组）</li>
-<li>注释（#或/<em> </em>/开始的行）</li>
-<li>表达式</li>
-<li>编程语言</li>
-<li>函数</li>
-</ul>
-<p>在shell提示符下bc命令访问bash计算器；scale变量设置小数位数；quit命令退出计算器。</p>
-<h4 id="7-3-2-脚本中使用bcd"><a href="#7-3-2-脚本中使用bcd" class="headerlink" title="7.3.2 脚本中使用bcd"></a>7.3.2 脚本中使用bcd</h4><p><code>variable=$(echo &quot;options; expression&quot; | bc)</code></p>
-<p>options进行设置变量，可以用分号分隔多个变量。expression定义数学表达式。</p>
-<h2 id="8-退出脚本"><a href="#8-退出脚本" class="headerlink" title="8. 退出脚本"></a>8. 退出脚本</h2><p>shell中运行的每个命令都使用退出状态码告诉shell它运行完毕。退出状态码是一个0~255的整数值，在命令结束时传给shell。可以捕获这个值并在脚本中使用。</p>
-<h3 id="8-1-查看退出状态码"><a href="#8-1-查看退出状态码" class="headerlink" title="8.1 查看退出状态码"></a>8.1 查看退出状态码</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ date</span><br><span class="line">Sat Apr 13 14:21:26 CST 2019</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ echo $?</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<p>退出状态码没有标准，但有些可用的参考：</p>
-<table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>命令成功结束</td>
-</tr>
-<tr>
-<td>1</td>
-<td>一般性未知错误</td>
-</tr>
-<tr>
-<td>2</td>
-<td>不适合的shell命令</td>
-</tr>
-<tr>
-<td>126</td>
-<td>命令不可执行</td>
-</tr>
-<tr>
-<td>127</td>
-<td>没有找到命令</td>
-</tr>
-<tr>
-<td>128</td>
-<td>无效的退出参数</td>
-</tr>
-<tr>
-<td>128+x</td>
-<td>与Linux信号x相关的严重错误</td>
-</tr>
-<tr>
-<td>130</td>
-<td>通过CTRL+C终止的命令</td>
-</tr>
-<tr>
-<td>255</td>
-<td>正常范围之外的退出状态码</td>
-</tr>
-</tbody>
-</table>
-<h3 id="8-2-exit命令"><a href="#8-2-exit命令" class="headerlink" title="8.2 exit命令"></a>8.2 exit命令</h3><p>默认情况下，shell脚本以脚本中的最后一个命令的退出状态码退出。但可以改变这种默认行为，返回自己的退出状态码。exit命令可以在脚本结束时指定一个退出状态码。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test9</span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">var1=100</span><br><span class="line">var2=50</span><br><span class="line">var3=45</span><br><span class="line">var4=$[$var1 * ($var2 - $var3)]</span><br><span class="line">echo The final resule is $var4</span><br><span class="line">exit 5</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test9</span><br><span class="line">The final resule is 500</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ echo $?</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
-<p>exit命令的参数中也可以使用变量。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2019/04/07/Linux命令行与shell脚本编程学习第十一章/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/07/Linux命令行与shell脚本编程学习第十一章/" data-id="cjunsxrbo000d3omv7woomrs0" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/07/Linux命令行与shell脚本编程学习第十一章/" data-id="cjuntwjrk0009f4mvgk9igdsk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -344,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/06/Linux命令行与shell脚本编程学习第十章/" data-id="cjunsxrbv000f3omv9a08u8tq" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/06/Linux命令行与shell脚本编程学习第十章/" data-id="cjuntwjrq000cf4mvizzdwtk9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -387,7 +231,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/05/Linux命令行与shell脚本编程学习第九章/" data-id="cjunsxrba00073omvrhy21y7a" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/05/Linux命令行与shell脚本编程学习第九章/" data-id="cjuntwjrd0006f4mvgsb4001g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -430,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" data-id="cjunsxrb400063omvxtbts6we" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" data-id="cjuntwjr30004f4mv0ust18f7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -473,7 +317,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cjunsxrbf000a3omvhfedqq61" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cjuntwjr90005f4mvxcxmgc74" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -516,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/03/27/win10安装/" data-id="cjunsxre100183omvfj5f26c6" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/03/27/win10安装/" data-id="cjuntwjte0016f4mvswkgm6cc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows10-activation/">windows10, activation</a></li></ul>
@@ -559,7 +403,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-id="cjunsxrdf000z3omve55q08up" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-id="cjuntwjsv000xf4mvvxri1hx5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-shell-bash/">linux, shell, bash</a></li></ul>
@@ -611,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/22/preparation-of-lipoplex/" data-id="cjunsxrdp00133omv2qjkdzaw" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/22/preparation-of-lipoplex/" data-id="cjuntwjt10010f4mv02snzhw8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lipoplex/">lipoplex</a></li></ul>
@@ -661,7 +505,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/21/side-population-assay/" data-id="cjunsxrdw00173omv20gskor8" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/21/side-population-assay/" data-id="cjuntwjta0014f4mvm12ut0df" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SP-FCAS/">SP, FCAS</a></li></ul>
