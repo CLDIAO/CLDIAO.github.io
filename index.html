@@ -93,248 +93,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-	         <!-- Table of Contents -->
-                 
-                   <div id="toc" class="toc-article">
-                     <strong class="toc-title">目录</strong>
-                     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用结构化命令"><span class="toc-text">使用结构化命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-使用if-then-语句"><span class="toc-text">1. 使用if-then 语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-if-then-else语句"><span class="toc-text">2. if-then-else语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-嵌套if"><span class="toc-text">3 嵌套if</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-test命令"><span class="toc-text">4 test命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-数值比较"><span class="toc-text">4.1 数值比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-字符串比较"><span class="toc-text">4.2 字符串比较</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-字符串相等性"><span class="toc-text">4.2.1 字符串相等性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-字符串顺序"><span class="toc-text">4.2.2 字符串顺序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-3-字符串大小"><span class="toc-text">4.2.3 字符串大小</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-文件比较"><span class="toc-text">4.3 文件比较</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-1检查目录"><span class="toc-text">4.3.1检查目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-2-检查对象是否存在"><span class="toc-text">4.3.2 检查对象是否存在</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-3-检查文件"><span class="toc-text">4.3.3 检查文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-4-检查是否可读"><span class="toc-text">4.3.4 检查是否可读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-5-检查空文件"><span class="toc-text">4.3.5 检查空文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-6-检查是否可写"><span class="toc-text">4.3.6 检查是否可写</span></a></li></ol></li></ol></li></ol></li></ol>
-                   </div>
-                 
         <h1 id="使用结构化命令"><a href="#使用结构化命令" class="headerlink" title="使用结构化命令"></a>使用结构化命令</h1><p>在一些简单脚本中，shell按照命令在脚本中出现的顺序依次进行处理。但许多程序要求对shell脚本中的命令施加一些逻辑流程控制。有一类命令会根据条件使脚本跳过某些命令。这样的命令通常称为结构化命令。</p>
-<h2 id="1-使用if-then-语句"><a href="#1-使用if-then-语句" class="headerlink" title="1. 使用if-then 语句"></a>1. 使用if-then 语句</h2><p>最基本的结构化命令就是if-then语句。格式：</p>
-<p><code>if command</code></p>
-<p><code>then</code></p>
-<p>​        <code>commands</code></p>
-<p><code>fi</code></p>
-<p>bash shell的if语句会运行if后面的那个命令。如果该命令的退出状态码是0，位于then部分的命令就会被执行。如果该命令的退出状态码是其他值，then部分的命令被跳过，bash shell会继续执行脚本中的下一个命令。fi语句用来表示if-then语句到此结束。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ cat test1.sh </span><br><span class="line"><span class="meta">#</span>！/bin/bash</span><br><span class="line"><span class="meta">#</span> testing the if statement</span><br><span class="line">if pwd</span><br><span class="line">then</span><br><span class="line">    echo "It worked"</span><br><span class="line">fi</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ chmod u+x test1.sh </span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ./test1.sh </span><br><span class="line">/home/vip5</span><br><span class="line">It worked</span><br></pre></td></tr></table></figure>
-<p>上面这个脚本中，if行采用了pwd命令。命令成功结束，echo语句显示文本字符串。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test1.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> testing a bad command</span><br><span class="line">if IamNotCommand</span><br><span class="line">then</span><br><span class="line">    echo "It worked"</span><br><span class="line">fi</span><br><span class="line">echo "We are outside the if statement"</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ chmod u+x test1.sh </span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test1.sh </span><br><span class="line">./test1.sh: line 3: IamNotCommand: command not found</span><br><span class="line">We are outside the if statement</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$</span><br></pre></td></tr></table></figure>
-<p>上面这个例子中，if语句使用了错误的命令，产生非零的退出状态码，且bash shell跳过then部分的echo语句。运行if语句中的那个错误命令产生的错误消息依然会显示在脚本的输出中。</p>
-<p>在then部分，可以使用多条命令。bash shell会将这些命令当成一个块，如果if语句行的命令的退出状态值是0，所有的命令都会被执行；如果if语句行的命令退出状态不为0，所有的命令都会被跳过。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test2.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> testing multiple commands in the then section</span><br><span class="line"><span class="meta">#</span> </span><br><span class="line">testuser=vip5</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if grep $testuser /etc/passwd</span><br><span class="line">then </span><br><span class="line">   echo "This is my first command"</span><br><span class="line">   echo "This is my second command"</span><br><span class="line">   echo "I can even put in other commands besides echo:"</span><br><span class="line">   ls -a /home/$testuser/.b*</span><br><span class="line">fi</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ chmod u+x test2.sh</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test2.sh </span><br><span class="line">vip5:x:1009:1013::/home/vip5:/bin/bash</span><br><span class="line">This is my first command</span><br><span class="line">This is my second command</span><br><span class="line">I can even put in other commands besides echo:</span><br><span class="line">/home/vip5/.bash_history  /home/vip5/.ba</span><br></pre></td></tr></table></figure>
-<p>if语句行使用grep命令在/etc/passwd文件中查找某个用户名当前是否在系统上使用。如果用户使用了那个登录名，脚本会显示一些文本信息并列出该用户HOME目录的bash文件。但是，当testuser变量设置成一个系统上不存在的用户，则什么都不会显示。</p>
-<h2 id="2-if-then-else语句"><a href="#2-if-then-else语句" class="headerlink" title="2. if-then-else语句"></a>2. if-then-else语句</h2><p>如果命令返回一个非零退出状态码，bash shell会继续执行脚本中的下一条命令。这时，如果能执行另一组命令，需要if-then-else语句。</p>
-<p>if-then-else语句在语句中提供了另外一组命令。</p>
-<p><code>if command</code></p>
-<p>then</p>
-<p>​      <code>commands</code></p>
-<p><code>else</code></p>
-<p>​      <code>commands</code></p>
-<p><code>fi</code></p>
-<p>当if语句中的命令返回退出状态码0时，then部分中的命令会被执行。当if语句中的命令返回状态非零时，else部分中的命令会被执行。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cp test2.sh test3.sh</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ nano test3.sh</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test3.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> testing the else section</span><br><span class="line"><span class="meta">#</span> </span><br><span class="line">testuser=NoSuchUser</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if grep $testuser /etc/passwd</span><br><span class="line">then </span><br><span class="line">   echo "The bash files for user $testuser are:"</span><br><span class="line">   ls -a /home/$testuser/.b*</span><br><span class="line">   echo</span><br><span class="line">else</span><br><span class="line">   echo "The user $testuser does not exit on this system."</span><br><span class="line">   echo</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test3.sh </span><br><span class="line">The user NoSuchUser does not exit on this system.</span><br></pre></td></tr></table></figure>
-<p>else部分可以包含多条命令。fi语句说明else部分结束了。</p>
-<h2 id="3-嵌套if"><a href="#3-嵌套if" class="headerlink" title="3 嵌套if"></a>3 嵌套if</h2><p>有时需要检查脚本代码中的多种条件。对此，可以使用嵌套的if-then语句。</p>
-<p>要检查/etc/psswd文件中是否存在某个用户名以及该用户的目录是否尚在，可以使用嵌套的if-then语句。嵌套的if-then语句位于主if-then-else语句的else代码块中。但在脚本中使用这种嵌套的if-then语句会使代码不易阅读，很难理清逻辑流程。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test4.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> testing the else section</span><br><span class="line"><span class="meta">#</span> </span><br><span class="line">testuser=NoSuchUser</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if grep $testuser /etc/passwd</span><br><span class="line">then </span><br><span class="line">   echo "Ther user $testuser exits on this system."</span><br><span class="line">else</span><br><span class="line">   echo "The user $testuser does not exit on this system."</span><br><span class="line">   if ls -d /home/$testuser/</span><br><span class="line">   then</span><br><span class="line">      echo "However, $testuser has a directory."</span><br><span class="line">   fi</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<p>可以使用else部分的另一种形式：elif。这样不用书写多个if-then语句。</p>
-<p><code>if commands</code></p>
-<p><code>then</code></p>
-<p>​      <code>commands</code></p>
-<p><code>elif command2</code></p>
-<p><code>then</code></p>
-<p>​      <code>more commands</code></p>
-<p><code>fi</code></p>
-<p>elif语句行提供了另一个要测试的命令，如果elif后命令的退出状态码是0，则bash会执行第二个then语句部分的命令。使用这样的嵌套方法，代码更清晰，逻辑更易懂。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test5.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> Testing nested ifs - use elif</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">testuser=NoSuchUser</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if grep $testuser /etc/passwd</span><br><span class="line">then</span><br><span class="line">   echo "The user $testuser exits on this system."</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">elif ls -d /home/$testuser</span><br><span class="line">then</span><br><span class="line">   echo "The user $testuser does not exist on this system."</span><br><span class="line">   echo "However, $testuser has a directory."</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<p>甚至可以让脚本检查拥有目录的不存在用户以及没有拥有目录的不存在用户据。这可以通过嵌套再elif中加入一个else语句来实现。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test5.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> Testing nested ifs - use elif</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">testuser=NoSuchUser</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if grep $testuser /etc/passwd</span><br><span class="line">then</span><br><span class="line">   echo "The user $testuser exits on this system."</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">elif ls -d /home/$testuser</span><br><span class="line">then</span><br><span class="line">   echo "The user $testuser does not exist on this system."</span><br><span class="line">   echo "However, $testuser has a directory."</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">else</span><br><span class="line">   echo "The user $testuser does not exit on this system."</span><br><span class="line">   echo "However, $testuser does not have a directory."</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-<p>可以将多个elif语句穿起来，形成一个大的if-then-elif嵌套组合。</p>
-<p><code>if command1</code></p>
-<p><code>then</code></p>
-<p>​      <code>command set1</code></p>
-<p><code>elif command2</code></p>
-<p><code>then</code></p>
-<p>​      <code>command set 2</code></p>
-<p><code>elif command 3</code></p>
-<p><code>then</code></p>
-<p>​      <code>command set 3</code></p>
-<p><code>elif command 4</code></p>
-<p><code>then</code></p>
-<p>​      <code>command set 4</code></p>
-<p><code>fi</code></p>
-<p>每块命令都会根据命令是否会返回退出状态码0来执行。bash shell会一次执行if语句，只有第一个返回退出状态码0的语句中的then部分会被执行。</p>
-<h2 id="4-test命令"><a href="#4-test命令" class="headerlink" title="4 test命令"></a>4 test命令</h2><p>if-then语句不能测试命令退出状态码之外的条件。但bash shell中的test命令可以通过if-then语句测试不同条件的途径。如果test命令中列出的条件成立，test命令就会退出并返回退出状态码0.这样if-then语句就和其他编程语言中的if-then语句以类似的方式工作了。如果条件不成立，test命令就会退出并返回非零的退出状态码，使得if-then语句不再被执行。test命令格式：<code>test condition</code>。</p>
-<p>condition是test命令要测试的一系列参数和值。当用在if-then语句中时，如下。</p>
-<p><code>if test condition</code></p>
-<p><code>then</code></p>
-<p>​     <code>commands</code></p>
-<p><code>fi</code></p>
-<p>如果不写test命令的condition部分，它会以非零的退出状态码退出，并执行else语句块。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test6.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> Testing the test command</span><br><span class="line"><span class="meta">#</span> </span><br><span class="line">if test</span><br><span class="line">then</span><br><span class="line">   echo "No expression returns a True."</span><br><span class="line">else</span><br><span class="line">   echo "No expression returns a False."</span><br><span class="line">fi</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ chmod u+x test6.sh </span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test6.sh </span><br><span class="line">No expression returns a False.</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$</span><br></pre></td></tr></table></figure>
-<p>当加入一个条件时，test命令会测试该条件。例如，确定变量中是否有内容。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test6.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> Testing the test command</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">my_variable="Full"</span><br><span class="line"><span class="meta">#</span> </span><br><span class="line">if test $my_variable</span><br><span class="line">then</span><br><span class="line">   echo "No expression returns a True."</span><br><span class="line">else</span><br><span class="line">   echo "No expression returns a False."</span><br><span class="line">fi</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test6.sh </span><br><span class="line">No expression returns a True.</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$</span><br></pre></td></tr></table></figure>
-<p>bash shell有另一种测试方法，无需在if-then语句中生命test命令。</p>
-<p><code>if [ condition ]</code></p>
-<p><code>then</code></p>
-<p>​      <code>commands</code></p>
-<p><code>fi</code></p>
-<p>方括号定义测试条件。方括号和condition之间要有空格。</p>
-<p>test命令可以判断三类条件：</p>
-<ul>
-<li>数值比较</li>
-<li>字符串比较</li>
-<li>文件比较</li>
-</ul>
-<h3 id="4-1-数值比较"><a href="#4-1-数值比较" class="headerlink" title="4.1 数值比较"></a>4.1 数值比较</h3><p>testm命令最常用于对两个整数数值的比较（浮点数会报错）。下表为测试两个值时可用的条件参数。</p>
-<table>
-<thead>
-<tr>
-<th>比较</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>n1 -eq n2</td>
-<td>n1是否等于n2</td>
-</tr>
-<tr>
-<td>n1 -ge n2</td>
-<td>n1是否大于或等于n2</td>
-</tr>
-<tr>
-<td>n1 -gt n2</td>
-<td>n1是否大于n2</td>
-</tr>
-<tr>
-<td>n1 -le n2</td>
-<td>n1是否小于或等于n2</td>
-</tr>
-<tr>
-<td>n1 -lt n2</td>
-<td>n1是否小于n2</td>
-</tr>
-<tr>
-<td>n1 -ne n2</td>
-<td>n1是否不等于n2</td>
-</tr>
-</tbody>
-</table>
-<p>数值条件测试可以用在数字和变量上。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat numeric_test.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> Using numeric test evaluations</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">value1=10</span><br><span class="line">value2=11</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if [ $value1 -gt 5 ]</span><br><span class="line">then </span><br><span class="line">   echo "The test value $value1 is greater than 5."</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if [ $value1 -eq $value2 ]</span><br><span class="line">then </span><br><span class="line">   echo "The values are equel."</span><br><span class="line">else </span><br><span class="line">   echo "The values are different."</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./numeric_test.sh </span><br><span class="line">The test value 10 is greater than 5.</span><br><span class="line">The values are different.</span><br></pre></td></tr></table></figure>
-<h3 id="4-2-字符串比较"><a href="#4-2-字符串比较" class="headerlink" title="4.2 字符串比较"></a>4.2 字符串比较</h3><p>条件测试允许比较字符串值，但比较麻烦。下面是常用字符串比较功能。</p>
-<table>
-<thead>
-<tr>
-<th>比较</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>str1 = str2</td>
-<td>检查str1是否和str2相同</td>
-</tr>
-<tr>
-<td>str1 != str2</td>
-<td>检查str1是否和str2不同</td>
-</tr>
-<tr>
-<td>str1 &gt; str2</td>
-<td>检查str1是否比str2大</td>
-</tr>
-<tr>
-<td>str1 &lt; str2</td>
-<td>检查str1是否比str2小</td>
-</tr>
-<tr>
-<td>-n str1</td>
-<td>检查str1的长度是否非0</td>
-</tr>
-<tr>
-<td>-z str1</td>
-<td>检查str1的长度是否为0</td>
-</tr>
-</tbody>
-</table>
-<h4 id="4-2-1-字符串相等性"><a href="#4-2-1-字符串相等性" class="headerlink" title="4.2.1 字符串相等性"></a>4.2.1 字符串相等性</h4><p>在比较字符串的相等性时，比较测试会将所有的标点和大小写情况都考虑在内。</p>
-<h4 id="4-2-2-字符串顺序"><a href="#4-2-2-字符串顺序" class="headerlink" title="4.2.2 字符串顺序"></a>4.2.2 字符串顺序</h4><p>当开始使用测试条件的大于或小于功能时，会出现两个问题：</p>
-<ul>
-<li>大于号和小于号必须转义，否则会被当做重定向符号，把字符串值当做文件名</li>
-<li>大于和小于顺序和sort命令所采用的不同</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test7.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> mis-using string comparisons</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">val1=baseball</span><br><span class="line">val2=hockey</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if [ $val1 \&gt; $val2 ]</span><br><span class="line">then</span><br><span class="line">   echo "$val1 is greater than $val2"</span><br><span class="line">else </span><br><span class="line">   echo "$val1 is less than $val2"</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ chmod u+x test7.sh </span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test7.sh </span><br><span class="line">baseball is less than hockey</span><br></pre></td></tr></table></figure>
-<p>第二个问题很少遇到。sort命令处理大小写字母的方法正好和test命令相反。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test8.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> testing string sort order</span><br><span class="line">val1=Testing</span><br><span class="line">val2=testing</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if [ $val1 \&gt; $val2 ]</span><br><span class="line">then</span><br><span class="line">   echo "$val1 is greater than $val2"</span><br><span class="line">else</span><br><span class="line">   echo "$val1 is less than $val2"</span><br><span class="line">fi</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ chmod u+x test8.sh </span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test8.sh </span><br><span class="line">Testing is less than testing</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ sort testfile </span><br><span class="line">testing</span><br><span class="line">Testing</span><br></pre></td></tr></table></figure>
-<p>比较测试中大写字母被认为是小于小写字母的。sort命令相反。</p>
-<h4 id="4-2-3-字符串大小"><a href="#4-2-3-字符串大小" class="headerlink" title="4.2.3 字符串大小"></a>4.2.3 字符串大小</h4><p>-n和-z参数可以检查一个变量是否含有数据。未被定义的变量字符串长度仍然为0。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test9.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> testing string length</span><br><span class="line">val1=testing</span><br><span class="line">val2=''</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if [ -n $val1 ]</span><br><span class="line">then </span><br><span class="line">   echo "The string '$val1' is not empty"</span><br><span class="line">else </span><br><span class="line">   echo "The string '$val1' is empty"</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if [ -z $val2 ]</span><br><span class="line">then</span><br><span class="line">   echo "The string '$val2' is empty"</span><br><span class="line">else </span><br><span class="line">   echo "The string '$val2' is not empty"</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if [ -z $val3 ]</span><br><span class="line">then </span><br><span class="line">   echo "The string '$val3' is empty"</span><br><span class="line">else</span><br><span class="line">   echo "The string '$val3' is not empty"</span><br><span class="line">fi</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ chmod u+x test9.sh </span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test9.sh </span><br><span class="line">The string 'testing' is not empty</span><br><span class="line">The string '' is empty</span><br><span class="line">The string '' is empty</span><br></pre></td></tr></table></figure>
-<h3 id="4-3-文件比较"><a href="#4-3-文件比较" class="headerlink" title="4.3 文件比较"></a>4.3 文件比较</h3><p>这类是shell编程中最强大、用的最多的比较形式。可以测试Linux文件系统上文件和目录的状态。</p>
-<table>
-<thead>
-<tr>
-<th>比较</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-d file</td>
-<td>file是否存在并是一个目录</td>
-</tr>
-<tr>
-<td>-e file</td>
-<td>file是否存在</td>
-</tr>
-<tr>
-<td>-f file</td>
-<td>file是否存在并是一个文件</td>
-</tr>
-<tr>
-<td>-r file</td>
-<td>file是否存在并可读</td>
-</tr>
-<tr>
-<td>-s file</td>
-<td>file是否存在并非空</td>
-</tr>
-<tr>
-<td>-w file</td>
-<td>file是否存在并可写</td>
-</tr>
-<tr>
-<td>-x file</td>
-<td>file是否存在并可执行</td>
-</tr>
-<tr>
-<td>-O file</td>
-<td>file是否存在并属于当前用户所有</td>
-</tr>
-<tr>
-<td>-G file</td>
-<td>file是否存在并且默认组与当前用户相同</td>
-</tr>
-<tr>
-<td>file1 -nt file2</td>
-<td>file1是否比file2新</td>
-</tr>
-<tr>
-<td>file1 -ot file2</td>
-<td>file1是否比file2旧</td>
-</tr>
-</tbody>
-</table>
-<p>这些测试条件是我们可以在shell脚本中检查文件系统中的文件。经常出现在需要进行文件访问的脚本中。</p>
-<h4 id="4-3-1检查目录"><a href="#4-3-1检查目录" class="headerlink" title="4.3.1检查目录"></a>4.3.1检查目录</h4><p>-d测试会检查指定的目录是否存在于系统中。在打算将文件写入目录或是准备切换到某个目录中，先测试总是好的。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test10.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> Look before you leap</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">jump_directory=/home/arthur</span><br><span class="line"><span class="meta">#</span> </span><br><span class="line">if [ -d $The $jump_directory ]</span><br><span class="line">then</span><br><span class="line">   echo "The $jump_directory directory exits"</span><br><span class="line">   cd $jump_directory</span><br><span class="line">   ls</span><br><span class="line">else</span><br><span class="line">   echo "The $jump_directory directory does not exit"</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ chmod u+x test10.sh </span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test10.sh </span><br><span class="line">The /home/arthur directory does not exit</span><br></pre></td></tr></table></figure>
-<h4 id="4-3-2-检查对象是否存在"><a href="#4-3-2-检查对象是否存在" class="headerlink" title="4.3.2 检查对象是否存在"></a>4.3.2 检查对象是否存在</h4><p>-e比较使得代码在使用文件或目录前先检查它们是否存在。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test11.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> Check if either a directory or file exists</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">location=$HOME</span><br><span class="line">file_name="sentinel"</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if [ -e $location ]</span><br><span class="line">then #Directory does exist</span><br><span class="line">   echo "OK on the $location directory."</span><br><span class="line">   echo "Now checking on the file, $file_name."</span><br><span class="line"><span class="meta">   #</span></span><br><span class="line">   if [ -e $location/$file_name ]</span><br><span class="line">   then #File does exist</span><br><span class="line">      echo "OK on the filename"</span><br><span class="line">      echo "Updating Current Date..."</span><br><span class="line">      date &gt;&gt; $location/$file_name</span><br><span class="line"><span class="meta">   #</span></span><br><span class="line">   else #File does not exist</span><br><span class="line">      echo "File does not exist"</span><br><span class="line">      echo "Nothing to update"</span><br><span class="line">   fi</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">else #Directory does not exist</span><br><span class="line">   echo "The $location directory does not exist."</span><br><span class="line">   echo "Nothing to update."</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test11.sh </span><br><span class="line">OK on the /home/vip5 directory.</span><br><span class="line">Now checking on the file, sentinel.</span><br><span class="line">File does not exist</span><br><span class="line">Nothing to update</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ touch sentinel</span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ./test/test11.sh </span><br><span class="line">OK on the /home/vip5 directory.</span><br><span class="line">Now checking on the file, sentinel.</span><br><span class="line">OK on the filename</span><br><span class="line">Updating Current Date...</span><br></pre></td></tr></table></figure>
-<h4 id="4-3-3-检查文件"><a href="#4-3-3-检查文件" class="headerlink" title="4.3.3 检查文件"></a>4.3.3 检查文件</h4><p>-e比较可用于文件和目录。要确定指定对象为文件，必须用-f比较。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test12.sh</span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> Check if either a directory or fole exists</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">item_name=$HOME</span><br><span class="line">echo</span><br><span class="line">echo "The item being checked: $item_name"</span><br><span class="line">echo</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if [ -e $item_name ]</span><br><span class="line">then #Item does exit</span><br><span class="line">   echo "The item, $item_name, does exist."</span><br><span class="line">   echo "But is it a file?"</span><br><span class="line">   echo</span><br><span class="line"><span class="meta">   #</span></span><br><span class="line">   if [ -f $item_name ]</span><br><span class="line">   then #Item is a file</span><br><span class="line">      echo "Yes, $item_name is a file."</span><br><span class="line"><span class="meta">   #</span></span><br><span class="line">   else #Item is not a file</span><br><span class="line">      echo "No, $item_name is not a file."</span><br><span class="line">   fi</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">else #Item does not exist</span><br><span class="line">   echo "The item, $item_name, does not exist."</span><br><span class="line">   echo "Nothing to update"</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ chmod u+x test12.sh</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ cd </span><br><span class="line">vip5@VM-0-15-ubuntu:~$ ./test/test12.sh </span><br><span class="line"></span><br><span class="line">The item being checked: /home/vip5</span><br><span class="line"></span><br><span class="line">The item, /home/vip5, does exist.</span><br><span class="line">But is it a file?</span><br><span class="line"></span><br><span class="line">No, /home/vip5 is not a file.</span><br></pre></td></tr></table></figure>
-<p>我们将变量item_name中目录$HOME替换成文件$HOME/sentinel，结果就不一样。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~$ ./test/test12.sh </span><br><span class="line"></span><br><span class="line">The item being checked: /home/vip5/sentinel</span><br><span class="line"></span><br><span class="line">The item, /home/vip5/sentinel, does exist.</span><br><span class="line">But is it a file?</span><br><span class="line"></span><br><span class="line">Yes, /home/vip5/sentinel is a file.</span><br></pre></td></tr></table></figure>
-<h4 id="4-3-4-检查是否可读"><a href="#4-3-4-检查是否可读" class="headerlink" title="4.3.4 检查是否可读"></a>4.3.4 检查是否可读</h4><p>在尝试从文件中读取数据之前，最好用-r测试文件是否可读。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test13.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> testing if you can read a file</span><br><span class="line">pwfile=/etc/shadow</span><br><span class="line"><span class="meta">#</span></span><br><span class="line"><span class="meta">#</span> first, test if the file exists, and is a file</span><br><span class="line">if [ -f $pwfile ]</span><br><span class="line">then</span><br><span class="line"><span class="meta">   #</span> now test if you can read it.</span><br><span class="line">   if [ -f $pwfile ]</span><br><span class="line">   then</span><br><span class="line">      tail $pwfile</span><br><span class="line">   else</span><br><span class="line">      echo "Sorry, I am unable to read the $pwfile file"</span><br><span class="line">   fi</span><br><span class="line">else </span><br><span class="line">   echo "Sorry, the file $file does not exist"</span><br><span class="line">fi</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test13.sh </span><br><span class="line">Sorry, I am unable to read the /etc/shadow file</span><br></pre></td></tr></table></figure>
-<p>/etc/shadow文件中含有系统用户加密后的密码，所以普通用户不可读。因此测试失败，执行了else语句。</p>
-<h4 id="4-3-5-检查空文件"><a href="#4-3-5-检查空文件" class="headerlink" title="4.3.5 检查空文件"></a>4.3.5 检查空文件</h4><p>用-s检查文件是否为空，尤其是在不想删除非空文件时。要注意，-s比较成功时，说明文件中有数据。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">vip5@VM-0-15-ubuntu:~/test$ cat test14.sh </span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span> Testing if a file is empty</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">file_name=$HOME/sentinel</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">if [ -f $file_name ]</span><br><span class="line">then </span><br><span class="line">   if [ -s $file_name ]</span><br><span class="line">   then </span><br><span class="line">      echo "The $file_name file exists and has data in it."</span><br><span class="line">      echo "Will not remove this file."</span><br><span class="line"><span class="meta">#</span></span><br><span class="line">   else</span><br><span class="line">      echo "The $file_name file exists, but is empty."</span><br><span class="line">      echo "Deleting empty file..."</span><br><span class="line">   fi</span><br><span class="line">else </span><br><span class="line">   echo "File, $file_name, does not exist."</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span> </span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ls -l $HOME/sentinel</span><br><span class="line">-rw-rw-r-- 1 vip5 vip5 29 Apr 17 15:23 /home/vip5/sentinel</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ chmod u+x test14.sh</span><br><span class="line">vip5@VM-0-15-ubuntu:~/test$ ./test14.sh </span><br><span class="line">The /home/vip5/sentinel file exists and has data in it.</span><br><span class="line">Will not remove this file.</span><br></pre></td></tr></table></figure>
-<h4 id="4-3-6-检查是否可写"><a href="#4-3-6-检查是否可写" class="headerlink" title="4.3.6 检查是否可写"></a>4.3.6 检查是否可写</h4>
+        
+          <p class="article-more-link">
+            <a href="/2019/04/13/Linux命令行与shell脚本编程学习第十二章/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/13/Linux命令行与shell脚本编程学习第十二章/" data-id="cjunst42w000dg0mvlo3qwy5q" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/13/Linux命令行与shell脚本编程学习第十二章/" data-id="cjunsxrbj000b3omv5mzyrch8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux，shell-bash/">Linux，shell, bash</a></li></ul>
@@ -533,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/07/Linux命令行与shell脚本编程学习第十一章/" data-id="cjunst42t000bg0mv5on4ssdo" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/07/Linux命令行与shell脚本编程学习第十一章/" data-id="cjunsxrbo000d3omv7woomrs0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -576,7 +344,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/06/Linux命令行与shell脚本编程学习第十章/" data-id="cjunst42z000fg0mvhx1vhbgh" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/06/Linux命令行与shell脚本编程学习第十章/" data-id="cjunsxrbv000f3omv9a08u8tq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -619,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/05/Linux命令行与shell脚本编程学习第九章/" data-id="cjunst42j0007g0mvjrmyzzqj" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/05/Linux命令行与shell脚本编程学习第九章/" data-id="cjunsxrba00073omvrhy21y7a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -662,7 +430,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" data-id="cjunst42g0006g0mv2ph0i9wk" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/04/03/Linux命令行与shell脚本编程大全学习第六章/" data-id="cjunsxrb400063omvxtbts6we" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -705,7 +473,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cjunst42o000ag0mvcaq6av7u" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/03/30/Linux命令行与shell脚本编程学习第五章/" data-id="cjunsxrbf000a3omvhfedqq61" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-shell-bash/">Linux, shell, bash</a></li></ul>
@@ -748,7 +516,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2019/03/27/win10安装/" data-id="cjunst44q0018g0mvqmlre31t" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2019/03/27/win10安装/" data-id="cjunsxre100183omvfj5f26c6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows10-activation/">windows10, activation</a></li></ul>
@@ -791,7 +559,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-id="cjunst447000zg0mvj1vsql62" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/22/linux命令行与shell脚本编程大全学习笔记第四章/" data-id="cjunsxrdf000z3omve55q08up" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-shell-bash/">linux, shell, bash</a></li></ul>
@@ -843,7 +611,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/22/preparation-of-lipoplex/" data-id="cjunst44e0013g0mvie0p8jwt" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/22/preparation-of-lipoplex/" data-id="cjunsxrdp00133omv2qjkdzaw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lipoplex/">lipoplex</a></li></ul>
@@ -893,7 +661,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://cldiao.github.io/2018/12/21/side-population-assay/" data-id="cjunst44o0017g0mvvf387dsx" class="article-share-link">Share</a>
+      <a data-url="https://cldiao.github.io/2018/12/21/side-population-assay/" data-id="cjunsxrdw00173omv20gskor8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SP-FCAS/">SP, FCAS</a></li></ul>
